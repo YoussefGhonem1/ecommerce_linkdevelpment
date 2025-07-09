@@ -1,15 +1,15 @@
+import 'package:ecommerce_app/src/routes/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ecommerce_app/src/componants/widgets.dart';
+import 'package:ecommerce_app/src/widgets/widgets.dart';
 
-class SignInGetEmailScreen extends StatefulWidget {
-  const SignInGetEmailScreen({super.key});
+class SignInEmailScreen extends StatefulWidget {
+  const SignInEmailScreen({super.key});
 
   @override
-  State<SignInGetEmailScreen> createState() => _SignInGetEmailScreenState();
+  State<SignInEmailScreen> createState() => _SignInEmailScreenState();
 }
 
-class _SignInGetEmailScreenState extends State<SignInGetEmailScreen> {
+class _SignInEmailScreenState extends State<SignInEmailScreen> {
   final _emailController = TextEditingController();
 
   @override
@@ -44,7 +44,12 @@ class _SignInGetEmailScreenState extends State<SignInGetEmailScreen> {
 
               const SizedBox(height: 20),
 
-              CustomButton(text: 'Continue', onPressed: () {}),
+              CustomButton(
+                text: 'Continue',
+                onPressed: () {
+                 Navigator.pushReplacementNamed(context, Routes.signInPassword);
+                },
+              ),
 
               const SizedBox(height: 20),
 
@@ -91,51 +96,6 @@ class _SignInGetEmailScreenState extends State<SignInGetEmailScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class SocialLoginButton extends StatelessWidget {
-  final String svgAssetPath;
-  final String text;
-  final VoidCallback onPressed;
-
-  const SocialLoginButton({
-    super.key,
-    required this.svgAssetPath,
-    required this.text,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor:
-            isDarkMode ? const Color(0xFF342F3F) : const Color(0xFFF4F4F4),
-        foregroundColor: isDarkMode ? Colors.white : Colors.black,
-        minimumSize: const Size(double.infinity, 56),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-      ),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Center(
-            child: Text(
-              text,
-              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-            ),
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: SvgPicture.asset(svgAssetPath, height: 26),
-          ),
-        ],
       ),
     );
   }

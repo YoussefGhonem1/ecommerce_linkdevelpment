@@ -1,14 +1,15 @@
+import 'package:ecommerce_app/src/routes/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/componants/widgets.dart';
+import 'package:ecommerce_app/src/widgets/widgets.dart';
 
-class SignInGetPasswordScreen extends StatefulWidget {
-  const SignInGetPasswordScreen({super.key});
+class SignInPasswordScreen extends StatefulWidget {
+  const SignInPasswordScreen({super.key});
 
   @override
-  State<SignInGetPasswordScreen> createState() => _SignInGetPasswordScreenState();
+  State<SignInPasswordScreen> createState() => _SignInPasswordScreenState();
 }
 
-class _SignInGetPasswordScreenState extends State<SignInGetPasswordScreen> {
+class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
   final _emailController = TextEditingController();
 
   @override
@@ -42,7 +43,12 @@ class _SignInGetPasswordScreenState extends State<SignInGetPasswordScreen> {
               ),
               const SizedBox(height: 20),
 
-              CustomButton(text: 'Continue', onPressed: () {}),
+              CustomButton(
+                text: 'Continue',
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, Routes.signInEmail);
+                },
+              ),
 
               const SizedBox(height: 20),
 
