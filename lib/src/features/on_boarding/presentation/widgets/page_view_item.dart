@@ -1,5 +1,4 @@
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:ecommerce_app/core/utils/app_text_styles.dart';
 import 'package:ecommerce_app/src/features/on_boarding/presentation/widgets/custom_button_onboarding.dart';
 import 'package:ecommerce_app/src/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -42,8 +41,9 @@ class PageViewItem extends StatelessWidget {
                   padding: REdgeInsets.symmetric(vertical: 25, horizontal: 30),
                   child: Text(
                     "Skip",
-                    style: AppTextStyles.regular13
-                        .copyWith(color: Color(0xFF4E5456)),
+                    style:Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Colors.black
+                    ),
                   ),
                 ),
               ),
@@ -76,14 +76,16 @@ class PageViewItem extends StatelessWidget {
                     SizedBox(height: 50.h,),
                     Text(
                       title,
-                      style: AppTextStyles.bold19,
+                       style:  Theme.of(context).textTheme.headlineSmall,
                     ),
                     SizedBox(
                       height: 10.h,
                     ),
                     Text(
                       subtitle,
-                      style: AppTextStyles.regular16,
+                      style:  Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Colors.black,
+                      ),
                     ),
                     SizedBox(
                       height: 20.h,
