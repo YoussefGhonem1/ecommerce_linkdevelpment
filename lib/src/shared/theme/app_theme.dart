@@ -1,6 +1,5 @@
-import 'package:ecommerce_app/src/theme/app_colors.dart';
+import 'app_colors.dart';
 import 'package:flutter/material.dart';
-
 abstract class AppTheme{
   static ThemeData lightTheme = ThemeData(
       brightness: Brightness.light,

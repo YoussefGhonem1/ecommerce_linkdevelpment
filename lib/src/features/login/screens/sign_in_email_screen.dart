@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/src/routes/app_routes.dart';
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/widgets/widgets.dart';
+import 'package:ecommerce_app/src/shared/components/widgets.dart';
 
 class SignInEmailScreen extends StatefulWidget {
   const SignInEmailScreen({super.key});

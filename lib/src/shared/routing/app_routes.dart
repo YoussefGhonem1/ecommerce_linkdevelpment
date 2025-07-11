@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../features/screens/screens_routes.dart';
+import '../../features/login/screens/sign_in_email_screen.dart';
+import '../../features/login/screens/sign_in_password_screen.dart';
+
 
 class Routes {
   static const String initial = '/';
@@ -11,8 +13,8 @@ class Routes {
 class AppRoutes {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.initial:
-        return MaterialPageRoute(builder: (_) => const SplashScreen());
+   //   case Routes.initial:
+     //   return MaterialPageRoute(builder: (_) => const SplashScreen());
 
       case Routes.signInEmail:
         return MaterialPageRoute(builder: (_) => const SignInEmailScreen());
