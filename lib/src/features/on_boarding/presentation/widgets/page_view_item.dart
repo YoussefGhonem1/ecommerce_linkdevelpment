@@ -22,7 +22,7 @@ class PageViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double backgroundHeight =
-        backgroundImage.contains("2") ? 375.h : 430.h;
+        backgroundImage.contains("2") ? 358.h : 410.h;
     return Column(
       children: [
         Row(
