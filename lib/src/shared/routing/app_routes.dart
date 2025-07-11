@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import '../../features/login/screens/sign_in_email_screen.dart';
 import '../../features/login/screens/sign_in_password_screen.dart';
 
@@ -10,6 +11,9 @@ class Routes {
   static const String signInPassword = '/sign-in-password';
 =======
 import '../../features/login/screens/CreateAccount/CreateAccount.dart';
+=======
+import '../../features/CreateAcc/screens/CreateAccount.dart';
+>>>>>>> de65f08 (Create Account Screen Added)
 
 class Routes {
   static const initial = '/';

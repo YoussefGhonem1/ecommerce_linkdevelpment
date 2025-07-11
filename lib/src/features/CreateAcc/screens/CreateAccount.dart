@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/custom_text_field.dart';
-import 'widgets/primary_button.dart';
-import 'widgets/back_button_icon.dart';
+import '../widgets/custom_text_field.dart';
+import '../widgets/primary_button.dart';
+import '../widgets/back_button_icon.dart';
 
 class CreateAccountPage extends StatelessWidget {
   const CreateAccountPage({super.key});
