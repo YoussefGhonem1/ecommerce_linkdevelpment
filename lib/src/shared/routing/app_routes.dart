@@ -21,6 +21,7 @@ import '../../features/create_account/screens/create_account_screen.dart';
 
 class Routes {
   static const initial = '/';
+  static const String onBoarding = '/on_boarding';
   static const createAccount = '/createAccount';
 >>>>>>> f5f0f0c (Create Account Screen Added)
 }
