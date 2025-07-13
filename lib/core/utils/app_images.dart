@@ -25,5 +25,7 @@ class Assets {
   /// Assets for imagesImagePageItem3
   /// assets/images/image_page_item3.svg
   static const String imagesImagePageItem3 = "assets/images/image_page_item3.svg";
+
+  static const String restPassImage = "assets/images/rest_password_image.png";
 }
 
