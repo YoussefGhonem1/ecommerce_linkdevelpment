@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
+import 'package:ecommerce_app/src/shared/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,15 +9,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ecommerce App',
-      onGenerateRoute: AppRoutes.onGenerateRoute,
       debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.light,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
+      initialRoute: Routes.initial,
     );
   }
 }
-
-
