@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/src/features/splash/presentation/pages/splash_page.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:ecommerce_app/src/shared/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
       onGenerateRoute: AppRoutes.onGenerateRoute,
-      initialRoute: SplashPage.routeName,
+      initialRoute: Routes.initial,
     );
   }
 }

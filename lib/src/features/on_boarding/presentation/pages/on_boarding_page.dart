@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});
-  static const String routeName = 'onBoarding';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
