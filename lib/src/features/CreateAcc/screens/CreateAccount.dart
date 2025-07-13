@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../widgets/custom_text_field.dart';
-import '../widgets/primary_button.dart';
 import '../widgets/back_button_icon.dart';
+import 'package:ecommerce_app/src/shared/components/custom_button.dart';
+import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
 
 class CreateAccountPage extends StatelessWidget {
   const CreateAccountPage({super.key});
@@ -18,20 +18,18 @@ class CreateAccountPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 24.w, // 👈 responsive horizontal padding
-            vertical: 16.h, // 👈 responsive vertical padding
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const CustoBackButton(),
-              SizedBox(height: 16.h), // 👈 responsive spacing
+              SizedBox(height: 16.h),
 
               Text(
                 'Create Account',
                 style: TextStyle(
-                  fontSize: 28.sp, // 👈 responsive font size
+                  fontSize: 28.sp,
+                  color: Theme.of(context).colorScheme.onSurface,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -62,7 +60,7 @@ class CreateAccountPage extends StatelessWidget {
               ),
               SizedBox(height: 32.h),
 
-              PrimaryButton(
+              CustomButton(
                 text: 'Continue',
                 onPressed: () {
                   // Navigate To Onboarding
