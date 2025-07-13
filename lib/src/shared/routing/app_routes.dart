@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 class Routes{
   static const String initial  = '/';
-    static const String OnBoarding = '/on_boarding';
+      static const String onBoarding = '/on_boarding';
 }
 class AppRoutes {
   static Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.initial:
         return MaterialPageRoute(builder: (_) => const SplashPage());
-      case Routes.OnBoarding:
+      case Routes.onBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingPage());
     }
     return null;

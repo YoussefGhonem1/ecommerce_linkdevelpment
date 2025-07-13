@@ -69,7 +69,7 @@ class _SplashPageState extends State<SplashPage>
   void navigateToOnBoarding() {
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
-        Navigator.pushReplacementNamed(context, Routes.OnBoarding);
+        Navigator.pushReplacementNamed(context, Routes.onBoarding);
       }
     });
   }
