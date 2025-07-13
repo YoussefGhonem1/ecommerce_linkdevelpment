@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/src/features/splash/presentation/widgets/animation_letter.dart';
+import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/features/on_boarding/presentation/pages/on_boarding_page.dart';
-import 'package:ecommerce_app/src/theme/app_colors.dart';
 
 
 class SplashPageBody extends StatefulWidget {

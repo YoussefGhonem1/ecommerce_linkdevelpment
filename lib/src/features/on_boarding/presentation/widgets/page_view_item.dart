@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:ecommerce_app/src/features/on_boarding/presentation/widgets/custom_button_onboarding.dart';
-import 'package:ecommerce_app/src/theme/app_colors.dart';
+import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,7 +23,7 @@ class PageViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double backgroundHeight =
-        backgroundImage.contains("2") ? 358.h : 410.h;
+        backgroundImage.contains("2") ? 340.h : 390.h;
     return Column(
       children: [
         Row(

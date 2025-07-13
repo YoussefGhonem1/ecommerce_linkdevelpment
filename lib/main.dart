@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/src/features/splash/presentation/pages/splash_page.dart';
-import 'package:ecommerce_app/src/routes/app_routes.dart';
-import 'package:ecommerce_app/src/theme/app_theme.dart' show AppTheme;
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
+import 'package:ecommerce_app/src/shared/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

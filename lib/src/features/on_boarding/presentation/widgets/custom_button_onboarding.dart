@@ -1,5 +1,5 @@
+import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/theme/app_colors.dart';
 
 class CustomButtonOnboarding extends StatelessWidget {
   final String label;
