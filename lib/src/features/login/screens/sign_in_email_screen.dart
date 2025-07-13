@@ -34,40 +34,34 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Sign in', style: theme.textTheme.displayLarge),
-
+              Text('Sign in', style: theme.textTheme.headlineMedium),
               const SizedBox(height: 40),
-
               CustomTextField(
                 controller: _emailController,
                 hintText: 'Email Address',
                 keyboardType: TextInputType.name,
               ),
-
               const SizedBox(height: 20),
-
               CustomButton(
                 text: 'Continue',
                 onPressed: () {
-                 Navigator.pushNamed(context, Routes.signInPassword);
+                  Navigator.pushNamed(context, Routes.signInPassword);
                 },
               ),
-
               const SizedBox(height: 20),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     "Don't have an Account? ",
-                    style: theme.textTheme.bodyLarge,
+                    style: theme.textTheme.bodyMedium,
                   ),
                   GestureDetector(
                     onTap: () {},
                     child: Text(
                       'Create One',
                       style: TextStyle(
-                        color: theme.textTheme.bodyLarge?.color,
+                        color: theme.textTheme.bodyMedium?.color,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -77,7 +71,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               const SizedBox(height: 80),
               SocialLoginButton(
                 svgAssetPath:
-                    Theme.of(context).brightness == Brightness.dark
+                    MediaQuery.of(context).platformBrightness == Brightness.dark
                         ? 'assets/icons/apple_dark.svg'
                         : 'assets/icons/apple_light.svg',
                 text: 'Continue With Apple',

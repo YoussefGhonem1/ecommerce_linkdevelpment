@@ -1,5 +1,7 @@
+import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 class SocialLoginButton extends StatelessWidget {
   final String svgAssetPath;
   final String text;
@@ -14,13 +16,13 @@ class SocialLoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final isDarkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor:
-            isDarkMode ? const Color(0xFF342F3F) : const Color(0xFFF4F4F4),
+        backgroundColor: isDarkMode ? AppColors.darkGrey : AppColors.lightGrey,
         foregroundColor: isDarkMode ? Colors.white : Colors.black,
         minimumSize: const Size(double.infinity, 56),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),

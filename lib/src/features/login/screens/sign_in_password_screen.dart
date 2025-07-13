@@ -2,6 +2,7 @@ import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
+
 class SignInPasswordScreen extends StatefulWidget {
   const SignInPasswordScreen({super.key});
 
@@ -32,9 +33,8 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Sign in', style: theme.textTheme.displayLarge),
+              Text('Sign in', style: theme.textTheme.headlineMedium),
               const SizedBox(height: 40),
-
               CustomTextField(
                 controller: _emailController,
                 hintText: 'Password',
@@ -42,26 +42,23 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
                 obscureText: true,
               ),
               const SizedBox(height: 20),
-
               CustomButton(
                 text: 'Continue',
                 onPressed: () {
                   Navigator.pushNamed(context, Routes.signInEmail);
                 },
               ),
-
               const SizedBox(height: 20),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("Forgot Password ? ", style: theme.textTheme.bodyLarge),
+                  Text("Forgot Password ? ", style: theme.textTheme.bodyMedium),
                   GestureDetector(
                     onTap: () {},
                     child: Text(
                       'Reset',
                       style: TextStyle(
-                        color: theme.textTheme.bodyLarge?.color,
+                        color: theme.textTheme.bodyMedium?.color,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
