@@ -3,7 +3,6 @@ import 'package:ecommerce_app/src/features/on_boarding/presentation/widgets/cust
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PageViewItem extends StatelessWidget {
@@ -23,7 +22,7 @@ class PageViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double backgroundHeight =
-        backgroundImage.contains("2") ? 340.h : 390.h;
+        backgroundImage.contains("2") ? 340 : 390;
     return Column(
       children: [
         Row(
@@ -39,7 +38,7 @@ class PageViewItem extends StatelessWidget {
                   //Navigator.of(context).pushReplacementNamed(LoginPage.routeName);
                 },
                 child: Padding(
-                  padding: REdgeInsets.symmetric(vertical: 25, horizontal: 30),
+                  padding: EdgeInsets.symmetric(vertical: 25, horizontal: 30),
                   child: Text(
                     "Skip",
                     style:Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -52,8 +51,8 @@ class PageViewItem extends StatelessWidget {
           ],
         ),
         SizedBox(
-          width: 337.w,
-          height: 298.h,
+          width: 337,
+          height: 298,
           child: SvgPicture.asset(image),
         ),
         Expanded(
@@ -74,13 +73,13 @@ class PageViewItem extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 50.h,),
+                    SizedBox(height: 50,),
                     Text(
                       title,
                        style:  Theme.of(context).textTheme.headlineSmall,
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: 10,
                     ),
                     Text(
                       subtitle,
@@ -89,7 +88,7 @@ class PageViewItem extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: 20,
                     ),
                     DotsIndicator(
                       dotsCount: 3,
@@ -105,7 +104,7 @@ class PageViewItem extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height:  23.h),
+                    SizedBox(height:  23),
                     Visibility(
                         visible: currentPage == 2 ? true : false,
                         maintainState: true,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_colors.dart';
 
 class AppTheme {
@@ -11,11 +10,11 @@ class AppTheme {
       centerTitle: true,
       iconTheme: IconThemeData(
         color: Colors.black,
-        size: 26.sp,
+        size: 26,
       ),
       titleTextStyle: TextStyle(
         color: Colors.black,
-        fontSize: 16.sp,
+        fontSize: 16,
         fontWeight: FontWeight.w700,
       ),
     ),
@@ -26,27 +25,27 @@ class AppTheme {
     ),
     textTheme: TextTheme(
       headlineMedium: TextStyle(
-        fontSize: 32.sp,
+        fontSize: 32,
         fontWeight: FontWeight.w700,
         color: Colors.black,
       ),
       headlineSmall: TextStyle(
-        fontSize: 24.sp,
+        fontSize: 24,
         fontWeight: FontWeight.w700,
         color: Colors.black,
       ),
       bodyLarge: TextStyle(
-        fontSize: 24.sp,
+        fontSize: 24,
         fontWeight: FontWeight.w400,
         color: Colors.black87,
       ),
       bodyMedium: TextStyle(
-        fontSize: 16.sp,
+        fontSize: 16,
         fontWeight: FontWeight.w400,
         color: Colors.white,
       ),
       bodySmall: TextStyle(
-        fontSize: 12.sp,
+        fontSize: 12,
         fontWeight: FontWeight.w400,
         color: Colors.black54,
       ),
@@ -62,11 +61,11 @@ class AppTheme {
       centerTitle: true,
       iconTheme: IconThemeData(
         color: Colors.white,
-        size: 26.sp,
+        size: 26,
       ),
       titleTextStyle: TextStyle(
         color: Colors.white,
-        fontSize: 16.sp,
+        fontSize: 16,
         fontWeight: FontWeight.w700,
       ),
     ),
@@ -77,27 +76,27 @@ class AppTheme {
     ),
     textTheme: TextTheme(
       headlineMedium: TextStyle(
-        fontSize: 32.sp,
+        fontSize: 32,
         fontWeight: FontWeight.w700,
         color: Colors.white,
       ),
       headlineSmall: TextStyle(
-        fontSize: 24.sp,
+        fontSize: 24,
         fontWeight: FontWeight.w700,
         color: Colors.white,
       ),
       bodyLarge: TextStyle(
-        fontSize: 24.sp,
+        fontSize: 24,
         fontWeight: FontWeight.w400,
         color: Colors.white70,
       ),
       bodyMedium: TextStyle(
-        fontSize: 16.sp,
+        fontSize: 16,
         fontWeight: FontWeight.w400,
         color: Colors.white70,
       ),
       bodySmall: TextStyle(
-        fontSize: 12.sp,
+        fontSize: 12,
         fontWeight: FontWeight.w400,
         color: Colors.white54,
       ),
