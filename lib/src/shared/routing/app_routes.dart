@@ -9,7 +9,6 @@ class Routes {
   static const String signInPassword = '/sign-in-password';
 }
 
-/// إدارة المسارات
 class AppRoutes {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {

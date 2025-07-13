@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/shared/components/widgets.dart';
-
+import 'package:ecommerce_app/src/shared/components/custom_button.dart';
+import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
 class SignInPasswordScreen extends StatefulWidget {
   const SignInPasswordScreen({super.key});
 
@@ -46,7 +46,7 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
               CustomButton(
                 text: 'Continue',
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, Routes.signInEmail);
+                  Navigator.pushNamed(context, Routes.signInEmail);
                 },
               ),
 
