@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/src/features/splash/presentation/widgets/SplashPageBody.dart';
+import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {
@@ -7,6 +8,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.primaryColor,
       body: SplashPageBody(), 
     );
   }

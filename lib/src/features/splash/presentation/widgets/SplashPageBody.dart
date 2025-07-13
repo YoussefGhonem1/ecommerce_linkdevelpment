@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/src/features/splash/presentation/widgets/animation_letter.dart';
-import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/features/on_boarding/presentation/pages/on_boarding_page.dart';
 
@@ -83,9 +82,7 @@ class _SplashPageBodyState extends State<SplashPageBody>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primaryColor,
-      body: Center(
+    return Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: List.generate(word.length, (index) {
@@ -97,7 +94,6 @@ class _SplashPageBodyState extends State<SplashPageBody>
             );
           }),
         ),
-      ),
     );
   }
 }
