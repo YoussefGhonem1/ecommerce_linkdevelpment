@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import '../../features/login/screens/sign_in_email_screen.dart';
 import '../../features/login/screens/sign_in_password_screen.dart';
 
@@ -14,6 +15,9 @@ import '../../features/login/screens/CreateAccount/CreateAccount.dart';
 =======
 import '../../features/CreateAcc/screens/CreateAccount.dart';
 >>>>>>> de65f08 (Create Account Screen Added)
+=======
+import '../../features/create_account/screens/create_account_screen.dart';
+>>>>>>> 07aa2e8 (issues resolved)
 
 class Routes {
   static const initial = '/';
@@ -24,6 +28,7 @@ class Routes {
 class AppRoutes {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+<<<<<<< HEAD
 <<<<<<< HEAD
       case Routes.initial:
         return MaterialPageRoute(builder: (_) => const SplashPage());
@@ -44,6 +49,9 @@ class AppRoutes {
         );
 =======
       case '/createAccount':
+=======
+      case Routes.createAccount:
+>>>>>>> 07aa2e8 (issues resolved)
         return MaterialPageRoute(builder: (_) => const CreateAccountPage());
 >>>>>>> f5f0f0c (Create Account Screen Added)
     }

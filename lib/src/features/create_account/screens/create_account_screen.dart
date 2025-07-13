@@ -22,7 +22,7 @@ class CreateAccountPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustoBackButton(),
+              const CustomBackButton(),
               SizedBox(height: 16.h),
 
               Text(
