@@ -5,6 +5,7 @@ import '../../features/forget_password/screens/forget_password_screen.dart';
 import '../../features/forget_password/screens/return_to_login_screen.dart';
 import '../../features/login/screens/sign_in_email_screen.dart';
 import '../../features/login/screens/sign_in_password_screen.dart';
+import 'package:ecommerce_app/src/features/create_account/screens/create_account_screen.dart';
 
 class Routes {
   static const String initial = '/';
@@ -13,6 +14,7 @@ class Routes {
   static const String signInPassword = '/sign-in-password';
   static const String forgetPassword = '/forget_password';
   static const String returnToLogin = '/return_to_login';
+  static const String createAccount = '/create-Account';
 }
 
 class AppRoutes {
@@ -30,13 +32,15 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const ReturnToLoginScreen());
       case Routes.signInPassword:
         return MaterialPageRoute(builder: (_) => const SignInPasswordScreen());
+      case Routes.createAccount:
+        return MaterialPageRoute(builder: (_) => const CreateAccountPage());
 
       default:
         return MaterialPageRoute(
           builder:
               (_) => const Scaffold(
-            body: Center(child: Text('404 - Page Not Found')),
-          ),
+                body: Center(child: Text('404 - Page Not Found')),
+              ),
         );
     }
   }

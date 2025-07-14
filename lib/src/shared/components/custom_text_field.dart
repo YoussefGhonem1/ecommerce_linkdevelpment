@@ -6,7 +6,6 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextInputType keyboardType;
   final bool obscureText;
-
   const CustomTextField({
     super.key,
     required this.controller,
@@ -14,7 +13,6 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
   });
-
   @override
   Widget build(BuildContext context) {
     final isDarkMode =
