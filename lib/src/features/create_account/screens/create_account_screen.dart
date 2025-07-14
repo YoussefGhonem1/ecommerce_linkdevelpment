@@ -9,17 +9,14 @@ class CreateAccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Controllers for the text input fields
     final TextEditingController firstNameController = TextEditingController();
     final TextEditingController lastNameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
 
     final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
     final textColor = theme.textTheme.bodyMedium?.color;
-
-    // Determine if the current theme is dark mode
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
       body: SafeArea(
@@ -33,11 +30,8 @@ class CreateAccountPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(
                   'Create Account',
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color:
-                        isDarkMode
-                            ? Colors.white
-                            : null, // Set color to white in dark mode, otherwise use default
+                  style: theme.textTheme.headlineMedium?.copyWith(
+                    color: isDarkMode ? Colors.white : Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -71,9 +65,10 @@ class CreateAccountPage extends StatelessWidget {
                 CustomButton(text: 'Continue', onPressed: () {}),
                 const SizedBox(height: 16),
 
+                // Forgot Password
                 GestureDetector(
                   onTap: () {
-                    // Navigate to reset password page
+                    // TODO: Navigate to reset password page
                   },
                   child: Text.rich(
                     TextSpan(
