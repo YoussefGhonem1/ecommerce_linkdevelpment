@@ -8,10 +8,7 @@ class AppTheme {
       backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
-      iconTheme: IconThemeData(
-        color: Colors.black,
-        size: 26,
-      ),
+      iconTheme: IconThemeData(color: Colors.black, size: 26),
       titleTextStyle: TextStyle(
         color: Colors.black,
         fontSize: 16,
@@ -42,7 +39,7 @@ class AppTheme {
       bodyMedium: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: Colors.black87,
+        color: Colors.black,
       ),
       bodySmall: TextStyle(
         fontSize: 12,
@@ -58,10 +55,7 @@ class AppTheme {
       backgroundColor: AppColors.bgDarkColor,
       elevation: 0,
       centerTitle: true,
-      iconTheme: IconThemeData(
-        color: Colors.white,
-        size: 26,
-      ),
+      iconTheme: IconThemeData(color: Colors.white, size: 26),
       titleTextStyle: TextStyle(
         color: Colors.white,
         fontSize: 16,

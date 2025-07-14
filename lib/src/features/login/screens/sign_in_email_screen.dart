@@ -57,7 +57,9 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                     style: theme.textTheme.bodyMedium,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.createAccount);
+                    },
                     child: Text(
                       'Create One',
                       style: TextStyle(
