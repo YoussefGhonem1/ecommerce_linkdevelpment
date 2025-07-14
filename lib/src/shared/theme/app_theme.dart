@@ -39,7 +39,7 @@ class AppTheme {
       bodyMedium: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: Colors.white,
+        color: Colors.black,
       ),
       bodySmall: TextStyle(
         fontSize: 12,

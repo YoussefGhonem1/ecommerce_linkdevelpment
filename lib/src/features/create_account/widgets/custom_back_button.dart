@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 
 class CustomBackButton extends StatelessWidget {
   const CustomBackButton({super.key});
@@ -8,7 +9,7 @@ class CustomBackButton extends StatelessWidget {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios_new, size: 20),
       onPressed: () {
-        Navigator.pop(context);
+        Navigator.pushNamed(context, Routes.signInEmail);
       },
     );
   }

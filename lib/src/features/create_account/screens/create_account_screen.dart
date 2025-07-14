@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ecommerce_app/src/features/create_account/widgets/custom_back_button.dart';
@@ -15,6 +14,9 @@ class CreateAccountPage extends StatelessWidget {
     final TextEditingController lastNameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+
+    final theme = Theme.of(context);
+    final textColor = theme.textTheme.bodyMedium?.color;
 
     // Determine if the current theme is dark mode
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
@@ -71,20 +73,17 @@ class CreateAccountPage extends StatelessWidget {
 
                 GestureDetector(
                   onTap: () {
-                    // TODO: Navigate to reset password page
+                    // Navigate to reset password page
                   },
                   child: Text.rich(
                     TextSpan(
                       text: 'Forgot Password? ',
-                      style: TextStyle(
-                        color: isDarkMode ? Colors.white : null,
-                        fontSize: 14,
-                      ),
+                      style: TextStyle(color: textColor, fontSize: 14),
                       children: [
                         TextSpan(
                           text: 'Reset',
                           style: TextStyle(
-                            color: isDarkMode ? Colors.white : null,
+                            color: textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
                           ),
