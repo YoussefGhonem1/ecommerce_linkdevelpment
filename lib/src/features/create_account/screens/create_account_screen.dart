@@ -27,11 +27,8 @@ class CreateAccountPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Custom back button
                 const CustomBackButton(),
                 const SizedBox(height: 16),
-
-                // Title for the page
                 Text(
                   'Create Account',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
@@ -43,40 +40,35 @@ class CreateAccountPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 32),
-                // Text field for first name
+
                 CustomTextField(
                   hintText: 'Firstname',
                   controller: firstNameController,
                 ),
                 const SizedBox(height: 16),
-                // Text field for last name
+
                 CustomTextField(
                   hintText: 'Lastname',
                   controller: lastNameController,
                 ),
                 const SizedBox(height: 16),
-                // Text field for email address
+
                 CustomTextField(
                   hintText: 'Email Address',
                   controller: emailController,
                 ),
                 const SizedBox(height: 16),
-                // Text field for password
+
                 CustomTextField(
                   hintText: 'Password',
                   controller: passwordController,
                   obscureText: true,
                 ),
                 const SizedBox(height: 32),
-                // Continue button
-                CustomButton(
-                  text: 'Continue',
-                  onPressed: () {
-                    //TODO: Navigate to onBoarding
-                  },
-                ),
+
+                CustomButton(text: 'Continue', onPressed: () {}),
                 const SizedBox(height: 16),
-                // Forgot Password text with a GestureDetector for navigation
+
                 GestureDetector(
                   onTap: () {
                     // TODO: Navigate to reset password page
@@ -85,20 +77,14 @@ class CreateAccountPage extends StatelessWidget {
                     TextSpan(
                       text: 'Forgot Password? ',
                       style: TextStyle(
-                        color:
-                            isDarkMode
-                                ? Colors.white
-                                : null, // Adjust color for dark mode
+                        color: isDarkMode ? Colors.white : null,
                         fontSize: 14,
                       ),
                       children: [
                         TextSpan(
                           text: 'Reset',
                           style: TextStyle(
-                            color:
-                                isDarkMode
-                                    ? Colors.white
-                                    : null, // Adjust color for dark mode
+                            color: isDarkMode ? Colors.white : null,
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
                           ),
