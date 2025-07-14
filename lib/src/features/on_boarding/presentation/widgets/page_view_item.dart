@@ -1,7 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:ecommerce_app/src/features/on_boarding/presentation/widgets/custom_button_onboarding.dart';
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -35,7 +35,7 @@ class PageViewItem extends StatelessWidget {
               maintainSize: true,
               child: GestureDetector(
                 onTap: () {
-                  //Navigator.of(context).pushReplacementNamed(LoginPage.routeName);
+                  Navigator.pushReplacementNamed(context, Routes.signInEmail);
                 },
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 25, horizontal: 30),
@@ -112,7 +112,7 @@ class PageViewItem extends StatelessWidget {
                         maintainSize: true,
                         child: CustomButtonOnboarding(
                           onPressed: () {
-                            //Navigator.of(context).pushReplacementNamed(LoginPage.routeName);
+                        Navigator.pushReplacementNamed(context, Routes.signInEmail);
                           }, 
                           label: 'Let\'s Start',
                         ),

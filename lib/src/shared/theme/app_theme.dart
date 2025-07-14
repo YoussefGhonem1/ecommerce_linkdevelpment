@@ -42,7 +42,7 @@ class AppTheme {
       bodyMedium: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: Colors.white,
+        color: Colors.black87,
       ),
       bodySmall: TextStyle(
         fontSize: 12,
@@ -51,7 +51,6 @@ class AppTheme {
       ),
     ),
   );
-
 
   static ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.bgDarkColor,
@@ -102,5 +101,4 @@ class AppTheme {
       ),
     ),
   );
-
 }
