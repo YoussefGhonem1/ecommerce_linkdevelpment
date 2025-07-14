@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_images.dart';
+import '../../../shared/routing/app_routes.dart';
 
 class ReturnToLoginScreen extends StatelessWidget {
   const ReturnToLoginScreen({super.key});
@@ -26,7 +27,7 @@ class ReturnToLoginScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: ElevatedButton(
               onPressed: (){
-                //Until I had login screen to nav into.
+                Navigator.pushReplacementNamed(context, Routes.signInEmail);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF8E6CEF),
