@@ -54,7 +54,9 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
                 children: [
                   Text("Forgot Password ? ", style: theme.textTheme.bodyMedium),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.forgetPassword);
+                    },
                     child: Text(
                       'Reset',
                       style: TextStyle(

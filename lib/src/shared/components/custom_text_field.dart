@@ -29,7 +29,7 @@ class CustomTextField extends StatelessWidget {
         fillColor: isDarkMode ? AppColors.darkGrey : AppColors.lightGrey,
         hintStyle: TextStyle(
           color:
-              isDarkMode ? AppColors.inputHintDark : AppColors.inputHintLight,
+          isDarkMode ? AppColors.inputHintDark : AppColors.inputHintLight,
           fontSize: 17,
         ),
         contentPadding: const EdgeInsets.symmetric(

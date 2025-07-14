@@ -1,6 +1,8 @@
 import 'package:ecommerce_app/src/features/on_boarding/presentation/pages/on_boarding_page.dart';
 import 'package:ecommerce_app/src/features/splash/presentation/pages/splash_page.dart';
 import 'package:flutter/material.dart';
+import '../../features/forget_password/screens/forget_password_screen.dart';
+import '../../features/forget_password/screens/return_to_login_screen.dart';
 import '../../features/login/screens/sign_in_email_screen.dart';
 import '../../features/login/screens/sign_in_password_screen.dart';
 
@@ -9,6 +11,8 @@ class Routes {
   static const String onBoarding = '/on_boarding';
   static const String signInEmail = '/sign-in-email';
   static const String signInPassword = '/sign-in-password';
+  static const String forgetPassword = '/forget_password';
+  static const String returnToLogin = '/return_to_login';
 }
 
 class AppRoutes {
@@ -20,7 +24,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const OnBoardingPage());
       case Routes.signInEmail:
         return MaterialPageRoute(builder: (_) => const SignInEmailScreen());
-
+      case Routes.forgetPassword:
+        return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
+      case Routes.returnToLogin:
+        return MaterialPageRoute(builder: (_) => const ReturnToLoginScreen());
       case Routes.signInPassword:
         return MaterialPageRoute(builder: (_) => const SignInPasswordScreen());
 
@@ -28,8 +35,8 @@ class AppRoutes {
         return MaterialPageRoute(
           builder:
               (_) => const Scaffold(
-                body: Center(child: Text('404 - Page Not Found')),
-              ),
+            body: Center(child: Text('404 - Page Not Found')),
+          ),
         );
     }
   }
