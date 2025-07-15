@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
-
 import 'package:ecommerce_app/src/features/create_account/widgets/custom_back_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
@@ -31,10 +30,7 @@ class CreateAccountPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(
                   'Create Account',
-                  style: theme.textTheme.headlineMedium?.copyWith(
-                    color: isDarkMode ? Colors.white : Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: theme.textTheme.headlineMedium,
                 ),
                 const SizedBox(height: 32),
 

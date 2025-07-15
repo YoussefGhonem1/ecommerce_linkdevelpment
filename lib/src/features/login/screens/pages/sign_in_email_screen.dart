@@ -1,5 +1,5 @@
+import 'package:ecommerce_app/src/features/login/screens/widgets/custom_social_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
-import 'package:ecommerce_app/src/shared/components/custom_social_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +23,8 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return Scaffold(
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(
