@@ -18,6 +18,7 @@ class AppTheme {
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primaryColor,
       primary: AppColors.primaryColor,
+      onPrimaryContainer: AppColors.lightGrey,
       onPrimary: Colors.white,
     ),
     textTheme: TextTheme(
@@ -65,6 +66,7 @@ class AppTheme {
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.bgDarkColor,
       primary: AppColors.bgDarkColor,
+      onPrimaryContainer: AppColors.darkGrey,
       onPrimary: Colors.white,
     ),
     textTheme: TextTheme(

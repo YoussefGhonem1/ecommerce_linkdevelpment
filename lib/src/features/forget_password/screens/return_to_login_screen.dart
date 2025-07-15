@@ -15,7 +15,7 @@ class ReturnToLoginScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(
-            Assets.restPassImage,
+            Assets.imagesRestPasswordImage,
             width: 100,
           ),
           SizedBox(height: 20),

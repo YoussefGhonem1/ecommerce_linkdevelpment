@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/core/utils/app_images.dart';
+
 class CategoryModel {
   final String title;
   final String imagePath;
@@ -8,11 +10,11 @@ class CategoryModel {
   });
 
 
-  List<CategoryModel> categories = [
-  CategoryModel(title: "Hoodies", imagePath: ""),
-  CategoryModel(title: "Accessories", imagePath: ""),
-  CategoryModel(title: "Shorts", imagePath: ""),
-  CategoryModel(title: "Shoes", imagePath: ""),
-  CategoryModel(title: "Bags", imagePath: ""),
+  static List<CategoryModel> categories = [
+  CategoryModel(title: "Hoodies", imagePath: Assets.imagesCategory1),
+  CategoryModel(title: "Accessories", imagePath: Assets.imagesCategory2),
+  CategoryModel(title: "Shorts", imagePath: Assets.imagesCategory3),
+  CategoryModel(title: "Shoes", imagePath: Assets.imagesCategory4),
+  CategoryModel(title: "Bags", imagePath: Assets.imagesCategory5),
 ];
 }

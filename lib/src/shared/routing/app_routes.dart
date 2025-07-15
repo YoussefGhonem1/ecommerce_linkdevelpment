@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/src/features/on_boarding/presentation/pages/on_boarding_page.dart';
+import 'package:ecommerce_app/src/features/shopping_category/presentation/pages/category_page.dart';
 import 'package:ecommerce_app/src/features/splash/presentation/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 import '../../features/forget_password/screens/forget_password_screen.dart';
@@ -10,6 +11,7 @@ import 'package:ecommerce_app/src/features/create_account/screens/create_account
 class Routes {
   static const String initial = '/';
   static const String onBoarding = '/on_boarding';
+  static const String categoryPage = '/category_page';
   static const String signInEmail = '/sign-in-email';
   static const String signInPassword = '/sign-in-password';
   static const String forgetPassword = '/forget_password';
@@ -34,6 +36,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const SignInPasswordScreen());
       case Routes.createAccount:
         return MaterialPageRoute(builder: (_) => const CreateAccountPage());
+      case Routes.categoryPage:
+        return MaterialPageRoute(builder: (_) => const CategoriesPage());
 
       default:
         return MaterialPageRoute(
