@@ -41,9 +41,7 @@ class PageViewItem extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 25, horizontal: 30),
                   child: Text(
                     "Skip",
-                    style:Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Colors.black
-                    ),
+                    style:Theme.of(context).textTheme.bodyMedium
                   ),
                 ),
               ),
@@ -83,9 +81,7 @@ class PageViewItem extends StatelessWidget {
                     ),
                     Text(
                       subtitle,
-                      style:  Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Colors.black,
-                      ),
+                      style:  Theme.of(context).textTheme.bodyMedium
                     ),
                     SizedBox(
                       height: 20,
