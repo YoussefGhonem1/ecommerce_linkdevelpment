@@ -1,17 +1,17 @@
 import 'package:ecommerce_app/src/features/shopping_category/data/models/category_model.dart';
 import 'package:flutter/material.dart';
 
-class CategoryCard extends StatelessWidget {
+class CustomCard extends StatelessWidget {
   final CategoryModel category;
-  // final double imageSize;
-  // final double fontSize;
+  final double imageSize;
+  final double fontSize;
   final VoidCallback? onTap;
 
-  const CategoryCard({
+  const CustomCard({
     Key? key,
     required this.category,
-    // this.imageSize = 40,
-    // this.fontSize = 16,
+    required this.imageSize,
+    required this.fontSize,
     this.onTap,
   }) : super(key: key);
 
@@ -30,13 +30,15 @@ class CategoryCard extends StatelessWidget {
           children: [
             Image.asset(
               category.imagePath,
-              height: 40,
-              width: 40,
+              height: imageSize,
+              width: imageSize,
             ),
             const SizedBox(width: 16),
             Text(
               category.title,
-              style: Theme.of(context).textTheme.bodyMedium
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                fontSize: fontSize,
+              ),
             ),
           ],
         ),

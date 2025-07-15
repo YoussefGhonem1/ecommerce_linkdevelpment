@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/core/utils/app_images.dart';
-import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 class CustomBackButtonIcon extends StatelessWidget {
@@ -8,7 +7,7 @@ class CustomBackButtonIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, Routes.signInEmail),
+      onTap: () => Navigator.pop(context),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal:8),
         child: Container(
