@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/src/features/shopping_category/data/models/category_model.dart';
 import 'package:ecommerce_app/src/features/shopping_category/presentation/widgets/custom_category_card.dart';
+import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:flutter/material.dart';
-
 
 
 class CategoriesPage extends StatelessWidget {
@@ -16,8 +16,9 @@ class CategoriesPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const BackButton(),
-              const SizedBox(height: 10),
+              const SizedBox(height: 16),
+              const CustomBackButtonIcon(),
+              const SizedBox(height: 16),
               Text(
                 "Shop by Categories",
                 style: Theme.of(context).textTheme.headlineSmall
