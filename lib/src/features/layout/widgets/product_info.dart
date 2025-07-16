@@ -1,22 +1,19 @@
-
-// I will replace it in home screen widgets when home screen folder create
 import 'package:flutter/material.dart';
 
 class ProductInfo extends StatelessWidget {
   final String productName;
   final double currentPrice;
   final double? originalPrice;
-  final ThemeData theme;
 
   const ProductInfo({super.key, 
     required this.productName,
     required this.currentPrice,
     required this.originalPrice,
-    required this.theme,
   });
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(5, 5, 0, 15),
       child: Column(

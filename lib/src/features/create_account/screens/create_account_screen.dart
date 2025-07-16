@@ -15,7 +15,6 @@ class CreateAccountPage extends StatelessWidget {
     final TextEditingController passwordController = TextEditingController();
 
     final theme = Theme.of(context);
-    final isDarkMode = theme.brightness == Brightness.dark;
     final textColor = theme.textTheme.bodyMedium?.color;
 
     return Scaffold(

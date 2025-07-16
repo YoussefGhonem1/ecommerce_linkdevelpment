@@ -1,4 +1,3 @@
-// I will replace it in home screen widgets when home screen folder create
 import 'package:flutter/material.dart';
 
 class ProductImage extends StatelessWidget {
