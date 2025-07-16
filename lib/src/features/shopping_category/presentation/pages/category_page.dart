@@ -4,7 +4,6 @@ import 'package:ecommerce_app/src/shared/components/custom_card.dart';
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:flutter/material.dart';
 
-
 class CategoriesPage extends StatelessWidget {
   const CategoriesPage({Key? key}) : super(key: key);
 
@@ -22,7 +21,7 @@ class CategoriesPage extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 "Shop by Categories",
-                style: Theme.of(context).textTheme.headlineSmall
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: 20),
               Expanded(
@@ -32,9 +31,9 @@ class CategoriesPage extends StatelessWidget {
                     return CustomCardSize(
                       category: CategoryModel.categories[index],
                       imageSize: categoryImageSize,
-                      fontSize:CategoryFontSize,
+                      fontSize: CategoryFontSize,
                       onTap: () {
-                       // Navigation.pushNamed(context, Routes.);
+                        // Navigation.pushNamed(context, Routes.);
                       },
                     );
                   },
