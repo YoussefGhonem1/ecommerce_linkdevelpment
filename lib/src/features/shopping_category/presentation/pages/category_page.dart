@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/app_constants.dart';
 import 'package:ecommerce_app/src/features/shopping_category/data/models/category_model.dart';
 import 'package:ecommerce_app/src/shared/components/custom_card.dart';
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
@@ -28,10 +29,10 @@ class CategoriesPage extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: CategoryModel.categories.length,
                   itemBuilder: (context, index) {
-                    return CustomCard(
+                    return CustomCardSize(
                       category: CategoryModel.categories[index],
-                      imageSize: CategoryModel.categories[index].imageSize ,
-                      fontSize: CategoryModel.categories[index].fontSize,
+                      imageSize: categoryImageSize,
+                      fontSize:CategoryFontSize,
                       onTap: () {
                        // Navigation.pushNamed(context, Routes.);
                       },

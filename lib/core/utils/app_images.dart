@@ -2,9 +2,13 @@
 class Assets {
   Assets._();
   
-  /// Assets for imagesArrowBack
-  /// assets/images/arrow_back.svg
-  static const String imagesArrowBack = "assets/images/arrow_back.svg";
+  /// Assets for imagesArrowBackDark
+  /// assets/images/arrow_back_dark.svg
+  static const String imagesArrowBackDark = "assets/images/arrow_back_dark.svg";
+
+  /// Assets for imagesArrowBackLight
+  /// assets/images/arrow_back_light.svg
+  static const String imagesArrowBackLight = "assets/images/arrow_back_light.svg";
 
   /// Assets for imagesBackgroudPageView1
   /// assets/images/backgroud_page_view1.svg

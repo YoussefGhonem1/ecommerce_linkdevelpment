@@ -19,7 +19,7 @@ class AppTheme {
       seedColor: AppColors.primaryColor,
       primary: AppColors.primaryColor,
       onPrimaryContainer: AppColors.lightGrey,
-      onPrimary: Colors.white,
+      onPrimaryFixed: Colors.black,
     ),
     textTheme: TextTheme(
       headlineMedium: TextStyle(
@@ -67,7 +67,7 @@ class AppTheme {
       seedColor: AppColors.bgDarkColor,
       primary: AppColors.bgDarkColor,
       onPrimaryContainer: AppColors.darkGrey,
-      onPrimary: Colors.white,
+      onPrimaryFixed: Colors.white,
     ),
     textTheme: TextTheme(
       headlineMedium: TextStyle(
