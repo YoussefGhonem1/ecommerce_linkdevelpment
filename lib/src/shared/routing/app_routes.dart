@@ -1,13 +1,14 @@
-import 'package:ecommerce_app/src/features/layout/screens/layout_screen.dart';
-import 'package:ecommerce_app/src/features/on_boarding/presentation/pages/on_boarding_page.dart';
+
 import 'package:ecommerce_app/src/features/shopping_category/presentation/pages/category_page.dart';
-import 'package:ecommerce_app/src/features/splash/presentation/pages/splash_page.dart';
 import 'package:flutter/material.dart';
+import '../../features/layout/screens/layout_screen.dart';
+import '../../features/login/screens/pages/sign_in_email_screen.dart';
+import '../../features/login/screens/pages/sign_in_password_screen.dart';
+import '../../features/on_boarding/presentation/pages/on_boarding_page.dart';
+import '../../features/splash/presentation/pages/splash_page.dart';
 import '../../features/forget_password/screens/forget_password_screen.dart';
 import '../../features/forget_password/screens/return_to_login_screen.dart';
-import '../../features/login/screens/sign_in_email_screen.dart';
-import '../../features/login/screens/sign_in_password_screen.dart';
-import 'package:ecommerce_app/src/features/create_account/screens/create_account_screen.dart';
+import '../../features/create_account/screens/create_account_screen.dart';
 
 class Routes {
   static const String initial = '/';
@@ -46,6 +47,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const CategoriesPage());
 
 
+
+      
       default:
         return MaterialPageRoute(
           builder:
