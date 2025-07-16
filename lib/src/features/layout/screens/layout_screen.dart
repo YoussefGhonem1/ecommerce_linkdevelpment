@@ -1,12 +1,10 @@
+import 'package:ecommerce_app/generated/assets.dart' ;
 import 'package:ecommerce_app/src/features/layout/screens/home_tab.dart';
 import 'package:ecommerce_app/src/features/layout/screens/notification_tab.dart';
 import 'package:ecommerce_app/src/features/layout/screens/orders_tab.dart';
 import 'package:ecommerce_app/src/features/layout/screens/profile_tab.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
-
-
-import '../../../../generated/assets.dart';
 import '../widgets/custom_nav_item.dart';
 
 class LayoutScreen extends StatefulWidget {

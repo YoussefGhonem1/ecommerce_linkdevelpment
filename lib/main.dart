@@ -1,11 +1,10 @@
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
+import 'package:ecommerce_app/src/shared/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'src/shared/routing/app_routes.dart';
-import 'src/shared/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -18,6 +17,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
       onGenerateRoute: AppRoutes.onGenerateRoute,
+      initialRoute: Routes.initial,
     );
   }
 }

@@ -45,7 +45,9 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
               CustomButton(
                 text: 'Continue',
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.layout);
+
+                  Navigator.pushNamed(context, Routes.categoryPage);
+
                 },
               ),
               const SizedBox(height: 20),

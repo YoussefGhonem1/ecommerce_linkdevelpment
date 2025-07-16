@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+
   static const String iconsAppleDark = 'assets/icons/apple_dark.svg';
   static const String iconsAppleLight = 'assets/icons/apple_light.svg';
   static const String iconsFacebook = 'assets/icons/facebook.svg';
@@ -19,5 +20,6 @@ class Assets {
   static const String imagesImagePageItem3 = 'assets/images/image_page_item3.svg';
   static const String imagesProfileImage = 'assets/images/profile_image.png';
   static const String imagesRestPasswordImage = 'assets/images/rest_password_image.png';
+
 
 }
