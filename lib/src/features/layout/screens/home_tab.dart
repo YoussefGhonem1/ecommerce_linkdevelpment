@@ -1,7 +1,6 @@
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../../generated/assets.dart';
 
 class HomeTab extends StatelessWidget {
