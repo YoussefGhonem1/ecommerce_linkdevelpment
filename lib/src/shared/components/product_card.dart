@@ -49,9 +49,7 @@ class ProductCard extends StatelessWidget {
               onFavoriteTap: onFavoriteTap,
             ),
             ProductInfo(
-              productName: product.productName,
-              currentPrice: product.currentPrice,
-              originalPrice: product.originalPrice,
+              product: product,
             ),
           ],
         ),

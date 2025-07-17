@@ -1,14 +1,11 @@
+import 'package:ecommerce_app/src/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductInfo extends StatelessWidget {
-  final String productName;
-  final double currentPrice;
-  final double? originalPrice;
+   final ProductModel product;
 
   const ProductInfo({super.key, 
-    required this.productName,
-    required this.currentPrice,
-    required this.originalPrice,
+    required this.product,
   });
 
   @override
@@ -21,7 +18,7 @@ class ProductInfo extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            productName,
+            product.productName,
             style: theme.appBarTheme.titleTextStyle,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -31,13 +28,13 @@ class ProductInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                '\$${currentPrice.toStringAsFixed(2)}',
+                '\$${product.currentPrice.toStringAsFixed(2)}',
                 style: theme.appBarTheme.titleTextStyle,
               ),
               const SizedBox(width: 8),
-              if (originalPrice != null)
+              if (product.originalPrice != null)
                 Text(
-                  '\$${originalPrice!.toStringAsFixed(2)}',
+                  '\$${product.originalPrice!.toStringAsFixed(2)}',
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.grey,

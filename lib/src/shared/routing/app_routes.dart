@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../../features/products_by_category/screens/products_by_category_screen.dart';
 import '../../features/shopping_category/presentation/pages/category_page.dart';
@@ -47,9 +46,11 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const CategoriesPage());
       case Routes.productsByCategoryScreen:
         final categoryTitle = settings.arguments as String;
-        return MaterialPageRoute(builder: (_) =>  ProductsByCategoryScreen(categoryTitle: categoryTitle,));
+        return MaterialPageRoute(
+          builder:
+              (_) => ProductsByCategoryScreen(categoryTitle: categoryTitle),
+        );
 
-      
       default:
         return MaterialPageRoute(
           builder:
