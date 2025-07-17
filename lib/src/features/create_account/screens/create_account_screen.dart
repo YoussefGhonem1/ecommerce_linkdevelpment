@@ -1,8 +1,9 @@
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/features/create_account/widgets/custom_back_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
+
+import '../../../shared/components/custom_back_button.dart';
 
 class CreateAccountPage extends StatelessWidget {
   const CreateAccountPage({super.key});
@@ -25,11 +26,13 @@ class CreateAccountPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomBackButton(),
+                const CustomBackButtonIcon(),
                 const SizedBox(height: 16),
                 Text(
                   'Create Account',
-                  style: theme.textTheme.headlineMedium,
+                  style: theme.textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 32),
 
@@ -58,7 +61,12 @@ class CreateAccountPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
 
-                CustomButton(text: 'Continue', onPressed: () {}),
+                CustomButton(
+                  text: 'Continue',
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.signInEmail);
+                  },
+                ),
                 const SizedBox(height: 16),
 
                 // Forgot Password
