@@ -27,9 +27,8 @@ class _LayoutScreenState extends State<LayoutScreen> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: AppColors.bgLightColor,
           type: BottomNavigationBarType.fixed,
-          fixedColor: Colors.white,
+          fixedColor: AppColors.bgLightColor,
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
 

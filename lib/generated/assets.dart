@@ -5,13 +5,13 @@ class Assets {
 
   static const String iconsAppleDark = 'assets/icons/apple_dark.svg';
   static const String iconsAppleLight = 'assets/icons/apple_light.svg';
+  static const String iconsCart = 'assets/icons/cart.svg';
   static const String iconsFacebook = 'assets/icons/facebook.svg';
   static const String iconsGoogle = 'assets/icons/google.svg';
   static const String iconsHome = 'assets/icons/home.svg';
   static const String iconsNotification = 'assets/icons/notification.svg';
   static const String iconsOrders = 'assets/icons/orders.svg';
   static const String iconsProfile = 'assets/icons/profile.svg';
-  static const String iconsCart = 'assets/icons/cart.svg';
   static const String imagesBackgroudPageView1 = 'assets/images/backgroud_page_view1.svg';
   static const String imagesBackgroudPageView2 = 'assets/images/backgroud_page_view2.svg';
   static const String imagesBackgroudPageView3 = 'assets/images/backgroud_page_view3.svg';
