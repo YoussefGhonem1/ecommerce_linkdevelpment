@@ -48,8 +48,8 @@ class HomeTab extends StatelessWidget {
                   children: [
                     Text("Categories", style: theme.textTheme.headlineSmall),
                     GestureDetector(
-                      onTap: (){
-                        Navigator.pushNamed(context,Routes.categoryPage);
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.categoryPage);
                       },
                       child: Text("See All", style: theme.textTheme.bodyMedium),
                     ),
@@ -59,11 +59,22 @@ class HomeTab extends StatelessWidget {
               SizedBox(
                 height: 120,
                 child: ListView.builder(
-                    itemCount: CategoryModel.categories.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context,index){
-                      return CategoryCircleCard(category: CategoryModel.categories[index]);
-                    }
+                  itemCount: CategoryModel.categories.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.productsByCategoryScreen,
+                          arguments: CategoryModel.categories[index].title,
+                        );
+                      },
+                      child: CategoryCircleCard(
+                        category: CategoryModel.categories[index],
+                      ),
+                    );
+                  },
                 ),
               ),
               Padding(
@@ -73,7 +84,7 @@ class HomeTab extends StatelessWidget {
                   children: [
                     Text("Top Selling", style: theme.textTheme.headlineSmall),
                     GestureDetector(
-                      onTap: (){},
+                      onTap: () {},
                       child: Text("See All", style: theme.textTheme.bodyMedium),
                     ),
                   ],
@@ -82,11 +93,15 @@ class HomeTab extends StatelessWidget {
               SizedBox(
                 height: 280,
                 child: ListView.builder(
-                    itemCount: ProductModel.products.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context,index){
-                      return ProductCard(width: 160, height: 280, product: ProductModel.products[index]);
-                    }
+                  itemCount: ProductModel.products.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return ProductCard(
+                      width: 160,
+                      height: 280,
+                      product: ProductModel.products[index],
+                    );
+                  },
                 ),
               ),
               Padding(
@@ -94,11 +109,14 @@ class HomeTab extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("New In", style: theme.textTheme.headlineSmall?.copyWith(
-                      color: AppColors.primaryColor,
-                    )),
+                    Text(
+                      "New In",
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
                     GestureDetector(
-                      onTap: (){},
+                      onTap: () {},
                       child: Text("See All", style: theme.textTheme.bodyMedium),
                     ),
                   ],
@@ -107,18 +125,21 @@ class HomeTab extends StatelessWidget {
               SizedBox(
                 height: 280,
                 child: ListView.builder(
-                    itemCount: ProductModel.products.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context,index){
-                      return ProductCard(width: 160, height: 280, product: ProductModel.products[index]);
-                    }
+                  itemCount: ProductModel.products.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return ProductCard(
+                      width: 160,
+                      height: 280,
+                      product: ProductModel.products[index],
+                    );
+                  },
                 ),
               ),
             ],
           ),
         ),
       ),
-
     );
   }
 }
