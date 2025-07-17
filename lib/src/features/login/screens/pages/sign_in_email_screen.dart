@@ -1,16 +1,17 @@
-import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
-import 'package:flutter/material.dart';
+import 'package:ecommerce_app/src/features/login/screens/widgets/custom_social_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
+import 'package:flutter/material.dart';
 
-class SignInPasswordScreen extends StatefulWidget {
-  const SignInPasswordScreen({super.key});
+class SignInEmailScreen extends StatefulWidget {
+  const SignInEmailScreen({super.key});
 
   @override
-  State<SignInPasswordScreen> createState() => _SignInPasswordScreenState();
+  State<SignInEmailScreen> createState() => _SignInEmailScreenState();
 }
 
-class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
+class _SignInEmailScreenState extends State<SignInEmailScreen> {
   final _emailController = TextEditingController();
 
   @override
@@ -22,8 +23,8 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return Scaffold(
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(
@@ -37,30 +38,30 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
               const SizedBox(height: 40),
               CustomTextField(
                 controller: _emailController,
-                hintText: 'Password',
+                hintText: 'Email Address',
                 keyboardType: TextInputType.name,
-                obscureText: true,
               ),
               const SizedBox(height: 20),
               CustomButton(
                 text: 'Continue',
                 onPressed: () {
-
-                  Navigator.pushNamed(context, Routes.categoryPage);
-
+                  Navigator.pushNamed(context, Routes.signInPassword);
                 },
               ),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("Forgot Password ? ", style: theme.textTheme.bodyMedium),
+                  Text(
+                    "Don't have an Account? ",
+                    style: theme.textTheme.bodyMedium,
+                  ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, Routes.forgetPassword);
+                      Navigator.pushNamed(context, Routes.createAccount);
                     },
                     child: Text(
-                      'Reset',
+                      'Create One',
                       style: TextStyle(
                         color: theme.textTheme.bodyMedium?.color,
                         fontWeight: FontWeight.bold,
@@ -68,6 +69,27 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(height: 80),
+              SocialLoginButton(
+                svgAssetPath:
+                    MediaQuery.of(context).platformBrightness == Brightness.dark
+                        ? 'assets/icons/apple_dark.svg'
+                        : 'assets/icons/apple_light.svg',
+                text: 'Continue With Apple',
+                onPressed: () {},
+              ),
+              const SizedBox(height: 15),
+              SocialLoginButton(
+                svgAssetPath: 'assets/icons/google.svg',
+                text: 'Continue With Google',
+                onPressed: () {},
+              ),
+              const SizedBox(height: 15),
+              SocialLoginButton(
+                svgAssetPath: 'assets/icons/facebook.svg',
+                text: 'Continue With Facebook',
+                onPressed: () {},
               ),
             ],
           ),

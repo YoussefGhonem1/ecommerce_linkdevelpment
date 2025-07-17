@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomBackButtonIcon extends StatelessWidget {
-  const CustomBackButtonIcon({Key? key}) : super(key: key);
+  const CustomBackButtonIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
     return GestureDetector(
       onTap: () => Navigator.pop(context),
       child: Padding(
@@ -20,7 +22,9 @@ class CustomBackButtonIcon extends StatelessWidget {
           ),
           child: Center(
             child: SvgPicture.asset(
-              Assets.imagesArrowBackDark,
+              isDarkMode
+                  ? Assets.imagesArrowBackLight
+                  : Assets.imagesArrowBackDark,
               height: 24,
               width: 24,
             ),

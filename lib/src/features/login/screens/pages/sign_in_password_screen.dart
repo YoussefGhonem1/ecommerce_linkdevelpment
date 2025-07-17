@@ -1,17 +1,16 @@
-import 'package:ecommerce_app/src/shared/components/custom_button.dart';
-import 'package:ecommerce_app/src/shared/components/custom_social_button.dart';
-import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/src/shared/components/custom_button.dart';
+import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
 
-class SignInEmailScreen extends StatefulWidget {
-  const SignInEmailScreen({super.key});
+class SignInPasswordScreen extends StatefulWidget {
+  const SignInPasswordScreen({super.key});
 
   @override
-  State<SignInEmailScreen> createState() => _SignInEmailScreenState();
+  State<SignInPasswordScreen> createState() => _SignInPasswordScreenState();
 }
 
-class _SignInEmailScreenState extends State<SignInEmailScreen> {
+class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
   final _emailController = TextEditingController();
 
   @override
@@ -23,7 +22,6 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -38,30 +36,28 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               const SizedBox(height: 40),
               CustomTextField(
                 controller: _emailController,
-                hintText: 'Email Address',
+                hintText: 'Password',
                 keyboardType: TextInputType.name,
+                obscureText: true,
               ),
               const SizedBox(height: 20),
               CustomButton(
                 text: 'Continue',
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.signInPassword);
+                  Navigator.pushNamed(context, Routes.categoryPage);
                 },
               ),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    "Don't have an Account? ",
-                    style: theme.textTheme.bodyMedium,
-                  ),
+                  Text("Forgot Password ? ", style: theme.textTheme.bodyMedium),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, Routes.createAccount);
+                      Navigator.pushNamed(context, Routes.forgetPassword);
                     },
                     child: Text(
-                      'Create One',
+                      'Reset',
                       style: TextStyle(
                         color: theme.textTheme.bodyMedium?.color,
                         fontWeight: FontWeight.bold,
@@ -69,27 +65,6 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                     ),
                   ),
                 ],
-              ),
-              const SizedBox(height: 80),
-              SocialLoginButton(
-                svgAssetPath:
-                    MediaQuery.of(context).platformBrightness == Brightness.dark
-                        ? 'assets/icons/apple_dark.svg'
-                        : 'assets/icons/apple_light.svg',
-                text: 'Continue With Apple',
-                onPressed: () {},
-              ),
-              const SizedBox(height: 15),
-              SocialLoginButton(
-                svgAssetPath: 'assets/icons/google.svg',
-                text: 'Continue With Google',
-                onPressed: () {},
-              ),
-              const SizedBox(height: 15),
-              SocialLoginButton(
-                svgAssetPath: 'assets/icons/facebook.svg',
-                text: 'Continue With Facebook',
-                onPressed: () {},
               ),
             ],
           ),
