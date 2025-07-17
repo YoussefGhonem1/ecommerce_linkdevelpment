@@ -2,6 +2,7 @@ import 'package:ecommerce_app/core/app_constants.dart';
 import 'package:ecommerce_app/src/features/shopping_category/data/models/category_model.dart';
 import 'package:ecommerce_app/src/shared/components/custom_card.dart';
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesPage extends StatelessWidget {
@@ -33,7 +34,11 @@ class CategoriesPage extends StatelessWidget {
                       imageSize: categoryImageSize,
                       fontSize: CategoryFontSize,
                       onTap: () {
-                        // Navigation.pushNamed(context, Routes.);
+                        Navigator.pushNamed(
+                          context,
+                          Routes.productsByCategoryScreen,
+                           arguments: CategoryModel.categories[index].title,
+                        );
                       },
                     );
                   },

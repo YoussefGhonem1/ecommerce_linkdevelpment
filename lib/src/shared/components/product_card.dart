@@ -32,7 +32,7 @@ class ProductCard extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           color: isDarkMode ? AppColors.darkGrey : AppColors.lightGrey,
-          borderRadius: BorderRadius.circular(18.0),
+          borderRadius: BorderRadius.circular(12.0),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.05),
@@ -44,7 +44,10 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProductImage(imageUrl: product.imageUrl, onFavoriteTap: onFavoriteTap),
+            ProductImage(
+              imageUrl: product.imageUrl,
+              onFavoriteTap: onFavoriteTap,
+            ),
             ProductInfo(
               productName: product.productName,
               currentPrice: product.currentPrice,

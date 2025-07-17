@@ -22,7 +22,6 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -45,9 +44,7 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
               CustomButton(
                 text: 'Continue',
                 onPressed: () {
-
-                  Navigator.pushNamed(context, Routes.layout);
-
+                  Navigator.pushNamed(context, Routes.categoryPage);
                 },
               ),
               const SizedBox(height: 20),

@@ -23,7 +23,7 @@ class ProductInfo extends StatelessWidget {
           Text(
             productName,
             style: theme.appBarTheme.titleTextStyle,
-            maxLines: 2,
+            maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 6),

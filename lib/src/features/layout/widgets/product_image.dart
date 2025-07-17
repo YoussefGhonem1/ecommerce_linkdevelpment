@@ -11,8 +11,8 @@ class ProductImage extends StatelessWidget {
     return Expanded(
       child: ClipRRect(
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(18),
-          topRight: Radius.circular(18),
+          topLeft: Radius.circular(12),
+          topRight: Radius.circular(12),
         ),
         child: Stack(
           children: [
