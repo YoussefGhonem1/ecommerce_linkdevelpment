@@ -44,7 +44,11 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
               CustomButton(
                 text: 'Continue',
                 onPressed: () {
+<<<<<<< HEAD
                   Navigator.pushNamedAndRemoveUntil(context, Routes.layout,(route)=>false);
+=======
+                  Navigator.pushNamed(context, Routes.layout);
+>>>>>>> feature/search-bar_loading-screen
                 },
               ),
               const SizedBox(height: 20),
