@@ -20,6 +20,17 @@ class Assets {
   static const String imagesImagePageItem3 = 'assets/images/image_page_item3.svg';
   static const String imagesProfileImage = 'assets/images/profile_image.png';
   static const String imagesRestPasswordImage = 'assets/images/rest_password_image.png';
+  static const String imagesCategory1 = "assets/images/category1.png";
+  static const String imagesCategory2 = "assets/images/category2.png";
+  static const String imagesCategory3 = "assets/images/category3.png";
+  static const String imagesCategory4 = "assets/images/category4.png";
+  static const String imagesCategory5 = "assets/images/category5.png";
+  static const String imagesArrowBackDark = "assets/images/arrow_back_dark.svg";
+  static const String imagesArrowBackLight = "assets/images/arrow_back_light.svg";
+  static const String noNotificationBell = "assets/images/no_notification_bell.png";
+  static const String notificationBingUnread = "assets/images/notification_bing_unread.svg";
+  static const String notificationBingRead = "assets/images/notification_bing.svg";
+
 
 
 }

@@ -1,4 +1,5 @@
-import 'package:ecommerce_app/core/utils/app_images.dart';
+
+import 'package:ecommerce_app/generated/assets.dart';
 
 class CategoryModel {
   final String title;
