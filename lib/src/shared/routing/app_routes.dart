@@ -9,6 +9,7 @@ import '../../features/splash/presentation/pages/splash_page.dart';
 import '../../features/forget_password/screens/forget_password_screen.dart';
 import '../../features/forget_password/screens/return_to_login_screen.dart';
 import '../../features/create_account/screens/create_account_screen.dart';
+import '../../features/loading_screen/loading_screen.dart';
 
 class Routes {
   static const String initial = '/';
@@ -21,6 +22,7 @@ class Routes {
   static const String createAccount = '/create-Account';
   static const String layout = '/layout';
   static const String productsByCategoryScreen = '/products_by_category';
+  static const String loadingScreen = '/loading-screen';
 }
 
 class AppRoutes {
@@ -44,6 +46,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const LayoutScreen());
       case Routes.categoryPage:
         return MaterialPageRoute(builder: (_) => const CategoriesPage());
+      case Routes.loadingScreen:
+        return MaterialPageRoute(builder: (_) => const LoadingScreen());
       case Routes.productsByCategoryScreen:
         final categoryTitle = settings.arguments as String;
         return MaterialPageRoute(
