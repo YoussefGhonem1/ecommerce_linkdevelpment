@@ -1,6 +1,6 @@
+import 'package:ecommerce_app/generated/assets.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_images.dart';
 import '../../../shared/routing/app_routes.dart';
 
 class ReturnToLoginScreen extends StatelessWidget {
