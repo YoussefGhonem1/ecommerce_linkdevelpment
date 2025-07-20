@@ -1,13 +1,13 @@
 import 'package:ecommerce_app/src/features/shopping_category/data/models/category_model.dart';
 import 'package:flutter/material.dart';
 
-class CustomCardSize extends StatelessWidget {
+class CategoryCard extends StatelessWidget {
   final CategoryModel category;
   final double imageSize;
   final double fontSize;
   final VoidCallback? onTap;
 
-  const CustomCardSize({
+  const CategoryCard({
     Key? key,
     required this.category,
     required this.imageSize,

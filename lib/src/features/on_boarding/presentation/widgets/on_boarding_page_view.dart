@@ -1,4 +1,5 @@
-import 'package:ecommerce_app/core/utils/app_images.dart';
+
+import 'package:ecommerce_app/generated/assets.dart';
 import 'package:ecommerce_app/src/features/on_boarding/presentation/widgets/page_view_item.dart';
 import 'package:flutter/material.dart';
 
