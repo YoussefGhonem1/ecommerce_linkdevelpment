@@ -57,5 +57,7 @@ class Assets {
   /// Assets for imagesRestPasswordImage
   /// assets/images/rest_password_image.png
   static const String imagesRestPasswordImage = "assets/images/rest_password_image.png";
+
+  static const String imagesOrdersImage = 'assets/images/orders_image.png';
 }
 
