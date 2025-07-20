@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
+import 'package:ecommerce_app/src/features/order_details/screens/order_details_screen.dart';
 import 'package:flutter/material.dart';
 import '../../features/products_by_category/screens/products_by_category_screen.dart';
 import '../../features/shopping_category/presentation/pages/category_page.dart';
@@ -21,6 +23,7 @@ class Routes {
   static const String createAccount = '/create-Account';
   static const String layout = '/layout';
   static const String productsByCategoryScreen = '/products_by_category';
+  static const String orderDetails = '/order_details';
 }
 
 class AppRoutes {
@@ -50,7 +53,11 @@ class AppRoutes {
           builder:
               (_) => ProductsByCategoryScreen(categoryTitle: categoryTitle),
         );
-
+      case Routes.orderDetails:
+        final order = settings.arguments as Order;
+        return MaterialPageRoute(
+          builder: (_) => OrderDetailsScreen(order: order),
+        );
       default:
         return MaterialPageRoute(
           builder:
