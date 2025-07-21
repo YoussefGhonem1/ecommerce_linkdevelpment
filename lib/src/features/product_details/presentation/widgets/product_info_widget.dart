@@ -11,7 +11,7 @@ class ProductInfoWidget extends StatelessWidget {
       children: [
         Text("Men's Harrington Jacket", style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontFamily: 'Gabarito')),
         SizedBox(height: 8),
-        Text('\$148', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: AppColors.primaryColor)),
+        Text('\$148', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: AppColors.primaryColor, fontFamily: 'Gabarito')),
       ],
     );
   }
