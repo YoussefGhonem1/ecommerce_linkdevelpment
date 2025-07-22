@@ -25,7 +25,19 @@ class ReviewTile extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 24,
-          backgroundImage: NetworkImage(imageUrl),
+          child: ClipOval(
+            child: Image.network(
+              imageUrl,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return  Icon(
+                  Icons.person,
+                  color: Theme.of(context).colorScheme.onPrimaryFixed,
+                  size: 40,
+                );
+              },
+            ),
+          ),
         ),
         const SizedBox(width: 12),
         Expanded(
@@ -62,7 +74,7 @@ class ReviewTile extends StatelessWidget {
               Text(
                 date,
                 style:Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Colors.black,
+                  color: Theme.of(context).colorScheme.onPrimaryFixed,
                   fontSize: 13,
                 ),
               ),

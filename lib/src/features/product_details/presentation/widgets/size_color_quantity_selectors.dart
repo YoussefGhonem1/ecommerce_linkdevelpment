@@ -42,8 +42,14 @@ class _SizeColorQuantitySelectorState extends State<SizeColorQuantitySelector> {
                   Text(selectedSize, style: const TextStyle(fontWeight: FontWeight.bold)),
                   const SizedBox(width: 11),
                   DropdownButton<String>(
+                    style: Theme.of(context).textTheme.bodyMedium,
                     underline: const SizedBox(),
-                    icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                    dropdownColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                    icon: SvgPicture.asset(
+                      MediaQuery.of(context).platformBrightness == Brightness.dark
+                      ? Assets.iconArrowDownLight
+                      : Assets.iconArrowDownDark
+                    ),
                     items: sizes.map((size) {
                       return DropdownMenuItem(
                         value: size,
@@ -94,8 +100,14 @@ class _SizeColorQuantitySelectorState extends State<SizeColorQuantitySelector> {
                   const SizedBox(width: 8),
                   DropdownButton<String>(
                     value: selectedColor,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    dropdownColor: Theme.of(context).colorScheme.onPrimaryContainer,
                     underline: const SizedBox(),
-                    icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                    icon: SvgPicture.asset(
+                      MediaQuery.of(context).platformBrightness == Brightness.dark
+                      ? Assets.iconArrowDownLight
+                      : Assets.iconArrowDownDark
+                    ),
                     items: colors.map((color) {
                       return DropdownMenuItem(
                         value: color,

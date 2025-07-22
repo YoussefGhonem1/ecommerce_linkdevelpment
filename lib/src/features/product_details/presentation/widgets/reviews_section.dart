@@ -28,7 +28,7 @@ class ReviewsSection extends StatelessWidget {
         const SizedBox(height: 20),
         const ReviewTile(
           name: 'Alex Morgan',
-          imageUrl: 'https://www.ps4wallpapers.com/wp-content/uploads/2017/03/PS4Wallpapers.com_bg15.jpg',
+          imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCvOzfh7BelELSROZatmi3xxMBIlfWTjt0Bw&s',
           rating: 4,
           comment:
               'Gucci transcribes its heritage, creativity, and innovation into a plenitude of collections. From staple items to distinctive accessories.',

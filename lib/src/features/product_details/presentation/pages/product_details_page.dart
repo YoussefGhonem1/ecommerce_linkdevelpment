@@ -1,15 +1,38 @@
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/buttom_bar.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/product_detail_body.dart';
+import 'package:ecommerce_app/src/shared/components/loading_screen.dart';
 import 'package:flutter/material.dart';
 
-class ProductDetailScreen extends StatelessWidget {
+class ProductDetailScreen extends StatefulWidget {
   const ProductDetailScreen({super.key});
 
   @override
+  State<ProductDetailScreen> createState() => _ProductDetailScreenState();
+}
+
+class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  bool _isLoading = true;
+  @override
+  void initState() {
+    super.initState();
+    _simulateLoading();
+  }
+
+  Future<void> _simulateLoading() async {
+    await Future.delayed(const Duration(seconds: 2)); // simulate loading delay
+    if (mounted) {
+      setState(() => _isLoading = false);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const BottomBar(),
-      body: const ProductDetailBody(),
+    return LoadingOverlay(
+      isLoading: _isLoading,
+      child: Scaffold(
+        bottomNavigationBar: const BottomBar(),
+        body: const ProductDetailBody(),
+      ),
     );
   }
 }

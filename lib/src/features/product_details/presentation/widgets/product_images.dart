@@ -19,13 +19,12 @@ class _ProductImagesState extends State<ProductImages> {
     'https://ashanderie.com/cdn/shop/files/harrington-jacket-khaki-harrington-jacket-44905743647018.jpg?v=1715744424&width=1080',
     'https://ashanderie.com/cdn/shop/files/harrington-jacket-khaki-harrington-jacket-44905743974698.jpg?v=1715744430&width=1080',
     'https://andsons.co.uk/cdn/shop/files/RebelJacketStoneLSMOBILE6.jpg',
-
   ];
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 260,    
+      height: 260,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: images.length,
@@ -42,14 +41,25 @@ class _ProductImagesState extends State<ProductImages> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: isSelected ? AppColors.primaryColor: Colors.transparent,
+                  color:
+                      isSelected ? AppColors.primaryColor : Colors.transparent,
                   width: 3,
                 ),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    images[index],
-                    ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  images[index],
                   fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return  Center(
+                      child: Icon(
+                        Icons.image_not_supported,
+                        color: Theme.of(context).colorScheme.onPrimaryFixed,
+                        size: 40,
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
