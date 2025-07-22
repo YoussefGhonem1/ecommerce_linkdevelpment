@@ -19,7 +19,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   Future<void> _simulateLoading() async {
-    await Future.delayed(const Duration(seconds: 2)); // simulate loading delay
+    await Future.delayed(const Duration(seconds: 2)); 
     if (mounted) {
       setState(() => _isLoading = false);
     }
@@ -30,7 +30,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     return LoadingOverlay(
       isLoading: _isLoading,
       child: Scaffold(
-        bottomNavigationBar: const BottomBar(),
+        bottomNavigationBar: const BottomBar(price: 148.00),
         body: const ProductDetailBody(),
       ),
     );
