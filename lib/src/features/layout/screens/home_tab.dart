@@ -145,6 +145,7 @@ class _HomeTabState extends State<HomeTab> {
                         width: 160,
                         height: 280,
                         product: ProductModel.products[index],
+                        onTap: () => Navigator.pushNamed(context, Routes.productDetailScreen),
                       );
                     },
                   ),
@@ -180,6 +181,7 @@ class _HomeTabState extends State<HomeTab> {
                         width: 160,
                         height: 280,
                         product: ProductModel.products[index],
+                        onTap: () => Navigator.pushNamed(context, Routes.productDetailScreen),
                       );
                     },
                   ),
