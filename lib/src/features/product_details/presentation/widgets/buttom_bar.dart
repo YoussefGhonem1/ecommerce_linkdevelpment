@@ -1,4 +1,3 @@
-
 import 'package:ecommerce_app/src/features/product_details/presentation/manager/quantity_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,9 +9,9 @@ class BottomBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final totalPrice = ref.watch(totalPriceProvider(price));
+    final quantity = ref.watch(quantityProvider);
 
-    return Container(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 25),
       child: ElevatedButton(
         onPressed: () {},
@@ -25,7 +24,7 @@ class BottomBar extends ConsumerWidget {
         child: Row(
           children: [
             Text(
-              '\$${totalPrice.toStringAsFixed(2)}',
+              '\$${(price * quantity).toStringAsFixed(2)}',
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white),
             ),
             const Spacer(),
@@ -39,4 +38,3 @@ class BottomBar extends ConsumerWidget {
     );
   }
 }
-

@@ -12,8 +12,10 @@ class QuantityNotifier extends StateNotifier<int> {
   }
 }
 
-// السعر الإجمالي حسب السعر اللي هنبعته:
-final totalPriceProvider = Provider.family<double, double>((ref, unitPrice) {
-  final quantity = ref.watch(quantityProvider);
-  return quantity * unitPrice;
-});
+// final totalPriceProvider = Provider.family<double, double>((ref, unitPrice) {
+//   final quantity = ref.watch(quantityProvider);
+//   return quantity * unitPrice;
+// }
+// );
+
+

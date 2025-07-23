@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/generated/assets.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/manager/quantity_notifier.dart';
-import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
+import 'package:ecommerce_app/src/features/product_details/presentation/widgets/circle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -144,13 +144,13 @@ class _SizeColorQuantitySelectorState extends ConsumerState<SizeColorQuantitySel
               Text("Quantity", style: Theme.of(context).textTheme.bodyMedium),
               Row(
                 children: [
-                  _circleButton(Assets.iconAdd, () {
+                  CircleButton(image: Assets.iconAdd, onTap: () {
                     ref.read(quantityProvider.notifier).increment();
                   }),
                   const SizedBox(width: 12),
                   Text("$quantity", style: const TextStyle(fontWeight: FontWeight.bold)),
                   const SizedBox(width: 12),
-                  _circleButton(Assets.iconMinus, () {
+                  CircleButton(image:  Assets.iconMinus,onTap:  () {
                     ref.read(quantityProvider.notifier).decrement();
                   }),
                 ],
@@ -162,19 +162,5 @@ class _SizeColorQuantitySelectorState extends ConsumerState<SizeColorQuantitySel
     );
   }
 
-  Widget _circleButton(String image, VoidCallback onTap) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 36,
-        height: 36,
-        decoration: const BoxDecoration(
-          color: AppColors.primaryColor,
-          shape: BoxShape.circle,
-        ),
-        child: Center(child: SvgPicture.asset(image)),
-      ),
-    );
-  }
 }
 
