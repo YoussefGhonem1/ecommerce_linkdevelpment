@@ -44,11 +44,8 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
               CustomButton(
                 text: 'Continue',
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    Routes.layout,
-                    (route) => false,
-                  );
+                  //Navigator.pushNamedAndRemoveUntil(context,Routes.layout,(route) => false,);
+                  Navigator.pushNamed(context, Routes.orderPlaced);
                 },
               ),
               const SizedBox(height: 20),

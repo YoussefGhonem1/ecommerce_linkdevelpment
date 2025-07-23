@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/features/order-placed-successfully/order-placed-successfully.dart';
 import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
 import 'package:ecommerce_app/src/features/order_details/screens/order_details_screen.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/pages/product_details_page.dart';
@@ -27,6 +28,7 @@ class Routes {
   static const String orderDetails = '/order_details';
   static const String loadingScreen = '/loading-screen';
   static const String productDetailScreen = '/product_detail_screen';
+  static const String orderPlaced = '/order_placed_successfully_screen';
 }
 
 class AppRoutes {
@@ -52,6 +54,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const CategoriesPage());
       case Routes.productDetailScreen:
         return MaterialPageRoute(builder: (_) => const ProductDetailScreen());
+      case Routes.orderPlaced:
+        return MaterialPageRoute(
+          builder: (_) => const OrderPlacedSuccessScreen(),
+        );
       case Routes.productsByCategoryScreen:
         final categoryTitle = settings.arguments as String;
         return MaterialPageRoute(
