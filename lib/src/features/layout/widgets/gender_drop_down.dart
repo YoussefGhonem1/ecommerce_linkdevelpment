@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class GenderDropdown extends StatefulWidget {
