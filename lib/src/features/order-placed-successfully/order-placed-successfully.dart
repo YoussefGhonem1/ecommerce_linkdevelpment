@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 
 class OrderPlacedSuccessScreen extends StatelessWidget {
   const OrderPlacedSuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.sizeOf(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF9B5DE5),
+      backgroundColor: AppColors.primaryColor,
       body: Column(
         children: [
-          // 🟣 Purple header - flex: 4
           Expanded(
             flex: 3,
             child: Container(
               width: double.infinity,
-              color: const Color(0xFF9B5DE5),
+              color: AppColors.primaryColor,
               child: Center(
                 child: Image.asset(
-                  'assets/images/order_placed.png', // Replace with your asset
-                  width: MediaQuery.of(context).size.width * 0.6,
+                  'assets/images/order_placed.png',
+                  width: size.width * 0.6,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -67,9 +67,7 @@ class OrderPlacedSuccessScreen extends StatelessWidget {
                       height: 50,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(
-                            0xFF9B5DE5,
-                          ), // Purple button
+                          backgroundColor: const Color(0xFF9B5DE5),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25),
                           ),
