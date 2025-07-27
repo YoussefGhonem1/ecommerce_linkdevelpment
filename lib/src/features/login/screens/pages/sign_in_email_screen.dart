@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
 import 'package:ecommerce_app/src/features/login/screens/widgets/custom_social_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
@@ -77,7 +78,9 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                         ? 'assets/icons/apple_dark.svg'
                         : 'assets/icons/apple_light.svg',
                 text: 'Continue With Apple',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.checkoutScreen,arguments: testCheckout);
+                },
               ),
               const SizedBox(height: 15),
               SocialLoginButton(
