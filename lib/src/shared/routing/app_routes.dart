@@ -1,3 +1,7 @@
+import 'package:ecommerce_app/src/features/cart/screens/cart_page.dart';
+import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
+import 'package:ecommerce_app/src/features/order_details/screens/order_details_screen.dart';
+import 'package:ecommerce_app/src/features/product_details/presentation/pages/product_details_page.dart';
 import 'package:flutter/material.dart';
 import '../../features/products_by_category/screens/products_by_category_screen.dart';
 import '../../features/shopping_category/presentation/pages/category_page.dart';
@@ -21,6 +25,10 @@ class Routes {
   static const String createAccount = '/create-Account';
   static const String layout = '/layout';
   static const String productsByCategoryScreen = '/products_by_category';
+  static const String orderDetails = '/order_details';
+  static const String loadingScreen = '/loading-screen';
+  static const String productDetailScreen = '/product_detail_screen';
+  static const String cartPage = '/cart_page';
 }
 
 class AppRoutes {
@@ -44,13 +52,21 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const LayoutScreen());
       case Routes.categoryPage:
         return MaterialPageRoute(builder: (_) => const CategoriesPage());
+      case Routes.productDetailScreen:
+        return MaterialPageRoute(builder: (_) => const ProductDetailScreen());
       case Routes.productsByCategoryScreen:
         final categoryTitle = settings.arguments as String;
         return MaterialPageRoute(
           builder:
               (_) => ProductsByCategoryScreen(categoryTitle: categoryTitle),
         );
-
+      case Routes.orderDetails:
+        final order = settings.arguments as Order;
+        return MaterialPageRoute(
+          builder: (_) => OrderDetailsScreen(order: order),
+        );
+      case Routes.cartPage:
+        return MaterialPageRoute(builder: (_) => const CartPage());
       default:
         return MaterialPageRoute(
           builder:
