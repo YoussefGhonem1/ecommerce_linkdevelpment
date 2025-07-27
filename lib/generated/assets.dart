@@ -36,6 +36,4 @@ class Assets {
   static const String iconMinus = 'assets/icons/minus.svg';
   static const String iconArrowDownDark = 'assets/icons/arrowdown_dark.svg';
   static const String iconArrowDownLight = 'assets/icons/arrowdown_light.svg';
-  static const String masterCardIcon = 'assets/icons/mastercard_icon.svg';
-
 }

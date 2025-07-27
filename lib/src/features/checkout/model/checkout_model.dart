@@ -11,10 +11,3 @@ class CheckoutModel {
     required this.total,
   });
 }
-
-CheckoutModel testCheckout = CheckoutModel(
-  subtotal: 200,
-  shippingCost: 8,
-  tax: 0,
-  total: 208,
-);

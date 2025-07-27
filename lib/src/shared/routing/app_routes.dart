@@ -77,7 +77,9 @@ class AppRoutes {
         );
       case Routes.checkoutScreen:
         final checkoutModel = settings.arguments as CheckoutModel;
-        return MaterialPageRoute(builder: (_) => CheckoutScreen(checkoutModel: checkoutModel,));
+        return MaterialPageRoute(
+          builder: (_) => CheckoutScreen(checkoutModel: checkoutModel),
+        );
       case Routes.cartPage:
         return MaterialPageRoute(builder: (_) => const CartPage());
       default:

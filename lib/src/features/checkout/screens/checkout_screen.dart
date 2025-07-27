@@ -1,27 +1,20 @@
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
-import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../generated/assets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../shared/components/custom_back_button.dart';
-import '../widegts/build_price_row.dart';
+import '../../../shared/routing/app_routes.dart';
+import '../../../shared/theme/app_colors.dart';
+import '../../cart/widgets/price_row.dart';
+import '../provider/checkout_notifier.dart';
+import 'add_address_screen.dart';
+import 'add_card_screen.dart';
 
-class CheckoutScreen extends StatefulWidget {
+class CheckoutScreen extends ConsumerWidget {
   final CheckoutModel checkoutModel;
-  const CheckoutScreen({
-    super.key,
-    required this.checkoutModel,
-  });
-
+  const CheckoutScreen({super.key, required this.checkoutModel});
   @override
-  State<CheckoutScreen> createState() => _CheckoutScreenState();
-}
-
-class _CheckoutScreenState extends State<CheckoutScreen> {
-  String? selectedAddress;
-  String? selectedCard;
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final checkoutState = ref.watch(checkoutProvider);
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -34,74 +27,118 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            /// Shipping Address Card
+            // Shipping Address Section
             GestureDetector(
-              onTap: () {
-                // Navigate to select or enter address
-                // For demo: simulate address selection
-                setState(() {
-                  selectedAddress = "2715 Ash Dr. San Jose, South Dakota";
-                });
-              },
-              child: _buildTile(
-                label: 'Shipping Address',
-                value: selectedAddress ?? 'Add Shipping Address',
-              ),
-            ),
-
-            const SizedBox(height: 16),
-
-            /// Payment Method Card
-            GestureDetector(
-              onTap: () {
-                // Navigate to select or enter payment method
-                setState(() {
-                  selectedCard = "**** 4187";
-                });
-              },
-              child: _buildTile(
-                label: 'Payment Method',
-                value: selectedCard != null ? '**** ${selectedCard!.substring(selectedCard!.length - 4)}' : 'Add Payment Method',
-                showCardIcon: selectedCard != null,
-              ),
-            ),
-
-            const Spacer(),
-            BuildPriceRow(label: "Subtotal",value: widget.checkoutModel.subtotal,),
-            BuildPriceRow( label: "Shipping Cost", value: widget.checkoutModel.shippingCost,),
-            BuildPriceRow(label: "Tax", value: widget.checkoutModel.tax,),
-            const SizedBox(height: 4),
-            BuildPriceRow(isBold: true, label: "Total", value: widget.checkoutModel.total,),
-            const SizedBox(height: 32),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const AddAddressScreen()),
+                  ),
               child: Container(
-                width: 340,
-                height: 60,
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: AppColors.primaryColor,
+                  color: theme.cardColor,
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Shipping Address", style: const TextStyle(color: Colors.grey, fontSize: 12)),
+                        const SizedBox(height: 4),
+                        Text(
+                          checkoutState.shippingAddress ?? "Add Shipping Address",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.bodyMedium,
+                        ),
+                      ],
+                    ),
+                    const Icon(Icons.arrow_forward_ios),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // Payment Method Section
+            GestureDetector(
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const AddCardScreen()),
+                  ),
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: theme.cardColor,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Payment Method", style: TextStyle(color: AppColors.greyFontColor, fontSize: 12)),
+                          const SizedBox(height: 4),
+                          Row(
+                            children: [
+                              Text(
+                                checkoutState.cardNumber != null
+                                    ? '**** ${checkoutState.cardNumber!.substring(checkoutState.cardNumber!.length - 4)}'
+                                    : "Add Payment Method",
+                                style: theme.textTheme.bodyMedium,
+                              ),
+                              const SizedBox(width: 10,),
+                              Image.asset('assets/icons/mastercard_icon.png'),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(Icons.arrow_forward_ios),
+                  ],
+                ),
+              ),
+            ),
+            Spacer(),
+            buildPriceRow("Subtotal", checkoutModel.subtotal),
+            buildPriceRow("Shipping", checkoutModel.shippingCost),
+            buildPriceRow("Tax", checkoutModel.tax),
+            buildPriceRow("Total", checkoutModel.total),
+            const SizedBox(height:54),
+            GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, Routes.orderPlaced);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                  color: const Color(0xFF9B5DE5),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                margin: const EdgeInsets.symmetric(vertical: 14),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
                     Text(
-                      "\$208",
-                      style: theme.textTheme.bodyMedium?.copyWith(
+                      '\$${checkoutModel.total.toStringAsFixed(2)}',
+                      style: const TextStyle(
                         color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
                       ),
                     ),
                     Text(
-                      "Place Order",
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: Colors.white,
-                      ),
+                      'Place Order',
+                      style: const TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 16),
                     ),
                   ],
                 ),
@@ -112,38 +149,4 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       ),
     );
   }
-}
-Widget _buildTile({required String label, required String value, bool showCardIcon = false}) {
-  return Container(
-    padding: const EdgeInsets.all(16),
-    decoration: BoxDecoration(
-      color: const Color(0xFFF6F6F6),
-      borderRadius: BorderRadius.circular(12),
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(label, style: const TextStyle(color: Colors.grey, fontSize: 12)),
-              const SizedBox(height: 4),
-              Text(
-                value,
-                style: const TextStyle(fontSize: 14),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
-          ),
-        ),
-        if (showCardIcon)
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: Image.asset(Assets.masterCardIcon,),
-          ),
-        const Icon(Icons.arrow_forward_ios, size: 16),
-      ],
-    ),
-  );
 }

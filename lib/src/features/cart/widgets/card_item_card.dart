@@ -10,8 +10,6 @@ class CartItemCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final cartItems = ref.watch(cartProvider);
     final theme = Theme.of(context);
-    final isDarkMode =
-        MediaQuery.of(context).platformBrightness == Brightness.dark;
     return ListView.builder(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
@@ -22,7 +20,7 @@ class CartItemCard extends ConsumerWidget {
           margin: const EdgeInsets.only(bottom: 16),
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: isDarkMode ? AppColors.darkGrey : AppColors.lightGrey,
+            color: theme.cardColor,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Row(

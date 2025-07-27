@@ -4,14 +4,23 @@ import 'package:ecommerce_app/src/features/cart/widgets/coupon_code_card.dart';
 import 'package:ecommerce_app/src/features/cart/widgets/price_row.dart';
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../checkout/model/checkout_model.dart';
 
 class FullCartPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final cartNotifier = ref.read(cartProvider.notifier);
+    CheckoutModel checkout = CheckoutModel(
+      subtotal: cartNotifier.subtotal,
+      shippingCost: cartNotifier.shipping,
+      tax: cartNotifier.tax,
+      total: cartNotifier.total,
+    );
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -62,7 +71,9 @@ class FullCartPage extends ConsumerWidget {
               const SizedBox(height: 30),
               CouponCodeCard(),
               const SizedBox(height: 40),
-              CustomButton(text: 'Checkout', onPressed: () {}),
+              CustomButton(text: 'Checkout', onPressed: () {
+                Navigator.pushNamed(context, Routes.checkoutScreen,arguments:checkout,);
+              }),
             ],
           ),
         ),

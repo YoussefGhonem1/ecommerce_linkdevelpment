@@ -78,9 +78,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                         ? 'assets/icons/apple_dark.svg'
                         : 'assets/icons/apple_light.svg',
                 text: 'Continue With Apple',
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.checkoutScreen,arguments: testCheckout);
-                },
+                onPressed: () {},
               ),
               const SizedBox(height: 15),
               SocialLoginButton(
