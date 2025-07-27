@@ -19,9 +19,7 @@ class buildPriceRow extends ConsumerWidget {
         children: [
           Text(
             label,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              color: AppColors.greyFontColor,
-            ),
+            style: theme.textTheme.bodySmall
           ),
           Text(
             "\$${value.toStringAsFixed(2)}",

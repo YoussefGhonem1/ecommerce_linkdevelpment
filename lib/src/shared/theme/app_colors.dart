@@ -15,4 +15,5 @@ abstract class AppColors {
   static const Color inputHintLight = Color(0x80272727);
   static const Color inputHintDark = Color(0x80FFFFFF);
   static final Color greyFontColor = Color(0xFFFFFFFF).withOpacity(0.5);
+  static final Color greyDarkFontColor = Color(0xFF272727).withOpacity(0.5);
 }
