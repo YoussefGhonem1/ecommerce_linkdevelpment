@@ -53,10 +53,14 @@ class _BuildOrdersListState extends State<BuildOrdersList> {
                 itemCount: widget.order.length,
                 itemBuilder: (context, index) {
                   return OrdersCard(
-                      onTap: () {
-                    Navigator.pushNamed(context, Routes.orderDetails,arguments: testOrder);
-                  },
-                      order: widget.order[index]);
+                    order: widget.order[index],
+                    onTap:
+                        () => Navigator.pushNamed(
+                          context,
+                          Routes.orderDetails,
+                          arguments: testOrder,
+                        ),
+                  );
                 },
               ),
             ),
