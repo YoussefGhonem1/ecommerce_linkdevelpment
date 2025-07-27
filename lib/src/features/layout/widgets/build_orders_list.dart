@@ -1,6 +1,8 @@
 import 'package:ecommerce_app/src/features/layout/models/orders_model.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/custom_tab_bar_item.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/orders_card.dart';
+import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class BuildOrdersList extends StatefulWidget {
@@ -45,14 +47,23 @@ class _BuildOrdersListState extends State<BuildOrdersList> {
                 );
               }),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
-                  itemCount: widget.order.length,
-                  itemBuilder: (context,index){
-                    return OrdersCard(order: widget.order[index]);
-                  }),
-            )
+                itemCount: widget.order.length,
+                itemBuilder: (context, index) {
+                  return OrdersCard(
+                    order: widget.order[index],
+                    onTap:
+                        () => Navigator.pushNamed(
+                          context,
+                          Routes.orderDetails,
+                          arguments: testOrder,
+                        ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

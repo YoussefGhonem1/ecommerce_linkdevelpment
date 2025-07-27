@@ -14,43 +14,45 @@ class OrderDetailsScreen extends StatelessWidget {
     final theme = Theme.of(context);
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 55,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: CustomBackButtonIcon(),
-                    ),
-                    Center(
-                      child: Text(
-                        'Order ${order.id}',
-                        style: theme.textTheme.headlineSmall,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 55,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: CustomBackButtonIcon(),
                       ),
-                    ),
-                  ],
+                      Center(
+                        child: Text(
+                          'Order ${order.id}',
+                          style: theme.textTheme.headlineSmall,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 24),
-              SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    OrderTimeline(order: order),
-                    const SizedBox(height: 24),
-                    OrderItemsSection(order: order),
-                    const SizedBox(height: 24),
-                    ShippingDetailsSection(order: order),
-                  ],
-                ),
-              ),
-            ],
+                SizedBox(height: 24),
+                
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      OrderTimeline(order: order),
+                      const SizedBox(height: 24),
+                      OrderItemsSection(order: order),
+                      const SizedBox(height: 24),
+                      ShippingDetailsSection(order: order),
+                    ],
+                  ),
+                
+              ],
+            ),
           ),
         ),
       ),
