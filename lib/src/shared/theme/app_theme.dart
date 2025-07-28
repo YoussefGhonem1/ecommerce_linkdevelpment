@@ -3,11 +3,20 @@ import 'app_colors.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
+    cardColor: AppColors.lightGrey,
     scaffoldBackgroundColor: Colors.white,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.bgLightColor,
       selectedItemColor: AppColors.primaryColor,
       unselectedItemColor: AppColors.darkGrey,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: AppColors.lightGrey,
+      hintStyle: TextStyle(
+        color: AppColors.inputHintLight,
+        fontSize: 17,
+      ),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
@@ -50,17 +59,26 @@ class AppTheme {
       bodySmall: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: Colors.black54,
+        color: AppColors.greyLightFontColor,
       ),
     ),
   );
 
   static ThemeData darkTheme = ThemeData(
+    cardColor: AppColors.darkGrey,
     scaffoldBackgroundColor: AppColors.bgDarkColor,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.bgDarkColor,
       selectedItemColor: AppColors.primaryColor,
       unselectedItemColor: AppColors.darkGrey,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: AppColors.darkGrey,
+      hintStyle: TextStyle(
+        color: AppColors.inputHintDark,
+        fontSize: 17,
+      ),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.bgDarkColor,
@@ -101,9 +119,9 @@ class AppTheme {
         color: Colors.white,
       ),
       bodySmall: TextStyle(
-        fontSize: 12,
+        fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: Colors.white,
+        color: AppColors.greyDarkColor,
       ),
     ),
   );

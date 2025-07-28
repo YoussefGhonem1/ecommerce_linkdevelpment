@@ -20,9 +20,7 @@ class CustomTabBarItem extends StatelessWidget {
         color:
             isSelected
                 ? AppColors.primaryColor
-                : theme.brightness == Brightness.dark
-                ? AppColors.darkGrey
-                : AppColors.lightGrey,
+                : theme.cardColor,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppColors.bgLightColor),
       ),
