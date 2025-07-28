@@ -19,14 +19,22 @@ class AddAddressScreen extends ConsumerWidget {
         child: Column(
           children: [
             const SizedBox(height: 20),
-            CustomTextField(controller: controller, hintText: "Enter Shipping Address"),
+            CustomTextField(
+              controller: controller,
+              hintText: "Enter Shipping Address",
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 120,vertical: 32),
-              child: CustomButton(text: "Save Card", onPressed: (){
-                ref.read(checkoutProvider.notifier).setShippingAddress(controller.text);
-                Navigator.pop(context);
-              }),
-            )
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 32),
+              child: CustomButton(
+                text: "Save Card",
+                onPressed: () {
+                  ref
+                      .read(checkoutProvider.notifier)
+                      .setShippingAddress(controller.text);
+                  Navigator.pop(context);
+                },
+              ),
+            ),
           ],
         ),
       ),

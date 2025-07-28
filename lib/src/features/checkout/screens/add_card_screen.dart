@@ -19,14 +19,22 @@ class AddCardScreen extends ConsumerWidget {
         child: Column(
           children: [
             const SizedBox(height: 20),
-            CustomTextField(controller: controller, hintText: "Enter Card Details"),
+            CustomTextField(
+              controller: controller,
+              hintText: "Enter Card Details",
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 120,vertical: 32),
-              child: CustomButton(text: "Save Card", onPressed: (){
-                ref.read(checkoutProvider.notifier).setCardNumber(controller.text);
-                Navigator.pop(context);
-              }),
-            )
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 32),
+              child: CustomButton(
+                text: "Save Card",
+                onPressed: () {
+                  ref
+                      .read(checkoutProvider.notifier)
+                      .setCardNumber(controller.text);
+                  Navigator.pop(context);
+                },
+              ),
+            ),
           ],
         ),
       ),

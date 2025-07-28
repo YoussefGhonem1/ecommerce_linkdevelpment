@@ -2,11 +2,11 @@ import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class buildPriceRow extends ConsumerWidget {
+class PriceRow extends ConsumerWidget {
   final String label;
   final double value;
 
-  const buildPriceRow(this.label, this.value, {super.key});
+  const PriceRow(this.label, this.value, {super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

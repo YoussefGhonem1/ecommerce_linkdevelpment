@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../shared/components/custom_back_button.dart';
 import '../../../shared/routing/app_routes.dart';
-import '../../../shared/theme/app_colors.dart';
 import '../../cart/widgets/price_row.dart';
 import '../provider/checkout_notifier.dart';
 import 'add_address_screen.dart';
@@ -49,7 +48,7 @@ class CheckoutScreen extends ConsumerWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Shipping Address", style: const TextStyle(color: Colors.grey, fontSize: 12)),
+                        Text("Shipping Address", style: theme.textTheme.bodySmall),
                         const SizedBox(height: 4),
                         Text(
                           checkoutState.shippingAddress ?? "Add Shipping Address",
@@ -86,7 +85,7 @@ class CheckoutScreen extends ConsumerWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Payment Method", style: TextStyle(color: AppColors.greyFontColor, fontSize: 12)),
+                          Text("Payment Method", style: theme.textTheme.bodySmall),
                           const SizedBox(height: 4),
                           Row(
                             children: [
@@ -109,10 +108,10 @@ class CheckoutScreen extends ConsumerWidget {
               ),
             ),
             Spacer(),
-            buildPriceRow("Subtotal", checkoutModel.subtotal),
-            buildPriceRow("Shipping", checkoutModel.shippingCost),
-            buildPriceRow("Tax", checkoutModel.tax),
-            buildPriceRow("Total", checkoutModel.total),
+            PriceRow("Subtotal", checkoutModel.subtotal),
+            PriceRow("Shipping", checkoutModel.shippingCost),
+            PriceRow("Tax", checkoutModel.tax),
+            PriceRow("Total", checkoutModel.total),
             const SizedBox(height:54),
             GestureDetector(
               onTap: (){

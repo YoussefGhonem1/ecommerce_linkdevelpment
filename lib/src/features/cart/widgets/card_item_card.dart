@@ -48,7 +48,7 @@ class CartItemCard extends ConsumerWidget {
                         Text(
                           "Size - ",
                           style: theme.textTheme.bodyMedium?.copyWith(
-                            color: AppColors.greyFontColor,
+                            color: AppColors.greyDarkColor,
                           ),
                         ),
                         Text(
@@ -61,7 +61,7 @@ class CartItemCard extends ConsumerWidget {
                         Text(
                           "Color - ",
                           style: theme.textTheme.bodyMedium?.copyWith(
-                            color: AppColors.greyFontColor,
+                            color: AppColors.greyDarkColor,
                           ),
                         ),
                         Text(

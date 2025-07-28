@@ -59,7 +59,7 @@ class AppTheme {
       bodySmall: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: AppColors.greyFontColor,
+        color: AppColors.greyLightFontColor,
       ),
     ),
   );
@@ -119,9 +119,9 @@ class AppTheme {
         color: Colors.white,
       ),
       bodySmall: TextStyle(
-        fontSize: 12,
+        fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: AppColors.greyFontColor,
+        color: AppColors.greyDarkColor,
       ),
     ),
   );
