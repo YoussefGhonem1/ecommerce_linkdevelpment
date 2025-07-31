@@ -60,16 +60,21 @@ class _HomeTabState extends State<HomeTab> {
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 16),
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.cartPage);
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: AppColors.primaryColor,
+                  ),
+                  child: SvgPicture.asset(Assets.iconsCart, width: 16),
                 ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: AppColors.primaryColor,
-                ),
-                child: SvgPicture.asset(Assets.iconsCart, width: 16),
               ),
             ),
           ],
@@ -145,6 +150,11 @@ class _HomeTabState extends State<HomeTab> {
                         width: 160,
                         height: 280,
                         product: ProductModel.products[index],
+                        onTap:
+                            () => Navigator.pushNamed(
+                              context,
+                              Routes.productDetailScreen,
+                            ),
                       );
                     },
                   ),
@@ -180,6 +190,11 @@ class _HomeTabState extends State<HomeTab> {
                         width: 160,
                         height: 280,
                         product: ProductModel.products[index],
+                        onTap:
+                            () => Navigator.pushNamed(
+                              context,
+                              Routes.productDetailScreen,
+                            ),
                       );
                     },
                   ),

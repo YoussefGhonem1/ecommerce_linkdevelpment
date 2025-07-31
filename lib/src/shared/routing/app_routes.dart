@@ -1,5 +1,11 @@
+import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
+import 'package:ecommerce_app/src/features/checkout/screens/checkout_screen.dart';
+
+import 'package:ecommerce_app/src/features/cart/screens/cart_page.dart';
+import 'package:ecommerce_app/src/features/order-placed-successfully/order-placed-successfully.dart';
 import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
 import 'package:ecommerce_app/src/features/order_details/screens/order_details_screen.dart';
+import 'package:ecommerce_app/src/features/product_details/presentation/pages/product_details_page.dart';
 import 'package:flutter/material.dart';
 import '../../features/products_by_category/screens/products_by_category_screen.dart';
 import '../../features/shopping_category/presentation/pages/category_page.dart';
@@ -25,6 +31,10 @@ class Routes {
   static const String productsByCategoryScreen = '/products_by_category';
   static const String orderDetails = '/order_details';
   static const String loadingScreen = '/loading-screen';
+  static const String productDetailScreen = '/product_detail_screen';
+  static const String checkoutScreen = '/checkout_screen';
+  static const String cartPage = '/cart_page';
+  static const String orderPlaced = '/order_placed_successfully_screen';
 }
 
 class AppRoutes {
@@ -48,6 +58,12 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const LayoutScreen());
       case Routes.categoryPage:
         return MaterialPageRoute(builder: (_) => const CategoriesPage());
+      case Routes.productDetailScreen:
+        return MaterialPageRoute(builder: (_) => const ProductDetailScreen());
+      case Routes.orderPlaced:
+        return MaterialPageRoute(
+          builder: (_) => const OrderPlacedSuccessScreen(),
+        );
       case Routes.productsByCategoryScreen:
         final categoryTitle = settings.arguments as String;
         return MaterialPageRoute(
@@ -59,6 +75,13 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (_) => OrderDetailsScreen(order: order),
         );
+      case Routes.checkoutScreen:
+        final checkoutModel = settings.arguments as CheckoutModel;
+        return MaterialPageRoute(
+          builder: (_) => CheckoutScreen(checkoutModel: checkoutModel),
+        );
+      case Routes.cartPage:
+        return MaterialPageRoute(builder: (_) => const CartPage());
       default:
         return MaterialPageRoute(
           builder:

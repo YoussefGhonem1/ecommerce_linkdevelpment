@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/src/models/product_model.dart';
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:ecommerce_app/src/shared/components/product_card.dart';
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class ProductsByCategoryScreen extends StatelessWidget {
@@ -40,7 +41,12 @@ class ProductsByCategoryScreen extends StatelessWidget {
                       width: 0, //not used
                       height: 0, //not used
                       product: ProductModel.products[index],
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.productDetailScreen,
+                        );
+                      },
                       onFavoriteTap: () {},
                     );
                   },
