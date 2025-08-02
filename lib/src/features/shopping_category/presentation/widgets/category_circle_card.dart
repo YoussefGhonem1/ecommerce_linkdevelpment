@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/features/shopping_category/data/models/category_model.dart';
+import 'package:ecommerce_app/src/features/shopping_category/models/category_model.dart';
 
 class CategoryCircleCard extends StatelessWidget {
   final CategoryModel category;
@@ -24,7 +24,7 @@ class CategoryCircleCard extends StatelessWidget {
               shape: BoxShape.circle,
               color: Color(0xFFF5F5F5),
             ),
-            child: Image.asset(
+            child: Image.network(
               category.imagePath,
               height: 50,
               width: 50,

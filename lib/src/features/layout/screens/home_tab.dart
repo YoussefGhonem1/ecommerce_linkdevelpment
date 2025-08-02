@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/src/features/layout/widgets/gender_drop_down.dart';
 import 'package:ecommerce_app/src/features/shopping_category/presentation/widgets/category_circle_card.dart';
+import 'package:ecommerce_app/src/features/shopping_category/provider/category_providers.dart';
 import 'package:ecommerce_app/src/models/product_model.dart';
 import 'package:ecommerce_app/src/shared/components/loading_screen.dart';
 import 'package:ecommerce_app/src/shared/components/product_card.dart';
@@ -7,9 +8,9 @@ import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:ecommerce_app/src/shared/components/custom_search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../generated/assets.dart';
-import '../../shopping_category/data/models/category_model.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -103,27 +104,46 @@ class _HomeTabState extends State<HomeTab> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 120,
-                  child: ListView.builder(
-                    itemCount: CategoryModel.categories.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            Routes.productsByCategoryScreen,
-                            arguments: CategoryModel.categories[index].title,
-                          );
-                        },
-                        child: CategoryCircleCard(
-                          category: CategoryModel.categories[index],
-                        ),
-                      );
-                    },
-                  ),
+                Consumer(
+                  builder: (context, ref, _) {
+                    final categoriesAsync = ref.watch(categoriesProvider);
+                    return categoriesAsync.when(
+                      data:
+                          (categories) => SizedBox(
+                            height: 120,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: categories.length,
+                              itemBuilder: (context, index) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                      context,
+                                      Routes.productsByCategoryScreen,
+                                      arguments: categories[index].title,
+                                    );
+                                  },
+                                  child: CategoryCircleCard(
+                                    category: categories[index],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                      loading:
+                          () => const SizedBox(
+                            height: 120,
+                            child: Center(child: CircularProgressIndicator()),
+                          ),
+                      error:
+                          (err, _) => SizedBox(
+                            height: 120,
+                            child: Center(child: Text("Error: $err")),
+                          ),
+                    );
+                  },
                 ),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Row(
