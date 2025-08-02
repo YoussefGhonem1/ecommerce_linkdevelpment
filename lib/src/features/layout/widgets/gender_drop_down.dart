@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 class GenderDropdown extends StatefulWidget {
+  const GenderDropdown({super.key});
+
   @override
   State<GenderDropdown> createState() => _GenderDropdownState();
 }

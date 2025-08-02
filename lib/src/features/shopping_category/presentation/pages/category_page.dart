@@ -6,7 +6,7 @@ import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesPage extends StatelessWidget {
-  const CategoriesPage({Key? key}) : super(key: key);
+  const CategoriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class CategoriesPage extends StatelessWidget {
                     return CategoryCard(
                       category: CategoryModel.categories[index],
                       imageSize: categoryImageSize,
-                      fontSize: CategoryFontSize,
+                      fontSize: categoryFontSize,
                       onTap: () {
                         Navigator.pushNamed(
                           context,

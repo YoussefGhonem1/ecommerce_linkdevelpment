@@ -4,7 +4,7 @@ import 'package:ecommerce_app/src/features/shopping_category/data/models/categor
 import 'category_circle_card.dart'; 
 
 class CategoriesRowSection extends StatelessWidget {
-  const CategoriesRowSection({Key? key}) : super(key: key);
+  const CategoriesRowSection({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
