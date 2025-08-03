@@ -11,6 +11,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../checkout/model/checkout_model.dart';
 
 class FullCartPage extends ConsumerWidget {
+  const FullCartPage({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
