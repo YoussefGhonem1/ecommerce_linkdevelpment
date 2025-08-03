@@ -68,7 +68,7 @@ class AppRoutes {
         final categoryTitle = settings.arguments as String;
         return MaterialPageRoute(
           builder:
-              (_) => ProductsByCategoryScreen(categoryTitle: categoryTitle),
+              (_) =>ProductsByCategoryScreen(categoryTitle: categoryTitle),
         );
       case Routes.orderDetails:
         final order = settings.arguments as Order;
