@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/features/product_seeding/data/seed_products.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:ecommerce_app/src/shared/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,9 @@ import 'package:firebase_core/firebase_core.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  await seedProducts();
+
   runApp(const ProviderScope(child: MyApp()));
 }
 
