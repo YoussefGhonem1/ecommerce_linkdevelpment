@@ -25,7 +25,6 @@ final sampleProducts = [
 
 Future<void> seedProducts() async {
   final service = ProductRepository();
-
   for (var product in sampleProducts) {
     await service.addProduct(product);
   }
