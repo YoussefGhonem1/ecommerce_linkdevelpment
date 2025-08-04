@@ -117,7 +117,6 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                     },
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Row(
@@ -204,3 +203,4 @@ class _HomeTabState extends ConsumerState<HomeTab> {
     );
   }
 }
+
