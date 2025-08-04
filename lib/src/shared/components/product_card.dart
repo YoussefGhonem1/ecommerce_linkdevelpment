@@ -1,10 +1,12 @@
 import 'package:ecommerce_app/src/features/layout/widgets/product_image.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/product_info.dart';
+
 import 'package:ecommerce_app/src/models/product_model.dart';
+
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
-  final ProductModel product;
+  final Product product;
   final double width;
   final double height;
   final VoidCallback? onTap;
@@ -44,12 +46,10 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ProductImage(
-              imageUrl: product.imageUrl,
+              imageUrl: product.images[0],
               onFavoriteTap: onFavoriteTap,
             ),
-            ProductInfo(
-              product: product,
-            ),
+            ProductInfo(product: product),
           ],
         ),
       ),

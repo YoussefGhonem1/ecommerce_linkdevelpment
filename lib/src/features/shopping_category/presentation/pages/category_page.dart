@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../provider/category_providers.dart'; 
 
-class CategoriesPage extends ConsumerWidget {
-  const CategoriesPage({Key? key}) : super(key: key);
+class CategoriesPage extends StatelessWidget {
+  const CategoriesPage({super.key});
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,6 +29,7 @@ class CategoriesPage extends ConsumerWidget {
               ),
               const SizedBox(height: 20),
               Expanded(
+
                 child: categoriesAsync.when(
                   data: (categories) => ListView.builder(
                     itemCount: categories.length,
@@ -49,6 +51,7 @@ class CategoriesPage extends ConsumerWidget {
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
                   error: (err, _) => Center(child: Text("Error: $err")),
+
                 ),
               ),
             ],

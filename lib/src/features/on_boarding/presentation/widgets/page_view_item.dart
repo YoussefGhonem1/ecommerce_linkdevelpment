@@ -21,8 +21,9 @@ class PageViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     final double backgroundHeight =
-        backgroundImage.contains("2") ? 340 : 390;
+        backgroundImage.contains("2") ? size.height * 0.445 : size.height * 0.51;
     return Column(
       children: [
         Row(
@@ -38,7 +39,7 @@ class PageViewItem extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, Routes.signInEmail);
                 },
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 25, horizontal: 30),
+                  padding: EdgeInsets.symmetric(vertical: size.height * 0.03, horizontal: size.width * 0.06,),
                   child: Text(
                     "Skip",
                     style:Theme.of(context).textTheme.bodyMedium
@@ -49,8 +50,8 @@ class PageViewItem extends StatelessWidget {
           ],
         ),
         SizedBox(
-          width: 337,
-          height: 298,
+          width: size.width * 0.85,
+          height: size.height * 0.34,
           child: SvgPicture.asset(image),
         ),
         Expanded(
@@ -67,18 +68,16 @@ class PageViewItem extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(size.width * 0.04),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 50,),
+                    SizedBox(height: size.height * 0.05),
                     Text(
                       title,
                        style:  Theme.of(context).textTheme.headlineSmall,
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: size.height * 0.015),
                     Text(
                       subtitle,
                       style:  Theme.of(context).textTheme.bodyMedium
@@ -123,3 +122,4 @@ class PageViewItem extends StatelessWidget {
     );
   }
 }
+
