@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/routing/app_routes.dart';
 
@@ -24,25 +25,31 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        leading: CustomBackButtonIcon(),
-      ),
+      appBar: AppBar(leading: CustomBackButtonIcon()),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Forget Password", style: theme.textTheme.headlineMedium),
             SizedBox(height: 20),
             CustomTextField(
-                controller: _forgetPassController,
-                hintText: "Enter Email address"),
+              controller: _forgetPassController,
+              hintText: "Enter Email address",
+            ),
             SizedBox(height: 20),
             CustomButton(
-                text: "Continue",
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.returnToLogin);
-                })
+              text: "Continue",
+              onPressed: () async {
+                await FirebaseAuth.instance
+                    .sendPasswordResetEmail(
+                      email: _forgetPassController.text.trim(),
+                    )
+                    .then((onValue) {
+                      Navigator.pushNamed(context, Routes.returnToLogin);
+                    });
+              },
+            ),
           ],
         ),
       ),

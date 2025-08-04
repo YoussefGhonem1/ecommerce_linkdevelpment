@@ -51,7 +51,8 @@ class AppRoutes {
       case Routes.returnToLogin:
         return MaterialPageRoute(builder: (_) => const ReturnToLoginScreen());
       case Routes.signInPassword:
-        return MaterialPageRoute(builder: (_) => const SignInPasswordScreen());
+        final email = settings.arguments as String;
+        return MaterialPageRoute(builder: (_) => SignInPasswordScreen(email: email));
       case Routes.createAccount:
         return MaterialPageRoute(builder: (_) => const CreateAccountPage());
       case Routes.layout:

@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/src/features/login/screens/widgets/custom_social_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SignInEmailScreen extends StatefulWidget {
   const SignInEmailScreen({super.key});
@@ -45,7 +48,11 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               CustomButton(
                 text: 'Continue',
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.signInPassword);
+                  Navigator.pushNamed(
+                    context,
+                    Routes.signInPassword,
+                    arguments: _emailController.text.trim(),
+                  );
                 },
               ),
               const SizedBox(height: 20),
@@ -83,7 +90,9 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               SocialLoginButton(
                 svgAssetPath: 'assets/icons/google.svg',
                 text: 'Continue With Google',
-                onPressed: () {},
+                onPressed: () async {
+                  await signInWithGoogle(context: context);
+                },
               ),
               const SizedBox(height: 15),
               SocialLoginButton(
@@ -96,5 +105,47 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
         ),
       ),
     );
+  }
+}
+
+Future<void> signInWithGoogle({required BuildContext context}) async {
+  try {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    if (googleUser == null) return;
+
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    UserCredential userCredential = await FirebaseAuth.instance
+        .signInWithCredential(credential);
+    User? user = userCredential.user;
+
+    if (user != null) {
+      final userDoc = FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid);
+
+      final userExists = await userDoc.get();
+      if (!userExists.exists) {
+        await userDoc.set({
+          'email': user.email,
+          'name': user.displayName,
+          'photoUrl': user.photoURL,
+          'createdAt': FieldValue.serverTimestamp(),
+        });
+      }
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        Routes.layout,
+        (route) => false,
+      );
+    }
+  } catch (e) {
+    print("Error signing in with Google: $e");
   }
 }

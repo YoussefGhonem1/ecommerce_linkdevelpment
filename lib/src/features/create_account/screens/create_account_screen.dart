@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../../shared/components/custom_back_button.dart';
 
 class CreateAccountPage extends StatelessWidget {
@@ -63,8 +64,14 @@ class CreateAccountPage extends StatelessWidget {
 
                 CustomButton(
                   text: 'Continue',
-                  onPressed: () {
-                    Navigator.pushNamed(context, Routes.signInEmail);
+                  onPressed: () async {
+                    signUpWithEmail(
+                      context: context,
+                      email: emailController.text.trim(),
+                      password: passwordController.text.trim(),
+                      firstName: firstNameController.text.trim(),
+                      lastName: lastNameController.text.trim(),
+                    );
                   },
                 ),
                 const SizedBox(height: 16),
@@ -96,6 +103,44 @@ class CreateAccountPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+Future<void> signUpWithEmail({
+  required BuildContext context,
+  required String email,
+  required String password,
+  required String firstName,
+  required String lastName,
+}) async {
+  try {
+    UserCredential userCredential = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email, password: password);
+
+    String uid = userCredential.user!.uid;
+
+    await FirebaseFirestore.instance.collection('users').doc(uid).set({
+      'firstName': firstName,
+      'lastName': lastName,
+      'email': email,
+      'createdAt': FieldValue.serverTimestamp(),
+    }).then((value){
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Register Successful ✅")));
+      Navigator.pushNamed(context, Routes.signInEmail);
+    });
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'weak-password') {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("The password provided is too weak.")));
+    } else if (e.code == 'email-already-in-use') {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("The account already exists for that email.")));
+    }
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Auth error: $e')),
     );
   }
 }
