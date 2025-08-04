@@ -1,8 +1,8 @@
-import 'package:ecommerce_app/src/models/product_model.dart';
+import 'package:ecommerce_app/src/features/product_seeding/data/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductInfo extends StatelessWidget {
-   final ProductModel product;
+   final Product product;
 
   const ProductInfo({super.key, 
     required this.product,
@@ -18,7 +18,7 @@ class ProductInfo extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            product.productName,
+            product.name,
             style: theme.appBarTheme.titleTextStyle,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -48,3 +48,4 @@ class ProductInfo extends StatelessWidget {
     );
   }
 }
+
