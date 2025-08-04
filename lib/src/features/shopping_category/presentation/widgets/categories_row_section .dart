@@ -7,10 +7,6 @@ import 'category_circle_card.dart';
 class CategoriesRowSection extends ConsumerWidget {
   const CategoriesRowSection({super.key});
 
-
-class CategoriesRowSection extends StatelessWidget {
-  const CategoriesRowSection({super.key});
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final categoriesAsync = ref.watch(categoriesProvider);

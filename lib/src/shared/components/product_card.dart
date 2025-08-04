@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/src/features/layout/widgets/product_image.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/product_info.dart';
+import 'package:ecommerce_app/src/features/product_seeding/data/product_model.dart';
 
-import 'package:ecommerce_app/src/models/product_model.dart';
 
 import 'package:flutter/material.dart';
 

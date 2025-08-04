@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../provider/category_providers.dart'; 
 
-class CategoriesPage extends StatelessWidget {
+class CategoriesPage extends ConsumerWidget {
   const CategoriesPage({super.key});
 
 
@@ -37,7 +37,7 @@ class CategoriesPage extends StatelessWidget {
                       return CategoryCard(
                         category: categories[index],
                         imageSize: categoryImageSize,
-                        fontSize: CategoryFontSize,
+                        fontSize: 16,
                         onTap: () {
                           Navigator.pushNamed(
                             context,
