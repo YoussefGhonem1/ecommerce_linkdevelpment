@@ -12,6 +12,8 @@
           "package_name": "com.example.ecommerce_app"
         }
       },
+
+
       "oauth_client": [
         {
           "client_id": "551136520409-p7tigm2g76tkrdm7fp41q9d21l3hlaen.apps.googleusercontent.com",
@@ -34,6 +36,7 @@
           "client_type": 3
         }
       ],
+
       "api_key": [
         {
           "current_key": "AIzaSyBhTpbZfaSB6j4PwOIKBHpyHCAVRaRxe5w"
@@ -41,12 +44,14 @@
       ],
       "services": {
         "appinvite_service": {
+
           "other_platform_oauth_client": [
             {
               "client_id": "551136520409-v5sk86cc29kgmcf6amir53ii5vhlvfdm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
+
         }
       }
     }

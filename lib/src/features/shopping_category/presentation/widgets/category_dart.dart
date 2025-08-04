@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/src/features/shopping_category/data/models/category_model.dart';
+import 'package:ecommerce_app/src/features/shopping_category/models/category_model.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -28,7 +28,7 @@ class CategoryCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.asset(
+            Image.network(
               category.imagePath,
               height: imageSize,
               width: imageSize,
