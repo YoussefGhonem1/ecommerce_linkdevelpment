@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'core/l10n/translation/app_localizations.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -29,6 +31,9 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       onGenerateRoute: AppRoutes.onGenerateRoute,
       initialRoute: Routes.initial,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale("en"),
     );
   }
 }
