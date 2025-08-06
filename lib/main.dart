@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/service/fcm.dart';
 import 'package:ecommerce_app/src/features/product_seeding/data/seed_products.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:ecommerce_app/src/shared/theme/app_theme.dart';
@@ -11,10 +12,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
-
   await seedProducts();
-
-
+  await FCM.fcmInit();
   runApp(const ProviderScope(child: MyApp()));
 }
 
