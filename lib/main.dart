@@ -11,7 +11,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await seedProducts();
-  await FCM.fcmInit();
   runApp(const ProviderScope(child: MyApp()));
 }
 
