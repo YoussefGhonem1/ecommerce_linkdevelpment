@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:ecommerce_app/src/features/address/models/add_address_params.dart';
 import 'package:ecommerce_app/src/features/address/models/address_model.dart';
 import 'package:ecommerce_app/src/features/address/provider/address_provider.dart';
@@ -28,31 +29,31 @@ class AddAddressPage extends ConsumerWidget {
           child: CustomBackButtonIcon(),
         ),
         leadingWidth: 100,
-        title: Text("Add Address", style: theme.textTheme.headlineSmall),
+        title: Text(AppLocalizations.of(context)!.addAddress, style: theme.textTheme.headlineSmall),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
         child: Column(
           children: [
             CustomTextField(
-              hintText: 'Street Address',
+              hintText: AppLocalizations.of(context)!.streetAddress,
               controller: streetAddressController,
             ),
             const SizedBox(height: 16),
-            CustomTextField(hintText: 'City', controller: cityController),
+            CustomTextField(hintText: AppLocalizations.of(context)!.city, controller: cityController),
             const SizedBox(height: 16),
             Row(
               children: [
                 Expanded(
                   child: CustomTextField(
-                    hintText: 'State',
+                    hintText: AppLocalizations.of(context)!.state,
                     controller: stateAddressController,
                   ),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
                   child: CustomTextField(
-                    hintText: 'Zip code',
+                    hintText: AppLocalizations.of(context)!.zipCode,
                     controller: zipCodeController,
                   ),
                 ),
@@ -64,7 +65,7 @@ class AddAddressPage extends ConsumerWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(24.0),
         child: CustomButton(
-          text: 'Save',
+          text: AppLocalizations.of(context)!.save,
           onPressed: () async {
             final address = Address(
               id: '',

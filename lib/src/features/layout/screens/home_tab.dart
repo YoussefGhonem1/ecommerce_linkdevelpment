@@ -1,11 +1,7 @@
-import 'package:ecommerce_app/src/features/address/screens/address_page.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/gender_drop_down.dart';
 import 'package:ecommerce_app/src/features/product_seeding/data/product_provider.dart';
 import 'package:ecommerce_app/src/features/shopping_category/presentation/widgets/category_circle_card.dart';
-
 import 'package:ecommerce_app/src/features/shopping_category/provider/category_providers.dart';
-import 'package:ecommerce_app/src/models/product_model.dart';
-
 import 'package:ecommerce_app/src/shared/components/loading_screen.dart';
 import 'package:ecommerce_app/src/shared/components/product_card.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
@@ -198,12 +194,7 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const AddressPage(),
-                            ),
-                          );
+                        
                         },
                         child: Text(
                           "See All",

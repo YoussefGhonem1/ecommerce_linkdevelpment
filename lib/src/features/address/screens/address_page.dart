@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:ecommerce_app/src/features/address/models/delete_address_params.dart';
 import 'package:ecommerce_app/src/features/address/provider/address_provider.dart';
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
@@ -22,7 +23,10 @@ class AddressPage extends ConsumerWidget {
           child: CustomBackButtonIcon(),
         ),
         leadingWidth: 100,
-        title: Text("Address", style: theme.textTheme.headlineSmall),
+        title: Text(
+          AppLocalizations.of(context)!.address,
+          style: theme.textTheme.headlineSmall,
+        ),
       ),
       body: addressListAsync.when(
         loading: () => Center(child: CircularProgressIndicator()),
@@ -66,7 +70,7 @@ class AddressPage extends ConsumerWidget {
                         );
                       },
                       child: Text(
-                        "Edit",
+                        AppLocalizations.of(context)!.edit,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: AppColors.primaryColor,
                         ),
@@ -87,7 +91,7 @@ class AddressPage extends ConsumerWidget {
                         ref.invalidate(addressProvider(params.userId));
                       },
                       child: Text(
-                        "Delete",
+                        AppLocalizations.of(context)!.delete,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: AppColors.red,
                         ),
