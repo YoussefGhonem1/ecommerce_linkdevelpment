@@ -1,4 +1,7 @@
+import 'package:ecommerce_app/src/features/address/screens/add_address_page.dart';
+import 'package:ecommerce_app/src/features/address/screens/address_page.dart';
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
+import 'package:ecommerce_app/src/features/checkout/screens/add_address_screen.dart';
 import 'package:ecommerce_app/src/features/checkout/screens/checkout_screen.dart';
 import 'package:ecommerce_app/src/features/cart/screens/cart_page.dart';
 import 'package:ecommerce_app/src/features/order-placed-successfully/order-placed-successfully.dart';
@@ -34,6 +37,8 @@ class Routes {
   static const String checkoutScreen = '/checkout_screen';
   static const String cartPage = '/cart_page';
   static const String orderPlaced = '/order_placed_successfully_screen';
+  static const String addressPage = '/address_page';
+  static const String addAddressPage = '/add_address_page';
 }
 
 class AppRoutes {
@@ -82,6 +87,10 @@ class AppRoutes {
         );
       case Routes.cartPage:
         return MaterialPageRoute(builder: (_) => const CartPage());
+          case Routes.addressPage:
+        return MaterialPageRoute(builder: (_) => const AddressPage());
+        case Routes.addAddressPage:
+        return MaterialPageRoute(builder: (_) => const AddAddressPage());
       default:
         return MaterialPageRoute(
           builder:

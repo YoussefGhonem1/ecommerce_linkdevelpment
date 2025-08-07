@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/features/address/screens/address_page.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/gender_drop_down.dart';
 import 'package:ecommerce_app/src/features/product_seeding/data/product_provider.dart';
 import 'package:ecommerce_app/src/features/shopping_category/presentation/widgets/category_circle_card.dart';
@@ -14,7 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../generated/assets.dart';
-
 
 class HomeTab extends ConsumerStatefulWidget {
   const HomeTab({super.key});
@@ -94,7 +94,10 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                         onTap: () {
                           Navigator.pushNamed(context, Routes.categoryPage);
                         },
-                        child: Text("See All", style: theme.textTheme.bodyMedium),
+                        child: Text(
+                          "See All",
+                          style: theme.textTheme.bodyMedium,
+                        ),
                       ),
                     ],
                   ),
@@ -147,32 +150,38 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                       Text("Top Selling", style: theme.textTheme.headlineSmall),
                       GestureDetector(
                         onTap: () {},
-                        child: Text("See All", style: theme.textTheme.bodyMedium),
+                        child: Text(
+                          "See All",
+                          style: theme.textTheme.bodyMedium,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 topSellingAsync.when(
-                  data: (products) => SizedBox(
-                    height: 280,
-                    child: ListView.builder(
-                      itemCount: products.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return ProductCard(
-                          width: 160,
-                          height: 280,
-                          product: products[index],
-                          onTap: () => Navigator.pushNamed(
-                            context,
-                            Routes.productDetailScreen,
-                            arguments: products[index],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  loading: () => const Center(child: CircularProgressIndicator()),
+                  data:
+                      (products) => SizedBox(
+                        height: 280,
+                        child: ListView.builder(
+                          itemCount: products.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return ProductCard(
+                              width: 160,
+                              height: 280,
+                              product: products[index],
+                              onTap:
+                                  () => Navigator.pushNamed(
+                                    context,
+                                    Routes.productDetailScreen,
+                                    arguments: products[index],
+                                  ),
+                            );
+                          },
+                        ),
+                      ),
+                  loading:
+                      () => const Center(child: CircularProgressIndicator()),
                   error: (e, _) => Text("Error loading top selling: $e"),
                 ),
 
@@ -188,33 +197,46 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {},
-                        child: Text("See All", style: theme.textTheme.bodyMedium),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const AddressPage(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "See All",
+                          style: theme.textTheme.bodyMedium,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 newInAsync.when(
-                  data: (products) => SizedBox(
-                    height: 280,
-                    child: ListView.builder(
-                      itemCount: products.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return ProductCard(
-                          width: 160,
-                          height: 280,
-                          product: products[index],
-                          onTap: () => Navigator.pushNamed(
-                            context,
-                            Routes.productDetailScreen,
-                            arguments: products[index],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  loading: () => const Center(child: CircularProgressIndicator()),
+                  data:
+                      (products) => SizedBox(
+                        height: 280,
+                        child: ListView.builder(
+                          itemCount: products.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return ProductCard(
+                              width: 160,
+                              height: 280,
+                              product: products[index],
+                              onTap:
+                                  () => Navigator.pushNamed(
+                                    context,
+                                    Routes.productDetailScreen,
+                                    arguments: products[index],
+                                  ),
+                            );
+                          },
+                        ),
+                      ),
+                  loading:
+                      () => const Center(child: CircularProgressIndicator()),
                   error: (e, _) => Text("Error loading new in: $e"),
                 ),
               ],
@@ -225,4 +247,3 @@ class _HomeTabState extends ConsumerState<HomeTab> {
     );
   }
 }
-
