@@ -4,23 +4,28 @@ import 'package:ecommerce_app/src/features/address/provider/address_provider.dar
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AddAddressPage extends ConsumerWidget {
-  const AddAddressPage({super.key});
+class EditAddressPage extends ConsumerWidget {
+  final Address address;
+  final String userId;
+
+  const EditAddressPage({
+    super.key,
+    required this.address,
+    required this.userId,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userId = FirebaseAuth.instance.currentUser!.uid;
-    final TextEditingController streetAddressController =
-        TextEditingController();
-    final TextEditingController cityController = TextEditingController();
-    final TextEditingController zipCodeController = TextEditingController();
-    final TextEditingController stateAddressController =
-        TextEditingController();
     final theme = Theme.of(context);
+
+    final streetAddressController = TextEditingController(text: address.street);
+    final cityController = TextEditingController(text: address.city);
+    final stateController = TextEditingController(text: address.state);
+    final zipCodeController = TextEditingController(text: address.zipCode);
+
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
@@ -28,7 +33,7 @@ class AddAddressPage extends ConsumerWidget {
           child: CustomBackButtonIcon(),
         ),
         leadingWidth: 100,
-        title: Text("Add Address", style: theme.textTheme.headlineSmall),
+        title: Text("Edit Address", style: theme.textTheme.headlineSmall),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
@@ -46,7 +51,7 @@ class AddAddressPage extends ConsumerWidget {
                 Expanded(
                   child: CustomTextField(
                     hintText: 'State',
-                    controller: stateAddressController,
+                    controller: stateController,
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -66,16 +71,19 @@ class AddAddressPage extends ConsumerWidget {
         child: CustomButton(
           text: 'Save',
           onPressed: () async {
-            final address = Address(
-              id: '',
+            final updatedAddress = Address(
+              id: address.id,
               street: streetAddressController.text.trim(),
               city: cityController.text.trim(),
-              state: stateAddressController.text.trim(),
+              state: stateController.text.trim(),
               zipCode: zipCodeController.text.trim(),
             );
-            final params = AddressParams(userId: userId, address: address);
-            await ref.read(addAddressProvider(params).future);
-            ref.invalidate(addressProvider(params.userId));
+
+            final params = AddressParams(userId: userId, address: updatedAddress);
+
+            await ref.read(updateAddressProvider(params).future);
+            ref.invalidate(addressProvider(userId));
+
             Navigator.pop(context);
           },
         ),

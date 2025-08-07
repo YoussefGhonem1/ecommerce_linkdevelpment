@@ -9,7 +9,7 @@ abstract class AppColors {
   static const Color bgDarkColor = Color(0xFF1D182A);
   static const Color darkGrey = Color(0xFF342F3F);
   static const Color orange = Color(0xFFEC6D26);
-  static const Color red = Color(0xFFEC6D26);
+  static const Color red = Color.fromARGB(255, 236, 38, 38);
   static const Color yellow = Color(0xFFF4BD2F);
   static const Color blue = Color(0xFF4468E5);
   static const Color inputHintLight = Color(0x80272727);

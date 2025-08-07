@@ -1,13 +1,19 @@
+import 'package:ecommerce_app/src/features/address/models/delete_address_params.dart';
+import 'package:ecommerce_app/src/features/address/provider/address_provider.dart';
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AddressPage extends StatelessWidget {
+class AddressPage extends ConsumerWidget {
   const AddressPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final userId = FirebaseAuth.instance.currentUser!.uid;
+    final addressListAsync = ref.watch(addressProvider(userId));
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -18,34 +24,79 @@ class AddressPage extends StatelessWidget {
         leadingWidth: 100,
         title: Text("Address", style: theme.textTheme.headlineSmall),
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-        itemCount: 100,
-        itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.only(bottom: 16),
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: theme.cardColor,
-              borderRadius: BorderRadius.circular(16),
-            ),
+      body: addressListAsync.when(
+        loading: () => Center(child: CircularProgressIndicator()),
+        error: (e, _) => Center(child: Text("Error: $e")),
+        data: (addresses) {
+          if (addresses.isEmpty) {
+            return Center(child: Text("No addresses added yet."));
+          }
+          return ListView.builder(
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+            itemCount: addresses.length,
+            itemBuilder: (context, index) {
+              final address = addresses[index];
+              return Container(
+                margin: const EdgeInsets.only(bottom: 16),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: theme.cardColor,
+                  borderRadius: BorderRadius.circular(16),
+                ),
 
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text("hello", style: theme.textTheme.bodyMedium),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Edit",
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: AppColors.primaryColor,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "${address.street}, ${address.city}, ${address.state}, ${address.zipCode}",
+                        style: theme.textTheme.bodyMedium,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        minimumSize: Size(0, 0),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.editAddressPage,
+                          arguments: {'address': address, 'userId': userId},
+                        );
+                      },
+                      child: Text(
+                        "Edit",
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: AppColors.primaryColor,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        minimumSize: Size(0, 0),
+                      ),
+                      onPressed: () async {
+                        final params = DeleteAddressParams(
+                          userId: userId,
+                          addressId: address.id,
+                        );
+                        await ref.read(deleteAddressProvider(params).future);
+                        ref.invalidate(addressProvider(params.userId));
+                      },
+                      child: Text(
+                        "Delete",
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: AppColors.red,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              );
+            },
           );
         },
       ),

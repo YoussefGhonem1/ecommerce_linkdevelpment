@@ -5,7 +5,6 @@ import '../../../shared/components/custom_back_button.dart';
 import '../../../shared/routing/app_routes.dart';
 import '../../cart/widgets/price_row.dart';
 import '../provider/checkout_notifier.dart';
-import 'add_address_screen.dart';
 import 'add_card_screen.dart';
 
 class CheckoutScreen extends ConsumerWidget {
@@ -31,11 +30,7 @@ class CheckoutScreen extends ConsumerWidget {
           children: [
             // Shipping Address Section
             GestureDetector(
-              onTap:
-                  () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => const AddAddressScreen()),
-                  ),
+              onTap: () => Navigator.pushNamed(context, Routes.addAddressPage),
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -48,10 +43,14 @@ class CheckoutScreen extends ConsumerWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Shipping Address", style: theme.textTheme.bodySmall),
+                        Text(
+                          "Shipping Address",
+                          style: theme.textTheme.bodySmall,
+                        ),
                         const SizedBox(height: 4),
                         Text(
-                          checkoutState.shippingAddress ?? "Add Shipping Address",
+                          checkoutState.shippingAddress ??
+                              "Add Shipping Address",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: theme.textTheme.bodyMedium,
@@ -85,7 +84,10 @@ class CheckoutScreen extends ConsumerWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Payment Method", style: theme.textTheme.bodySmall),
+                          Text(
+                            "Payment Method",
+                            style: theme.textTheme.bodySmall,
+                          ),
                           const SizedBox(height: 4),
                           Row(
                             children: [
@@ -95,7 +97,7 @@ class CheckoutScreen extends ConsumerWidget {
                                     : "Add Payment Method",
                                 style: theme.textTheme.bodyMedium,
                               ),
-                              const SizedBox(width: 10,),
+                              const SizedBox(width: 10),
                               Image.asset('assets/icons/mastercard_icon.png'),
                             ],
                           ),
@@ -112,9 +114,9 @@ class CheckoutScreen extends ConsumerWidget {
             PriceRow("Shipping", checkoutModel.shippingCost),
             PriceRow("Tax", checkoutModel.tax),
             PriceRow("Total", checkoutModel.total),
-            const SizedBox(height:54),
+            const SizedBox(height: 54),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, Routes.orderPlaced);
               },
               child: Container(
@@ -122,7 +124,10 @@ class CheckoutScreen extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(40),
                   color: const Color(0xFF9B5DE5),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 16,
+                ),
                 margin: const EdgeInsets.symmetric(vertical: 14),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -137,7 +142,11 @@ class CheckoutScreen extends ConsumerWidget {
                     ),
                     Text(
                       'Place Order',
-                      style: const TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 16),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
                     ),
                   ],
                 ),
