@@ -10,4 +10,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get appName => 'تطبيق التجارة الإلكترونية';
+
+  @override
+  String get myFavourites => 'المفضله';
 }

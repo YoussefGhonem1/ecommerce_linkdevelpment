@@ -5,17 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 
-
-class ProductsByCategoryScreen extends ConsumerWidget {
+class ProductsByCategoryScreen extends StatelessWidget {
   final String categoryTitle;
 
   const ProductsByCategoryScreen({super.key, required this.categoryTitle});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
-    final productsAsync = ref.watch(allProductsProvider);
 
     return Scaffold(
       body: SafeArea(
@@ -34,40 +31,48 @@ class ProductsByCategoryScreen extends ConsumerWidget {
               ),
               const SizedBox(height: 16),
               Expanded(
-                child: productsAsync.when(
-                  data: (products) {
-                    final filteredProducts = products
-                        .where((product) => product.categoryId == categoryTitle)
-                        .toList();
+                child: Consumer(
+                  builder: (context, ref, _) {
+                    final productsAsync = ref.watch(allProductsProvider);
 
-                    return GridView.builder(
-                      itemCount: filteredProducts.length,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 12,
-                        mainAxisSpacing: 12,
-                        childAspectRatio: 3 / 5,
-                      ),
-                      itemBuilder: (context, index) {
-                        final product = filteredProducts[index];
-                        return ProductCard(
-                          width: 0,
-                          height: 0,
-                          product: product,
-                          onTap: () {
-                            Navigator.pushNamed(
-                              context,
-                              Routes.productDetailScreen,
-                              arguments: product, 
+                    return productsAsync.when(
+                      data: (products) {
+                        final filteredProducts = products
+                            .where((product) =>
+                                product.categoryId == categoryTitle)
+                            .toList();
+
+                        return GridView.builder(
+                          itemCount: filteredProducts.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 12,
+                            childAspectRatio: 3 / 5,
+                          ),
+                          itemBuilder: (context, index) {
+                            final product = filteredProducts[index];
+                            return ProductCard(
+                              width: 0,
+                              height: 0,
+                              product: product,
+                              onTap: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  Routes.productDetailScreen,
+                                  arguments: product,
+                                );
+                              },
                             );
                           },
-                          onFavoriteTap: () {},
                         );
                       },
+                      loading: () =>
+                          const Center(child: CircularProgressIndicator()),
+                      error: (e, _) => Center(child: Text('Error: $e')),
                     );
                   },
-                  loading: () => const Center(child: CircularProgressIndicator()),
-                  error: (e, _) => Center(child: Text('Error: $e')),
                 ),
               ),
             ],

@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
 import 'package:ecommerce_app/src/features/checkout/screens/checkout_screen.dart';
 import 'package:ecommerce_app/src/features/cart/screens/cart_page.dart';
+import 'package:ecommerce_app/src/features/my_favourits/screens/my_favourit_screen.dart';
 import 'package:ecommerce_app/src/features/order-placed-successfully/order-placed-successfully.dart';
 import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
 import 'package:ecommerce_app/src/features/order_details/screens/order_details_screen.dart';
@@ -34,6 +35,8 @@ class Routes {
   static const String checkoutScreen = '/checkout_screen';
   static const String cartPage = '/cart_page';
   static const String orderPlaced = '/order_placed_successfully_screen';
+  static const String myFavourites = '/my-favourites';
+
 }
 
 class AppRoutes {
@@ -58,6 +61,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const LayoutScreen());
       case Routes.categoryPage:
         return MaterialPageRoute(builder: (_) => const CategoriesPage());
+      case Routes.myFavourites:
+        return MaterialPageRoute(builder: (_) => const MyFavouritScreen());
       case Routes.productDetailScreen:
         return MaterialPageRoute(builder: (_) => const ProductDetailScreen());
       case Routes.orderPlaced:

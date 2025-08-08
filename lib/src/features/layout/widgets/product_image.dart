@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 class ProductImage extends StatelessWidget {
   final String imageUrl;
   final VoidCallback? onFavoriteTap;
+  final bool isFavourite;
 
-  const ProductImage({super.key, required this.imageUrl, this.onFavoriteTap});
+  const ProductImage({
+    super.key,
+    required this.imageUrl,
+    this.onFavoriteTap,
+    this.isFavourite = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,10 @@ class ProductImage extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: IconButton(
-                  icon: const Icon(Icons.favorite_border, color: Colors.black),
+                  icon: Icon(
+                    isFavourite ? Icons.favorite : Icons.favorite_border,
+                    color: isFavourite ? Colors.red : Colors.black,
+                  ),
                   onPressed: onFavoriteTap,
                   tooltip: 'Add to favorites',
                 ),

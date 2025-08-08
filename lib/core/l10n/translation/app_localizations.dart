@@ -103,6 +103,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'E-Commerce App'**
   String get appName;
+
+  /// No description provided for @myFavourites.
+  ///
+  /// In en, this message translates to:
+  /// **'My Favourites'**
+  String get myFavourites;
 }
 
 class _AppLocalizationsDelegate
