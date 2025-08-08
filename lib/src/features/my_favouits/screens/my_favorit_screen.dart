@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
-import 'package:ecommerce_app/src/features/my_favourits/provider/favouriteProductsProvider.dart';
+import 'package:ecommerce_app/src/features/my_favouits/provider/favorite_products_provider.dart';
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:ecommerce_app/src/shared/components/product_card.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +38,7 @@ class _FavouriteScreenState extends ConsumerState<MyFavouritScreen> {
                   CustomBackButtonIcon(),
                   const SizedBox(width: 58),
                   Text(
-                  '${AppLocalizations.of(context)!.myFavourites} (${favourites.length})',
+                  '${AppLocalizations.of(context)!.myFavorites} (${favourites.length})',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),

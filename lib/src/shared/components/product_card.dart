@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/src/features/my_favourits/provider/favouriteProductsProvider.dart';
+import 'package:ecommerce_app/src/features/my_favouits/provider/favorite_products_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/product_image.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/product_info.dart';

@@ -108,7 +108,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'My Favourites'**
-  String get myFavourites;
+  String get myFavorites;
 }
 
 class _AppLocalizationsDelegate

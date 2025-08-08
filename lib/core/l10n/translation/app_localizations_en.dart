@@ -12,5 +12,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'E-Commerce App';
 
   @override
-  String get myFavourites => 'My Favourites';
+  String get myFavorites => 'My Favorites';
+  
+ 
 }
