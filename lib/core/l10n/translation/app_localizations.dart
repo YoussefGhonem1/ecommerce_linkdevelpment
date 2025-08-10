@@ -100,7 +100,7 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'E-Commerce App'**
   String get appName;
-
+  
   /// No description provided for @address.
   ///
   /// In en, this message translates to:
@@ -160,6 +160,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'ZIP Code'**
   String get zipCode;
+  /// No description provided for @myFavourites.
+  ///
+  /// In en, this message translates to:
+  /// **'My Favourites'**
+  String get myFavorites;
+
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

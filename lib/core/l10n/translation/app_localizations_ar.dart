@@ -40,4 +40,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get zipCode => 'الرمز البريدي';
+
+  @override
+  String get myFavorites => 'المفضله';
 }

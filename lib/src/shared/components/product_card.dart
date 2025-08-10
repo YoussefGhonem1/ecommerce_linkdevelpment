@@ -1,30 +1,27 @@
+import 'package:ecommerce_app/src/features/my_favouits/provider/favorite_products_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/product_image.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/product_info.dart';
 import 'package:ecommerce_app/src/features/product_seeding/data/product_model.dart';
-
-
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final double width;
   final double height;
   final VoidCallback? onTap;
-  final VoidCallback? onFavoriteTap;
 
   const ProductCard({
     super.key,
     required this.width,
     required this.height,
     this.onTap,
-    this.onFavoriteTap,
     required this.product,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -45,9 +42,23 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProductImage(
-              imageUrl: product.images[0],
-              onFavoriteTap: onFavoriteTap,
+            Consumer(
+              builder: (context, ref, _) {
+                final isFav = ref.watch(favouriteProductsProvider)
+                    .any((p) => p.id == product.id);
+                return ProductImage(
+                  imageUrl: product.images[0],
+                  isFavourite: isFav,
+                  onFavoriteTap: () {
+                    final user = FirebaseAuth.instance.currentUser;
+                    if (user != null) {
+                      ref
+                          .read(favouriteProductsProvider.notifier)
+                          .toggleFavourite(product);
+                    }
+                  },
+                );
+              },
             ),
             ProductInfo(product: product),
           ],

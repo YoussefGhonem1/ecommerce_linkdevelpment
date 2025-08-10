@@ -4,6 +4,7 @@ import 'package:ecommerce_app/src/features/address/screens/edit_address_page';
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
 import 'package:ecommerce_app/src/features/checkout/screens/checkout_screen.dart';
 import 'package:ecommerce_app/src/features/cart/screens/cart_page.dart';
+import 'package:ecommerce_app/src/features/my_favouits/screens/my_favorit_screen.dart';
 import 'package:ecommerce_app/src/features/order-placed-successfully/order-placed-successfully.dart';
 import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
 import 'package:ecommerce_app/src/features/order_details/screens/order_details_screen.dart';
@@ -40,6 +41,8 @@ class Routes {
   static const String addressPage = '/address_page';
   static const String addAddressPage = '/add_address_page';
   static const String editAddressPage = '/edit_address_page';
+  static const String myFavourites = '/my-favourites';
+
 }
 
 class AppRoutes {
@@ -66,6 +69,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const LayoutScreen());
       case Routes.categoryPage:
         return MaterialPageRoute(builder: (_) => const CategoriesPage());
+      case Routes.myFavourites:
+        return MaterialPageRoute(builder: (_) => const MyFavouritScreen());
       case Routes.productDetailScreen:
         return MaterialPageRoute(builder: (_) => const ProductDetailScreen());
       case Routes.orderPlaced:
@@ -103,7 +108,7 @@ class AppRoutes {
                 userId: address['userId'],
               ),
         );
-
+        
       default:
         return MaterialPageRoute(
           builder:

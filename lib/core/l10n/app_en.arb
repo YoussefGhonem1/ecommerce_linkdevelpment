@@ -9,5 +9,7 @@
   "streetAddress": "Street Address",
   "city": "City",
   "state": "State",
-  "zipCode": "ZIP Code"
+  "zipCode": "ZIP Code",
+    "myFavorites" : "My Favourites"
 }
+
