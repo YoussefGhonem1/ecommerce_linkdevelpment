@@ -10,6 +10,9 @@
   "city": "المدينة",
   "state": "المحافظة",
   "zipCode": "الرمز البريدي",
-  "myFavorites" : "المفضله"
-
+  "myFavorites" : "المفضله",
+  "settings_payment": "الدفع",
+  "settings_help": "مساعدة",
+  "settings_support": "الدعم",
+  "settings_signOut": "تسجيل الخروج"
 }

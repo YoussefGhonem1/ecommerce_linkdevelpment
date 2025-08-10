@@ -115,7 +115,7 @@ class SettingsTab extends StatelessWidget {
                                 // TODO: Navigate to Edit Page
                               },
                               child: Text(
-                                local.settings_edit,
+                                local.edit,
                                 style: const TextStyle(
                                   color: AppColors.primaryColor,
                                   fontWeight: FontWeight.w600,
@@ -134,17 +134,31 @@ class SettingsTab extends StatelessWidget {
                 _buildSettingsTile(
                   context,
                   icon: Icons.location_on,
-                  label: local.settings_address,
-                  onTap: () {
-                    //TODO : Nacigate to Address Page
+                  label: local.address,
+                  onTap: () async {
+                    final userId = FirebaseAuth.instance.currentUser?.uid;
+                    if (userId == null) return;
+
+                    final snapshot =
+                        await FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(userId)
+                            .collection('addresses')
+                            .get();
+
+                    if (snapshot.docs.isEmpty) {
+                      Navigator.pushNamed(context, Routes.addAddressPage);
+                    } else {
+                      Navigator.pushNamed(context, Routes.addressPage);
+                    }
                   },
                 ),
                 _buildSettingsTile(
                   context,
                   icon: Icons.favorite,
-                  label: local.settings_wishlist,
+                  label: local.myFavorites,
                   onTap: () {
-                    //TODO : Nacigate to Wishlist Page
+                    Navigator.pushNamed(context, Routes.myFavourites);
                   },
                 ),
                 _buildSettingsTile(

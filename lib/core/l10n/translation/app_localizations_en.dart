@@ -43,4 +43,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get myFavorites => 'My Favourites';
+
+  @override
+  String get settings_payment => 'Payment';
+
+  @override
+  String get settings_help => 'Help';
+
+  @override
+  String get settings_support => 'Support';
+
+  @override
+  String get settings_signOut => 'Sign Out';
 }

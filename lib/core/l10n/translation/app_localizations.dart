@@ -169,6 +169,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My Favourites'**
   String get myFavorites;
+
+  /// No description provided for @settings_payment.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment'**
+  String get settings_payment;
+
+  /// No description provided for @settings_help.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get settings_help;
+
+  /// No description provided for @settings_support.
+  ///
+  /// In en, this message translates to:
+  /// **'Support'**
+  String get settings_support;
+
+  /// No description provided for @settings_signOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Out'**
+  String get settings_signOut;
 }
 
 class _AppLocalizationsDelegate

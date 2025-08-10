@@ -10,5 +10,9 @@
   "city": "City",
   "state": "State",
   "zipCode": "ZIP Code",
-    "myFavorites" : "My Favourites"
+  "myFavorites" : "My Favourites",
+  "settings_payment": "Payment",
+  "settings_help": "Help",
+  "settings_support": "Support",
+  "settings_signOut": "Sign Out"
 }
