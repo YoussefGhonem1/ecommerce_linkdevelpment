@@ -1,4 +1,15 @@
 {
-  "appName" : "E-Commerce App",
-  "myFavorites" : "My Favourites"
+  "appName": "E-Commerce App",
+  "address": "Address",
+  "edit": "Edit",
+  "delete": "Delete",
+  "editAddress": "Edit Address",
+  "addAddress": "Add Address",
+  "save": "Save",
+  "streetAddress": "Street Address",
+  "city": "City",
+  "state": "State",
+  "zipCode": "ZIP Code",
+    "myFavorites" : "My Favourites"
 }
+

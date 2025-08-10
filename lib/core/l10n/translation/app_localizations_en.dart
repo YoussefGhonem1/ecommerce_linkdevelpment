@@ -10,9 +10,35 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appName => 'E-Commerce App';
+  String get address => 'Address';
+  @override
+  String get edit => 'Edit';
 
   @override
+  String get delete => 'Delete';
+
+  @override
+  String get editAddress => 'Edit Address';
+
+  @override
+  String get addAddress => 'Add Address';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get streetAddress => 'Street Address';
+
+  @override
+  String get city => 'City';
+
+  @override
+  String get state => 'State';
+
+  @override
+  String get zipCode => 'ZIP Code';
   String get myFavorites => 'My Favorites';
   
  
+
 }
