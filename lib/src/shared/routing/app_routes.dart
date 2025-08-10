@@ -1,3 +1,6 @@
+import 'package:ecommerce_app/src/features/address/screens/add_address_page.dart';
+import 'package:ecommerce_app/src/features/address/screens/address_page.dart';
+import 'package:ecommerce_app/src/features/address/screens/edit_address_page';
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
 import 'package:ecommerce_app/src/features/checkout/screens/checkout_screen.dart';
 import 'package:ecommerce_app/src/features/cart/screens/cart_page.dart';
@@ -34,6 +37,9 @@ class Routes {
   static const String checkoutScreen = '/checkout_screen';
   static const String cartPage = '/cart_page';
   static const String orderPlaced = '/order_placed_successfully_screen';
+  static const String addressPage = '/address_page';
+  static const String addAddressPage = '/add_address_page';
+  static const String editAddressPage = '/edit_address_page';
 }
 
 class AppRoutes {
@@ -51,7 +57,9 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const ReturnToLoginScreen());
       case Routes.signInPassword:
         final email = settings.arguments as String;
-        return MaterialPageRoute(builder: (_) => SignInPasswordScreen(email: email));
+        return MaterialPageRoute(
+          builder: (_) => SignInPasswordScreen(email: email),
+        );
       case Routes.createAccount:
         return MaterialPageRoute(builder: (_) => const CreateAccountPage());
       case Routes.layout:
@@ -68,7 +76,7 @@ class AppRoutes {
         final categoryTitle = settings.arguments as String;
         return MaterialPageRoute(
           builder:
-              (_) =>ProductsByCategoryScreen(categoryTitle: categoryTitle),
+              (_) => ProductsByCategoryScreen(categoryTitle: categoryTitle),
         );
       case Routes.orderDetails:
         final order = settings.arguments as Order;
@@ -82,6 +90,20 @@ class AppRoutes {
         );
       case Routes.cartPage:
         return MaterialPageRoute(builder: (_) => const CartPage());
+      case Routes.addressPage:
+        return MaterialPageRoute(builder: (_) => const AddressPage());
+      case Routes.addAddressPage:
+        return MaterialPageRoute(builder: (_) => const AddAddressPage());
+      case Routes.editAddressPage:
+        final address = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder:
+              (_) => EditAddressPage(
+                address: address['address'],
+                userId: address['userId'],
+              ),
+        );
+
       default:
         return MaterialPageRoute(
           builder:
