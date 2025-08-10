@@ -43,4 +43,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get myFavorites => 'المفضله';
+
+  @override
+  String get settings_payment => 'الدفع';
+
+  @override
+  String get settings_help => 'مساعدة';
+
+  @override
+  String get settings_support => 'الدعم';
+
+  @override
+  String get settings_signOut => 'تسجيل الخروج';
 }

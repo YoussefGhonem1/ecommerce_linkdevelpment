@@ -13,10 +13,7 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.lightGrey,
-      hintStyle: TextStyle(
-        color: AppColors.inputHintLight,
-        fontSize: 17,
-      ),
+      hintStyle: TextStyle(color: AppColors.inputHintLight, fontSize: 17),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
@@ -67,6 +64,7 @@ class AppTheme {
   static ThemeData darkTheme = ThemeData(
     cardColor: AppColors.darkGrey,
     scaffoldBackgroundColor: AppColors.bgDarkColor,
+    iconTheme: const IconThemeData(color: Colors.white),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.bgDarkColor,
       selectedItemColor: AppColors.primaryColor,
@@ -75,10 +73,7 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.darkGrey,
-      hintStyle: TextStyle(
-        color: AppColors.inputHintDark,
-        fontSize: 17,
-      ),
+      hintStyle: TextStyle(color: AppColors.inputHintDark, fontSize: 17),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.bgDarkColor,

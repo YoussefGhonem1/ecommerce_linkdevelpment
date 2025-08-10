@@ -193,9 +193,7 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {
-                        
-                        },
+                        onTap: () {},
                         child: Text(
                           "See All",
                           style: theme.textTheme.bodyMedium,

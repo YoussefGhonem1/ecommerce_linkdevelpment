@@ -10,7 +10,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appName => 'E-Commerce App';
+
+  @override
   String get address => 'Address';
+
   @override
   String get edit => 'Edit';
 
@@ -37,8 +40,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get zipCode => 'ZIP Code';
-  String get myFavorites => 'My Favorites';
-  
- 
 
+  @override
+  String get myFavorites => 'My Favourites';
+
+  @override
+  String get settings_payment => 'Payment';
+
+  @override
+  String get settings_help => 'Help';
+
+  @override
+  String get settings_support => 'Support';
+
+  @override
+  String get settings_signOut => 'Sign Out';
 }
