@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
 
+import '../../../../../core/l10n/translation/app_localizations.dart';
+
 class SignInPasswordScreen extends StatefulWidget {
   final String email;
   const SignInPasswordScreen({super.key, required this.email});
@@ -24,6 +26,8 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final local = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -34,50 +38,44 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Sign in', style: theme.textTheme.headlineMedium),
+              Text(local.signIn, style: theme.textTheme.headlineMedium),
               const SizedBox(height: 40),
               CustomTextField(
                 controller: _passwordController,
-                hintText: 'Password',
+                hintText: local.password,
                 keyboardType: TextInputType.name,
                 obscureText: true,
               ),
               const SizedBox(height: 20),
               CustomButton(
-                text: 'Continue',
+                text: local.continueText,
                 onPressed: () async {
                   try {
                     final userCredential = await FirebaseAuth.instance
                         .signInWithEmailAndPassword(
-                          email: widget.email.trim(),
-                          password: _passwordController.text.trim(),
-                        );
+                      email: widget.email.trim(),
+                      password: _passwordController.text.trim(),
+                    );
                     final user = userCredential.user;
-                    if (user != null ) {
+                    if (user != null) {
                       Navigator.pushNamedAndRemoveUntil(
                         context,
                         Routes.layout,
-                        (route) => false,
+                            (route) => false,
                       );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Login failed: User is null')),
+                        SnackBar(content: Text(local.loginFailedUserNull)),
                       );
                     }
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'user-not-found') {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text("No user found for that email."),
-                        ),
+                        SnackBar(content: Text(local.noUserFound)),
                       );
                     } else if (e.code == 'wrong-password') {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            "Wrong password provided for that user.",
-                          ),
-                        ),
+                        SnackBar(content: Text(local.wrongPassword)),
                       );
                     }
                   }
@@ -87,13 +85,13 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("Forgot Password ? ", style: theme.textTheme.bodyMedium),
+                  Text(local.forgotPasswordQ, style: theme.textTheme.bodyMedium),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, Routes.forgetPassword);
                     },
                     child: Text(
-                      'Reset',
+                      local.reset,
                       style: TextStyle(
                         color: theme.textTheme.bodyMedium?.color,
                         fontWeight: FontWeight.bold,
@@ -108,4 +106,5 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
       ),
     );
   }
+
 }
