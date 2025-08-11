@@ -55,4 +55,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get settings_signOut => 'تسجيل الخروج';
+
+  @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
+  String get firstName => 'الاسم الأول';
+
+  @override
+  String get lastName => 'اسم العائلة';
 }

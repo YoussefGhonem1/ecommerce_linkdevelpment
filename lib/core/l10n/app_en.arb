@@ -14,5 +14,8 @@
   "settings_payment": "Payment",
   "settings_help": "Help",
   "settings_support": "Support",
-  "settings_signOut": "Sign Out"
+  "settings_signOut": "Sign Out",
+  "email": "Email",
+  "firstName": "First Name",
+  "lastName": "Last Name"
 }

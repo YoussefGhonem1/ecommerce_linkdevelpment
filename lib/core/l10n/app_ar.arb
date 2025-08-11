@@ -14,5 +14,8 @@
   "settings_payment": "الدفع",
   "settings_help": "مساعدة",
   "settings_support": "الدعم",
-  "settings_signOut": "تسجيل الخروج"
+  "settings_signOut": "تسجيل الخروج",
+  "email": "البريد الإلكتروني",
+  "firstName": "الاسم الأول",
+  "lastName": "اسم العائلة"
 }
