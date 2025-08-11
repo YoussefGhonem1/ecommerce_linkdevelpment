@@ -7,6 +7,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 class FCM  {
   static Future<void> fcmInit() async {
+    await Firebase.initializeApp();
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
     await requestPermission();
     await getToken();
@@ -32,11 +33,16 @@ class FCM  {
       print('User declined or has not accepted permission');
     }
   }
-  
+
   static Future<String?> getToken() async {
-    String? token = await messaging.getToken();
-    print("FCM Token: $token");
-    return token;
+    try {
+      String? token = await messaging.getToken();
+      print("FCM Token: $token");
+      return token;
+    } catch (e) {
+      print("Error getting FCM token: $e");
+      return null;
+    }
   }
 
   static Future<void> handForegroundMessage() async {

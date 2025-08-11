@@ -55,4 +55,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settings_signOut => 'Sign Out';
+
+  @override
+  String get cardNumber => 'Card Number';
+
+  @override
+  String get ccv => 'CCV';
+
+  @override
+  String get exp => 'Exp';
+
+  @override
+  String get cardHolderName => 'Cardholder Name';
+
+  @override
+  String get addCard => 'Add Card';
+
+  @override
+  String get payment => 'Payment';
+
+  @override
+  String get cards => 'Cards';
+
+  @override
+  String get noCardsFound => 'No cards found';
 }
