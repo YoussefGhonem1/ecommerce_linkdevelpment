@@ -20,6 +20,7 @@ import '../../features/splash/presentation/pages/splash_page.dart';
 import '../../features/forget_password/screens/forget_password_screen.dart';
 import '../../features/forget_password/screens/return_to_login_screen.dart';
 import '../../features/create_account/screens/create_account_screen.dart';
+import '../../features/edit_account/edit_account.dart';
 
 class Routes {
   static const String initial = '/';
@@ -42,7 +43,7 @@ class Routes {
   static const String addAddressPage = '/add_address_page';
   static const String editAddressPage = '/edit_address_page';
   static const String myFavourites = '/my-favourites';
-
+  static const String editAccount = '/edit_Account';
 }
 
 class AppRoutes {
@@ -108,7 +109,9 @@ class AppRoutes {
                 userId: address['userId'],
               ),
         );
-        
+      case Routes.editAccount:
+        return MaterialPageRoute(builder: (_) => const EditAccountPage());
+
       default:
         return MaterialPageRoute(
           builder:

@@ -16,22 +16,23 @@ class CustomSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
+        color: theme.inputDecorationTheme.fillColor,
         borderRadius: BorderRadius.circular(50),
       ),
       child: TextField(
         controller: controller,
         onChanged: onChanged,
         onTap: onTap,
-        style: const TextStyle(color: Colors.white),
+        style: TextStyle(color: theme.textTheme.bodyMedium?.color),
         decoration: InputDecoration(
-          icon: const Icon(Icons.search, color: Colors.white),
+          icon: Icon(Icons.search, color: theme.iconTheme.color),
           hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.white70, fontSize: 21),
+          hintStyle: theme.inputDecorationTheme.hintStyle,
           border: InputBorder.none,
         ),
       ),
