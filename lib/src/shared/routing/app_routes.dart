@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/src/features/address/screens/add_address_page.dart';
 import 'package:ecommerce_app/src/features/address/screens/address_page.dart';
-import 'package:ecommerce_app/src/features/address/screens/edit_address_page';
+import 'package:ecommerce_app/src/features/address/screens/edit_address_page.dart';
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
 import 'package:ecommerce_app/src/features/checkout/screens/checkout_screen.dart';
 import 'package:ecommerce_app/src/features/cart/screens/cart_page.dart';

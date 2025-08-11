@@ -22,5 +22,18 @@
   "addCard": "Add Card",
   "payment": "Payment",
   "cards": "Cards",
-  "noCardsFound": "No cards found"
+  "noCardsFound": "No cards found",
+  "categories": "Categories",
+  "seeAll": "See All",
+  "newIn": "New In",
+  "topSelling": "Top Selling",
+  "men": "Men",
+  "women": "Women",
+  "notifications": "Notifications",
+  "orderShipped": "Your order has been shipped successfully!",
+  "orderConfirmed": "Gilbert, your Order #24568 has been confirmed",
+  "itemOutForDelivery": "Your item is out for delivery",
+  "orderCanceled": "Thank you for shopping. Order #24568 canceled.",
+  "discountsOnSelectedItems": "Discounts on selected items!"
+
 }

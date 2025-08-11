@@ -22,5 +22,17 @@
   "addCard": "اضف بطاقة",
   "payment": "الدفع",
   "cards": "الكروت",
-  "noCardsFound": "لا توجد بطاقات"
+  "noCardsFound": "لا توجد بطاقات",
+  "categories": "الفئات",
+  "seeAll": "عرض الكل",
+  "newIn": "جديد",
+  "topSelling": "الأكثر مبيعًا",
+  "men": "رجال",
+  "women": "نساء",
+  "notifications": "الإشعارات",
+  "discountsOnSelectedItems": "خصومات على منتجات مختارة!",
+  "orderCanceled": "شكرًا لتسوقك. تم إلغاء الطلب رقم 24568.",
+  "itemOutForDelivery": "طلبك في طريقه للتسليم",
+  "orderConfirmed": "جلبرت، تم تأكيد طلبك رقم 24568",
+  "orderShipped": "تم شحن طلبك بنجاح!"
 }

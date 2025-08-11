@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/gender_drop_down.dart';
 import 'package:ecommerce_app/src/features/product_seeding/data/product_provider.dart';
 import 'package:ecommerce_app/src/features/shopping_category/presentation/widgets/category_circle_card.dart';
@@ -99,13 +100,13 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Categories", style: theme.textTheme.headlineSmall),
+                      Text(AppLocalizations.of(context)!.categories, style: theme.textTheme.headlineSmall),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushNamed(context, Routes.categoryPage);
                         },
                         child: Text(
-                          "See All",
+                          AppLocalizations.of(context)!.seeAll,
                           style: theme.textTheme.bodyMedium,
                         ),
                       ),
@@ -157,11 +158,11 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Top Selling", style: theme.textTheme.headlineSmall),
+                      Text( AppLocalizations.of(context)!.topSelling, style: theme.textTheme.headlineSmall),
                       GestureDetector(
                         onTap: () {},
                         child: Text(
-                          "See All",
+                         AppLocalizations.of(context)!.seeAll,
                           style: theme.textTheme.bodyMedium,
                         ),
                       ),
@@ -201,7 +202,7 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "New In",
+                        AppLocalizations.of(context)!.newIn,
                         style: theme.textTheme.headlineSmall?.copyWith(
                           color: AppColors.primaryColor,
                         ),
@@ -209,7 +210,7 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                       GestureDetector(
                         onTap: () {},
                         child: Text(
-                          "See All",
+                          AppLocalizations.of(context)!.seeAll,
                           style: theme.textTheme.bodyMedium,
                         ),
                       ),

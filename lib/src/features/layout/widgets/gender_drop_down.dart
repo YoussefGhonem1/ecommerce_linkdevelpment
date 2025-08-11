@@ -1,4 +1,4 @@
-
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class GenderDropdown extends StatefulWidget {
@@ -9,7 +9,13 @@ class GenderDropdown extends StatefulWidget {
 }
 
 class _GenderDropdownState extends State<GenderDropdown> {
-  String selectedGender = 'Men';
+  String? selectedGender;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    selectedGender ??= AppLocalizations.of(context)!.men;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +32,16 @@ class _GenderDropdownState extends State<GenderDropdown> {
           icon: const Icon(Icons.keyboard_arrow_down_rounded, size: 20),
           style: theme.textTheme.bodyMedium,
           dropdownColor: Theme.of(context).colorScheme.onPrimaryContainer,
-          items: <String>['Men', 'Women']
-              .map((gender) => DropdownMenuItem(
-            value: gender,
-            child: Text(gender),
-          ))
-              .toList(),
+          items:
+              <String>[
+                    AppLocalizations.of(context)!.men,
+                    AppLocalizations.of(context)!.women,
+                  ]
+                  .map(
+                    (gender) =>
+                        DropdownMenuItem(value: gender, child: Text(gender)),
+                  )
+                  .toList(),
           onChanged: (value) {
             setState(() {
               selectedGender = value!;
