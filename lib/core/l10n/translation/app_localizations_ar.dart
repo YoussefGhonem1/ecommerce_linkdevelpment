@@ -250,4 +250,41 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get seeOrderDetails => 'عرض تفاصيل الطلب';
+  String get noOrders => 'لا توجد طلبات';
+
+  @override
+  String get orders => 'الطلبات';
+
+  @override
+  String get order => 'طلب';
+
+  @override
+  String get items => 'أغراض';
+
+  @override
+  String get processing => 'قيد المعالجة';
+
+  @override
+  String get shipped => 'تم الشحن';
+
+  @override
+  String get delivered => 'تم التسليم';
+
+  @override
+  String get returned => 'تم الإرجاع';
+
+  @override
+  String get canceled => 'تم الإلغاء';
+
+  @override
+  String get orderPlaced => 'تم تقديم الطلب';
+
+  @override
+  String get orderItems => 'عناصر الطلب';
+
+  @override
+  String get shippingDetails => 'تفاصيل الشحن';
+
+  @override
+  String get viewAll => 'عرض الكل';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:intl/intl.dart';
 
 class OrderTimeline extends StatelessWidget {
@@ -7,21 +8,21 @@ class OrderTimeline extends StatelessWidget {
 
   const OrderTimeline({super.key, required this.order});
 
-  final List<String> statuses = const [
-    "Delivered",
-    "Shipped",
-    "Order Confirmed",
-    "Order Placed",
-  ];
-
-  int getCurrentStatusIndex(String status) {
-    return statuses.indexOf(status);
-  }
-
   @override
   Widget build(BuildContext context) {
-    final currentIndex = getCurrentStatusIndex(order.status);
+    final local = AppLocalizations.of(context)!; // non-nullable
     final theme = Theme.of(context);
+
+    // Localized statuses list
+    final statuses = [
+      local.delivered,
+      local.shipped,
+      local.orderConfirmed,
+      local.orderPlaced,
+    ];
+
+    final currentIndex = getCurrentStatusIndex(order.status, statuses);
+
     return Column(
       children: List.generate(statuses.length, (index) {
         final isActive = index >= currentIndex;
@@ -49,7 +50,7 @@ class OrderTimeline extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                _getDateForStatus(statuses[index]),
+                _getDateForStatus(statuses[index], local),
                 style: theme.textTheme.bodySmall?.copyWith(
                   color:
                       isActive ? theme.textTheme.bodySmall?.color : Colors.grey,
@@ -62,21 +63,21 @@ class OrderTimeline extends StatelessWidget {
     );
   }
 
-  String _getDateForStatus(String status) {
+  int getCurrentStatusIndex(String status, List<String> statuses) {
+    return statuses.indexOf(status);
+  }
+
+  String _getDateForStatus(String localizedStatus, AppLocalizations local) {
     DateTime? date;
-    switch (status) {
-      case "Order Placed":
-        date = order.placedDate;
-        break;
-      case "Order Confirmed":
-        date = order.confirmedDate;
-        break;
-      case "Shipped":
-        date = order.shippedDate;
-        break;
-      case "Delivered":
-        date = order.deliveredDate;
-        break;
+
+    if (localizedStatus == local.orderPlaced) {
+      date = order.placedDate;
+    } else if (localizedStatus == local.orderConfirmed) {
+      date = order.confirmedDate;
+    } else if (localizedStatus == local.shipped) {
+      date = order.shippedDate;
+    } else if (localizedStatus == local.delivered) {
+      date = order.deliveredDate;
     }
 
     if (date == null) return "--";

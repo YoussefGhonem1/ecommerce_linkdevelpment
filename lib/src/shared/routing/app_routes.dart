@@ -24,6 +24,7 @@ import '../../features/forget_password/screens/forget_password_screen.dart';
 import '../../features/forget_password/screens/return_to_login_screen.dart';
 import '../../features/create_account/screens/create_account_screen.dart';
 import '../../features/edit_account/edit_account.dart';
+import '../../features/search_screen/search_screen.dart';
 
 class Routes {
   static const String initial = '/';
@@ -49,6 +50,7 @@ class Routes {
   static const String editAddressPage = '/edit_address_page';
   static const String myFavourites = '/my-favourites';
   static const String editAccount = '/edit_Account';
+  static const String searchScreen = "/search_screen";
 }
 
 class AppRoutes {
@@ -106,7 +108,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const AddressPage());
       case Routes.addAddressPage:
         return MaterialPageRoute(builder: (_) => const AddAddressPage());
-        case Routes.paymentScreen:
+      case Routes.paymentScreen:
         return MaterialPageRoute(builder: (_) => const PaymentScreen());
       case Routes.addPaymentScreen:
         return MaterialPageRoute(builder: (_) => const AddCardScreen());
@@ -121,6 +123,8 @@ class AppRoutes {
         );
       case Routes.editAccount:
         return MaterialPageRoute(builder: (_) => const EditAccountPage());
+      case Routes.searchScreen:
+        return MaterialPageRoute(builder: (_) => const SearchScreen());
 
       default:
         return MaterialPageRoute(

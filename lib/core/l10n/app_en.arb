@@ -81,5 +81,20 @@
   "seeOrderDetails": "See Order Details",
   "email": "Email",
   "firstName": "First Name",
-  "lastName": "Last Name"
+  "lastName": "Last Name",
+  "noOrders": "No Orders yet",
+  "orders": "Orders",
+  "order" : "Order",
+  "exploreCategories": "Explore Categories",
+  "items": "items",
+  "processing": "Processing",
+  "shipped": "Shipped",
+  "delivered": "Delivered",
+  "returned": "Returned",
+  "canceled": "Canceled",
+  "orderConfirmed": "Order Confirmed",
+  "orderPlaced": "Order Placed",
+  "orderItems": "Order items",
+  "shippingDetails": "Shipping details",
+  "viewAll": "View All"
 }

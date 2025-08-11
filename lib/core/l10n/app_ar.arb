@@ -81,5 +81,20 @@
   "seeOrderDetails": "عرض تفاصيل الطلب",
   "email": "البريد الإلكتروني",
   "firstName": "الاسم الأول",
-  "lastName": "اسم العائلة"
+  "lastName": "اسم العائلة",
+  "noOrders": "لا توجد طلبات",
+  "orders" : "الطلبات",
+  "order" : "طلب",
+  "exploreCategories": "تصفح الفئات",
+  "items": "أغراض",
+  "processing": "قيد المعالجة",
+  "shipped": "تم الشحن",
+  "delivered": "تم التسليم",
+  "returned": "تم الإرجاع",
+  "canceled": "تم الإلغاء",
+  "orderConfirmed": "تم تأكيد الطلب",
+  "orderPlaced": "تم تقديم الطلب",
+  "orderItems": "عناصر الطلب",
+  "shippingDetails": "تفاصيل الشحن",
+  "viewAll": "عرض الكل"
 }
