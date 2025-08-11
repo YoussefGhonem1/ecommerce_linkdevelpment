@@ -116,7 +116,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get discountsOnSelectedItems => 'خصومات على منتجات مختارة!';
 
-   @override
+  @override
   String get signIn => 'تسجيل الدخول';
 
   @override
@@ -160,6 +160,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get createAccount => 'إنشاء حساب';
+  String get email => 'البريد الإلكتروني';
 
   @override
   String get firstName => 'الاسم الأول';

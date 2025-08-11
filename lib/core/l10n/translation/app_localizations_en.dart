@@ -249,4 +249,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get seeOrderDetails => 'See Order Details';
+
+  @override
+  String get email => 'Email';
 }

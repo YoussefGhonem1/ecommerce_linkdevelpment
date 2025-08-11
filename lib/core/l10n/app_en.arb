@@ -34,7 +34,7 @@
   "orderConfirmed": "Gilbert, your Order #24568 has been confirmed",
   "itemOutForDelivery": "Your item is out for delivery",
   "orderCanceled": "Thank you for shopping. Order #24568 canceled.",
-  "discountsOnSelectedItems": "Discounts on selected items!"
+  "discountsOnSelectedItems": "Discounts on selected items!",
   "signIn": "Sign in",
   "emailAddress": "Email Address",
   "continueText": "Continue",
@@ -78,5 +78,8 @@
   "placeOrder": "Place Order",
   "orderPlacedSuccessfully": "Order Placed\nSuccessfully",
   "emailConfirmationMessage": "You will receive an email confirmation",
-  "seeOrderDetails": "See Order Details"
+  "seeOrderDetails": "See Order Details",
+  "email": "Email",
+  "firstName": "First Name",
+  "lastName": "Last Name"
 }

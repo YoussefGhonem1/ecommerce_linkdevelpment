@@ -34,7 +34,7 @@
   "orderCanceled": "شكرًا لتسوقك. تم إلغاء الطلب رقم 24568.",
   "itemOutForDelivery": "طلبك في طريقه للتسليم",
   "orderConfirmed": "جلبرت، تم تأكيد طلبك رقم 24568",
-  "orderShipped": "تم شحن طلبك بنجاح!"
+  "orderShipped": "تم شحن طلبك بنجاح!",
   "signIn": "تسجيل الدخول",
   "emailAddress": "البريد الإلكتروني",
   "continueText": "متابعة",
@@ -78,5 +78,8 @@
   "placeOrder": "إتمام الطلب",
   "orderPlacedSuccessfully": "تم تأكيد الطلب\nبنجاح",
   "emailConfirmationMessage": "ستتلقى رسالة تأكيد عبر البريد الإلكتروني",
-  "seeOrderDetails": "عرض تفاصيل الطلب"
+  "seeOrderDetails": "عرض تفاصيل الطلب",
+  "email": "البريد الإلكتروني",
+  "firstName": "الاسم الأول",
+  "lastName": "اسم العائلة"
 }
