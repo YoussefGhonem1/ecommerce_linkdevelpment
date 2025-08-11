@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.initial,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: const Locale("ar"),
+      locale: const Locale("en"),
     );
   }
 }

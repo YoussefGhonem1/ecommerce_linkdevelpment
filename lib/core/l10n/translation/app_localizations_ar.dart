@@ -55,4 +55,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get settings_signOut => 'تسجيل الخروج';
+
+  @override
+  String get cardNumber => 'رقم البطاقة';
+
+  @override
+  String get ccv => 'رمز التحقق';
+
+  @override
+  String get exp => 'تاريخ الانتهاء';
+
+  @override
+  String get cardHolderName => 'اسم صاحب البطاقة';
+
+  @override
+  String get addCard => 'اضف بطاقة';
+
+  @override
+  String get payment => 'الدفع';
+
+  @override
+  String get cards => 'الكروت';
+
+  @override
+  String get noCardsFound => 'لا توجد بطاقات';
 }

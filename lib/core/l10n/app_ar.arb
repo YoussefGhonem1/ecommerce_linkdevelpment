@@ -14,5 +14,13 @@
   "settings_payment": "الدفع",
   "settings_help": "مساعدة",
   "settings_support": "الدعم",
-  "settings_signOut": "تسجيل الخروج"
+  "settings_signOut": "تسجيل الخروج",
+  "cardNumber": "رقم البطاقة",
+  "ccv": "رمز التحقق",
+  "exp": "تاريخ الانتهاء",
+  "cardHolderName": "اسم صاحب البطاقة",
+  "addCard": "اضف بطاقة",
+  "payment": "الدفع",
+  "cards": "الكروت",
+  "noCardsFound": "لا توجد بطاقات"
 }

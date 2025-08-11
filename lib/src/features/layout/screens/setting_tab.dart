@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});
@@ -166,7 +167,7 @@ class SettingsTab extends StatelessWidget {
                   icon: Icons.payment,
                   label: local.settings_payment,
                   onTap: () {
-                    //TODO : Nacigate to Payment Page
+                    Navigator.pushNamed(context, Routes.paymentScreen);
                   },
                 ),
                 _buildSettingsTile(
@@ -191,6 +192,7 @@ class SettingsTab extends StatelessWidget {
                 Center(
                   child: TextButton(
                     onPressed: () async {
+                      await GoogleSignIn().signOut();
                       await FirebaseAuth.instance.signOut();
                       if (context.mounted) {
                         Navigator.pushNamedAndRemoveUntil(

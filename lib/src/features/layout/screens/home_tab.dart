@@ -7,6 +7,7 @@ import 'package:ecommerce_app/src/shared/components/product_card.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:ecommerce_app/src/shared/components/custom_search_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,7 +30,7 @@ class _HomeTabState extends ConsumerState<HomeTab> {
   }
 
   Future<void> _preloadImages() async {
-    await Future.delayed(const Duration(seconds: 4));
+    await Future.delayed(const Duration(seconds: 2));
     if (mounted) {
       setState(() {
         _isLoading = false;
@@ -39,6 +40,8 @@ class _HomeTabState extends ConsumerState<HomeTab> {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+    final photoUrl = user?.photoURL ?? '';
     final theme = Theme.of(context);
     final topSellingAsync = ref.watch(topSellingProductsProvider);
     final newInAsync = ref.watch(newInProductsProvider);
@@ -49,7 +52,18 @@ class _HomeTabState extends ConsumerState<HomeTab> {
         appBar: AppBar(
           leading: Padding(
             padding: const EdgeInsets.only(left: 16),
-            child: Image.asset(Assets.imagesProfileImage),
+            child: CircleAvatar(
+              radius: 36,
+              backgroundColor: AppColors.primaryColor.withOpacity(0.2),
+              backgroundImage: photoUrl.isNotEmpty ? NetworkImage(photoUrl) : null,
+              child: photoUrl.isEmpty
+                  ? Icon(
+                Icons.person,
+                size: 40,
+                color: AppColors.primaryColor,
+              )
+                  : null,
+            ),
           ),
           title: GenderDropdown(),
           actions: [

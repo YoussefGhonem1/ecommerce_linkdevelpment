@@ -8,8 +8,10 @@ import 'package:ecommerce_app/src/features/my_favouits/screens/my_favorit_screen
 import 'package:ecommerce_app/src/features/order-placed-successfully/order-placed-successfully.dart';
 import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
 import 'package:ecommerce_app/src/features/order_details/screens/order_details_screen.dart';
+import 'package:ecommerce_app/src/features/payment/screens/payment_screen.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/pages/product_details_page.dart';
 import 'package:flutter/material.dart';
+import '../../features/payment/screens/add_card_screen.dart';
 import '../../features/products_by_category/screens/products_by_category_screen.dart';
 import '../../features/shopping_category/presentation/pages/category_page.dart';
 import '../../features/layout/screens/layout_screen.dart';
@@ -40,6 +42,8 @@ class Routes {
   static const String orderPlaced = '/order_placed_successfully_screen';
   static const String addressPage = '/address_page';
   static const String addAddressPage = '/add_address_page';
+  static const String paymentScreen = '/address_screen';
+  static const String addPaymentScreen = '/add_payment_screen';
   static const String editAddressPage = '/edit_address_page';
   static const String myFavourites = '/my-favourites';
 
@@ -99,6 +103,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const AddressPage());
       case Routes.addAddressPage:
         return MaterialPageRoute(builder: (_) => const AddAddressPage());
+        case Routes.paymentScreen:
+        return MaterialPageRoute(builder: (_) => const PaymentScreen());
+      case Routes.addPaymentScreen:
+        return MaterialPageRoute(builder: (_) => const AddCardScreen());
       case Routes.editAddressPage:
         final address = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(

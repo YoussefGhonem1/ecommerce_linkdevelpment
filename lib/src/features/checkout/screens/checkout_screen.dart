@@ -5,7 +5,6 @@ import '../../../shared/components/custom_back_button.dart';
 import '../../../shared/routing/app_routes.dart';
 import '../../cart/widgets/price_row.dart';
 import '../provider/checkout_notifier.dart';
-import 'add_card_screen.dart';
 
 class CheckoutScreen extends ConsumerWidget {
   final CheckoutModel checkoutModel;
@@ -67,10 +66,7 @@ class CheckoutScreen extends ConsumerWidget {
             // Payment Method Section
             GestureDetector(
               onTap:
-                  () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => const AddCardScreen()),
-                  ),
+                  () => Navigator.pushNamed(context, Routes.addPaymentScreen),
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(

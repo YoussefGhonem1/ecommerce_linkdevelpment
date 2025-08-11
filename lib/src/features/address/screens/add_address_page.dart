@@ -9,6 +9,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../checkout/provider/checkout_notifier.dart';
+
 class AddAddressPage extends ConsumerWidget {
   const AddAddressPage({super.key});
 
@@ -76,6 +78,7 @@ class AddAddressPage extends ConsumerWidget {
             );
             final params = AddressParams(userId: userId, address: address);
             await ref.read(addAddressProvider(params).future);
+            ref.read(checkoutProvider.notifier).setShippingAddress("${address.street}, ${address.city}, ${address.state}, ${address.zipCode}");
             ref.invalidate(addressProvider(params.userId));
             Navigator.pop(context);
           },

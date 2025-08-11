@@ -14,5 +14,13 @@
   "settings_payment": "Payment",
   "settings_help": "Help",
   "settings_support": "Support",
-  "settings_signOut": "Sign Out"
+  "settings_signOut": "Sign Out",
+  "cardNumber": "Card Number",
+  "ccv": "CCV",
+  "exp": "Exp",
+  "cardHolderName": "Cardholder Name",
+  "addCard": "Add Card",
+  "payment": "Payment",
+  "cards": "Cards",
+  "noCardsFound": "No cards found"
 }
