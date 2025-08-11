@@ -96,5 +96,6 @@
   "orderPlaced": "Order Placed",
   "orderItems": "Order items",
   "shippingDetails": "Shipping details",
-  "viewAll": "View All"
+  "viewAll": "View All",
+  "settings_language": "Language"
 }

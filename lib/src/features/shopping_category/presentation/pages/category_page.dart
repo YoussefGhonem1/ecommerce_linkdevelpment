@@ -42,14 +42,12 @@ class CategoriesPage extends ConsumerWidget {
               ),
               const SizedBox(height: 20),
 
-              // Title (below the row)
               Text(
                 searchQuery.isEmpty ? "Shop by Categories" : "Search Results",
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: 20),
 
-              // Main content
               Expanded(
                 child:
                     searchQuery.isEmpty

@@ -96,5 +96,6 @@
   "orderPlaced": "تم تقديم الطلب",
   "orderItems": "عناصر الطلب",
   "shippingDetails": "تفاصيل الشحن",
-  "viewAll": "عرض الكل"
+  "viewAll": "عرض الكل",
+  "settings_language": "اللغة"
 }

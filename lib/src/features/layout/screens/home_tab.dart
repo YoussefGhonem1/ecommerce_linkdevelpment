@@ -14,6 +14,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../generated/assets.dart';
 import 'package:ecommerce_app/src/shared/components/custom_search_bar.dart';
+import 'package:ecommerce_app/core/l10n/locale_provider.dart';
 
 class HomeTab extends ConsumerStatefulWidget {
   const HomeTab({super.key});

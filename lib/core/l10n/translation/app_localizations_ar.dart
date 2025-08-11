@@ -287,4 +287,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get viewAll => 'عرض الكل';
+
+  @override
+  String get settings_language => 'اللغة';
 }
