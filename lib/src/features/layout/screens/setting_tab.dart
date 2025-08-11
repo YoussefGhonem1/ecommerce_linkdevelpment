@@ -113,7 +113,10 @@ class SettingsTab extends StatelessWidget {
                                     : Alignment.centerRight,
                             child: GestureDetector(
                               onTap: () {
-                                // TODO: Navigate to Edit Page
+                                Navigator.pushNamed(
+                                  context,
+                                  Routes.editAccount,
+                                );
                               },
                               child: Text(
                                 local.edit,
