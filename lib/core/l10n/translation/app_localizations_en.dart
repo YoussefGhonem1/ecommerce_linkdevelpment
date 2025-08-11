@@ -79,4 +79,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noCardsFound => 'No cards found';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get firstName => 'First Name';
+
+  @override
+  String get lastName => 'Last Name';
 }

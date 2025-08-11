@@ -241,6 +241,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No cards found'**
   String get noCardsFound;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @firstName.
+  ///
+  /// In en, this message translates to:
+  /// **'First Name'**
+  String get firstName;
+
+  /// No description provided for @lastName.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Name'**
+  String get lastName;
 }
 
 class _AppLocalizationsDelegate

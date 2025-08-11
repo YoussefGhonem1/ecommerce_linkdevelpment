@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
@@ -70,12 +71,11 @@ class _EditAccountPageState extends State<EditAccountPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final local = AppLocalizations.of(context)!;
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
 
     return Scaffold(
-      appBar: AppBar(
-        leading: const CustomBackButtonIcon(),
-        title: const Text("Edit Account"),
-      ),
+      appBar: AppBar(leading: const CustomBackButtonIcon()),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -83,9 +83,9 @@ class _EditAccountPageState extends State<EditAccountPage> {
           child: Column(
             children: [
               Align(
-                alignment: Alignment.centerLeft,
+                alignment: isRtl ? Alignment.centerRight : Alignment.centerLeft,
                 child: Text(
-                  'Email',
+                  local.email,
                   textAlign: TextAlign.left,
                   style: theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
@@ -94,7 +94,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
               ),
               CustomTextField(
                 controller: _emailController,
-                hintText: "Email",
+                hintText: local.email,
                 keyboardType: TextInputType.emailAddress,
                 readOnly: true,
               ),
@@ -102,9 +102,9 @@ class _EditAccountPageState extends State<EditAccountPage> {
               const SizedBox(height: 20),
 
               Align(
-                alignment: Alignment.centerLeft,
+                alignment: isRtl ? Alignment.centerRight : Alignment.centerLeft,
                 child: Text(
-                  'First Name',
+                  local.firstName,
                   textAlign: TextAlign.left,
                   style: theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
@@ -113,15 +113,15 @@ class _EditAccountPageState extends State<EditAccountPage> {
               ),
               CustomTextField(
                 controller: _firstNameController,
-                hintText: "First Name",
+                hintText: local.firstName,
               ),
 
               const SizedBox(height: 20),
 
               Align(
-                alignment: Alignment.centerLeft,
+                alignment: isRtl ? Alignment.centerRight : Alignment.centerLeft,
                 child: Text(
-                  'Last Name',
+                  local.lastName,
                   textAlign: TextAlign.start,
                   style: theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
@@ -130,7 +130,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
               ),
               CustomTextField(
                 controller: _lastNameController,
-                hintText: "Last Name",
+                hintText: local.lastName,
               ),
             ],
           ),
@@ -141,7 +141,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
         child:
             _loading
                 ? const Center(child: CircularProgressIndicator())
-                : CustomButton(text: "Save Changes", onPressed: _saveChanges),
+                : CustomButton(text: local.save, onPressed: _saveChanges),
       ),
     );
   }

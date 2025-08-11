@@ -22,5 +22,8 @@
   "addCard": "Add Card",
   "payment": "Payment",
   "cards": "Cards",
-  "noCardsFound": "No cards found"
+  "noCardsFound": "No cards found",
+  "email": "Email",
+  "firstName": "First Name",
+  "lastName": "Last Name"
 }

@@ -22,5 +22,8 @@
   "addCard": "اضف بطاقة",
   "payment": "الدفع",
   "cards": "الكروت",
-  "noCardsFound": "لا توجد بطاقات"
+  "noCardsFound": "لا توجد بطاقات",
+  "email": "البريد الإلكتروني",
+  "firstName": "الاسم الأول",
+  "lastName": "اسم العائلة"
 }

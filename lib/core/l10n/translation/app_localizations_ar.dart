@@ -79,4 +79,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noCardsFound => 'لا توجد بطاقات';
+  String get email => 'البريد الإلكتروني';
+
+  @override
+  String get firstName => 'الاسم الأول';
+
+  @override
+  String get lastName => 'اسم العائلة';
 }
