@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/reviews_title.dart';
 import 'package:flutter/material.dart';
 
@@ -10,19 +11,19 @@ class ReviewsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Reviews',
+          AppLocalizations.of(context)!.reviews,
           style: Theme.of(context).textTheme.headlineSmall
         ),
         const SizedBox(height: 8),
         Text(
-          '4.5 Ratings',
+          '4.5 ${AppLocalizations.of(context)!.rating}',
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             fontFamily: 'Gabarito',
           ),
         ),
         const SizedBox(height: 4),
         Text(
-          '213 Reviews',
+          '213 ${AppLocalizations.of(context)!.reviews}',
           style: Theme.of(context).textTheme.bodySmall,
         ),
         const SizedBox(height: 20),

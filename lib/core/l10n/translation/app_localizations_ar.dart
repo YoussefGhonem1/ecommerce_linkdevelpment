@@ -79,4 +79,56 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noCardsFound => 'لا توجد بطاقات';
+
+  @override
+  String get titleOnBoarding1 => 'اختر ما تحب';
+
+  @override
+  String get subtitleOnBoarding1 =>
+      'ابحث عن أفضل العروض على العناصر التي تحبها. يمكنك التسوق اليوم بناءً على الأنماط والألوان والمزيد.';
+
+  @override
+  String get titleOnBoarding2 => 'تتبع الطلب';
+
+  @override
+  String get subtitleOnBoarding2 =>
+      'تبقى معك احدث حالة الطلب وتعرف مكانه في اي وقت.';
+
+  @override
+  String get titleOnBoarding3 => 'احصل على الطلب';
+
+  @override
+  String get subtitleOnBoarding3 =>
+      'احصل على الطلب الخاص بك في اي وقت من اي مكان.';
+
+  @override
+  String get skip => 'تخطي';
+
+  @override
+  String get letsStart => 'لنبدأ';
+
+  @override
+  String get size => 'الحجم';
+
+  @override
+  String get color => 'اللون';
+
+  @override
+  String get quantity => 'الكمية';
+
+  @override
+  String get shippingAndReturns => 'الشحن والإرجاع';
+
+  @override
+  String get shippingAndReturnsDescription =>
+      'شحن قياسي مجاني وإرجاع مجاني لمدة 60 يومًا';
+
+  @override
+  String get reviews => 'مراجعات';
+
+  @override
+  String get rating => 'تقيمات';
+
+  @override
+  String get addToBag => 'إضافة إلى السلة';
 }

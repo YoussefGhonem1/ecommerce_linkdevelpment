@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/favorite_button.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/product_images.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/product_info_widget.dart';
@@ -34,11 +35,11 @@ class ProductDetailBody extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'Shipping & Returns',
+              AppLocalizations.of(context)!.shippingAndReturns,
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontFamily: 'Gabarito'),
             ),
             SizedBox(height: 4),
-            Text('Free standard shipping and free 60-day returns',style: Theme.of(context).textTheme.bodySmall,),
+            Text(AppLocalizations.of(context)!.shippingAndReturnsDescription,style: Theme.of(context).textTheme.bodySmall,),
             SizedBox(height: 16),
             const ReviewsSection(),
             
