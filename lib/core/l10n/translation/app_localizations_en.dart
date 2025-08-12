@@ -105,7 +105,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orderShipped => 'Your order has been shipped successfully!';
 
   @override
-  String get orderConfirmed => 'Gilbert, your Order #24568 has been confirmed';
+  String get orderConfirmed => 'Order Confirmed';
 
   @override
   String get itemOutForDelivery => 'Your item is out for delivery';
@@ -162,10 +162,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get createAccount => 'Create Account';
 
   @override
-  String get firstName => 'Firstname';
+  String get firstName => 'First Name';
 
   @override
-  String get lastName => 'Lastname';
+  String get lastName => 'Last Name';
 
   @override
   String get forgetPassword => 'Forget Password';

@@ -105,7 +105,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get orderShipped => 'تم شحن طلبك بنجاح!';
 
   @override
-  String get orderConfirmed => 'جلبرت، تم تأكيد طلبك رقم 24568';
+  String get orderConfirmed => 'تم تأكيد الطلب';
 
   @override
   String get itemOutForDelivery => 'طلبك في طريقه للتسليم';
@@ -160,7 +160,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get createAccount => 'إنشاء حساب';
-  String get email => 'البريد الإلكتروني';
 
   @override
   String get firstName => 'الاسم الأول';
@@ -185,7 +184,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cartEmpty => 'سلة التسوق فارغة';
 
   @override
-  String get exploreCategories => 'استكشاف الفئات';
+  String get exploreCategories => 'تصفح الفئات';
 
   @override
   String get cartTitle => 'سلة التسوق';
@@ -250,6 +249,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get seeOrderDetails => 'عرض تفاصيل الطلب';
+
+  @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
   String get noOrders => 'لا توجد طلبات';
 
   @override

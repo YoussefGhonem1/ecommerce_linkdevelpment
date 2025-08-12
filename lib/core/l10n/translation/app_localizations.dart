@@ -293,7 +293,7 @@ abstract class AppLocalizations {
   /// No description provided for @orderConfirmed.
   ///
   /// In en, this message translates to:
-  /// **'Gilbert, your Order #24568 has been confirmed'**
+  /// **'Order Confirmed'**
   String get orderConfirmed;
 
   /// No description provided for @itemOutForDelivery.
@@ -404,23 +404,16 @@ abstract class AppLocalizations {
   /// **'Create Account'**
   String get createAccount;
 
-  /// No description provided for @email.
-  ///
-  /// In en, this message translates to:
-  /// **'Email'**
-  String get email;
-
   /// No description provided for @firstName.
   ///
   /// In en, this message translates to:
-  /// **'Firstname'**
   /// **'First Name'**
   String get firstName;
 
   /// No description provided for @lastName.
   ///
   /// In en, this message translates to:
-  /// **'Lastname'**
+  /// **'Last Name'**
   String get lastName;
 
   /// No description provided for @forgetPassword.
@@ -452,24 +445,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your Cart is Empty'**
   String get cartEmpty;
-
-  /// No description provided for @noOrders.
-  ///
-  /// In en, this message translates to:
-  /// **'No Orders yet'**
-  String get noOrders;
-
-  /// No description provided for @orders.
-  ///
-  /// In en, this message translates to:
-  /// **'Orders'**
-  String get orders;
-
-  /// No description provided for @order.
-  ///
-  /// In en, this message translates to:
-  /// **'Order'**
-  String get order;
 
   /// No description provided for @exploreCategories.
   ///
@@ -602,6 +577,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'See Order Details'**
   String get seeOrderDetails;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @noOrders.
+  ///
+  /// In en, this message translates to:
+  /// **'No Orders yet'**
+  String get noOrders;
+
+  /// No description provided for @orders.
+  ///
+  /// In en, this message translates to:
+  /// **'Orders'**
+  String get orders;
+
+  /// No description provided for @order.
+  ///
+  /// In en, this message translates to:
+  /// **'Order'**
+  String get order;
 
   /// No description provided for @items.
   ///
