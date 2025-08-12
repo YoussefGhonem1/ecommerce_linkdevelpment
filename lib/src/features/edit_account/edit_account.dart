@@ -62,9 +62,13 @@ class _EditAccountPageState extends State<EditAccountPage> {
             'firstName': _firstNameController.text.trim(),
             'lastName': _lastNameController.text.trim(),
           });
-    }
 
-    setState(() => _loading = false);
+      // Refresh the UI with the updated data without leaving the page
+      setState(() {
+        _loading = false;
+        // The controllers already hold the new text, so this triggers rebuild
+      });
+    }
     Navigator.pop(context); // Go back after saving
   }
 
