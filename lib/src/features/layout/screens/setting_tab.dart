@@ -11,18 +11,6 @@ import 'package:ecommerce_app/core/l10n/locale_provider.dart';
 class SettingsTab extends ConsumerWidget {
   const SettingsTab({super.key});
 
-  Future<Map<String, dynamic>?> fetchUserData() async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) return null;
-
-    final doc =
-        await FirebaseFirestore.instance
-            .collection('users')
-            .doc(user.uid)
-            .get();
-    return doc.data();
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final local = AppLocalizations.of(context)!;
@@ -30,18 +18,27 @@ class SettingsTab extends ConsumerWidget {
     final textTheme = theme.textTheme;
     final isRtl = Directionality.of(context) == TextDirection.rtl;
 
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId == null) {
+      return const Center(child: Text("User not logged in."));
+    }
+
     return Scaffold(
-      body: FutureBuilder<Map<String, dynamic>?>(
-        future: fetchUserData(),
+      body: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+        stream:
+            FirebaseFirestore.instance
+                .collection('users')
+                .doc(userId)
+                .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
-          if (!snapshot.hasData || snapshot.data == null) {
+          if (!snapshot.hasData || !snapshot.data!.exists) {
             return const Center(child: Text("User data not found."));
           }
 
-          final userData = snapshot.data!;
+          final userData = snapshot.data!.data()!;
           final first = userData['firstName'] ?? '';
           final last = userData['lastName'] ?? '';
           final name = '$first $last'.trim();
@@ -143,9 +140,6 @@ class SettingsTab extends ConsumerWidget {
                     icon: Icons.location_on,
                     label: local.address,
                     onTap: () async {
-                      final userId = FirebaseAuth.instance.currentUser?.uid;
-                      if (userId == null) return;
-
                       final snapshot =
                           await FirebaseFirestore.instance
                               .collection('users')
@@ -181,7 +175,7 @@ class SettingsTab extends ConsumerWidget {
                     icon: Icons.help_outline,
                     label: local.settings_help,
                     onTap: () {
-                      //TODO : Nacigate to Help Page
+                      // TODO: Navigate to Help Page
                     },
                   ),
                   _buildSettingsTile(
@@ -189,7 +183,7 @@ class SettingsTab extends ConsumerWidget {
                     icon: Icons.support_agent,
                     label: local.settings_support,
                     onTap: () {
-                      //TODO : Nacigate to Support Page
+                      // TODO: Navigate to Support Page
                     },
                   ),
                   _buildSettingsTile(
@@ -200,23 +194,17 @@ class SettingsTab extends ConsumerWidget {
                       showDialog(
                         context: context,
                         builder: (context) {
-                          final theme = Theme.of(context);
                           return AlertDialog(
-                            backgroundColor: theme.cardColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            title: Text(
-                              local.settings_language,
-                              style: theme.textTheme.headlineSmall,
-                            ),
+                            title: Text(local.settings_language),
                             content: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                _buildLangTile(
-                                  theme,
-                                  flag: "🇸🇦",
-                                  label: "العربية",
+                                ListTile(
+                                  leading: const Text(
+                                    "🇸🇦",
+                                    style: TextStyle(fontSize: 24),
+                                  ),
+                                  title: const Text("العربية"),
                                   onTap: () {
                                     ref
                                         .read(localeProvider.notifier)
@@ -224,11 +212,12 @@ class SettingsTab extends ConsumerWidget {
                                     Navigator.pop(context);
                                   },
                                 ),
-                                const SizedBox(height: 8),
-                                _buildLangTile(
-                                  theme,
-                                  flag: "🇺🇸",
-                                  label: "English",
+                                ListTile(
+                                  leading: const Text(
+                                    "🇺🇸",
+                                    style: TextStyle(fontSize: 24),
+                                  ),
+                                  title: const Text("English"),
                                   onTap: () {
                                     ref
                                         .read(localeProvider.notifier)
@@ -275,32 +264,6 @@ class SettingsTab extends ConsumerWidget {
             ),
           );
         },
-      ),
-    );
-  }
-
-  Widget _buildLangTile(
-    ThemeData theme, {
-    required String flag,
-    required String label,
-    required VoidCallback onTap,
-  }) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(12),
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-        decoration: BoxDecoration(
-          color: theme.scaffoldBackgroundColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Row(
-          children: [
-            Text(flag, style: const TextStyle(fontSize: 24)),
-            const SizedBox(width: 12),
-            Text(label, style: theme.textTheme.bodyMedium),
-          ],
-        ),
       ),
     );
   }
