@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/manager/quantity_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -29,7 +30,7 @@ class BottomBar extends ConsumerWidget {
             ),
             const Spacer(),
             Text(
-              'Add to Bag',
+              AppLocalizations.of(context)!.addToBag,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),
             ),
           ],

@@ -97,5 +97,22 @@
   "orderItems": "Order items",
   "shippingDetails": "Shipping details",
   "viewAll": "View All",
-  "settings_language": "Language"
+  "settings_language": "Language",
+  "noCardsFound": "No cards found",
+  "titleOnBoarding1": "Select What You Love",
+  "subtitleOnBoarding1": "Find the best deals on the items you love.you may shop today based on styles, colors, and more.",
+  "titleOnBoarding2": "Track order",
+  "subtitleOnBoarding2": "Stay updated with your order status and know exactly where it is, anytime.",
+  "titleOnBoarding3": "Get your order",
+  "subtitleOnBoarding3": "We will deliver your items fast and safe, right to your doorstep.",
+  "skip": "Skip",
+  "letsStart": "Let's Start",
+  "size": "Size",
+  "color": "Color",
+  "quantity": "Quantity",
+  "shippingAndReturns": "Shipping & Returns",
+  "shippingAndReturnsDescription": "Free standard shipping and free returns within 60 days returns",
+  "reviews": "Reviews",
+  "rating": "Rating",
+  "addToBag": "Add to Bag"
 }

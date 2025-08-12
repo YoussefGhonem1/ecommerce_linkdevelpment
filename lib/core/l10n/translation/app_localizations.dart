@@ -667,6 +667,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language'**
   String get settings_language;
+
+  /// No description provided for @titleOnBoarding1.
+  ///
+  /// In en, this message translates to:
+  /// **'Select What You Love'**
+  String get titleOnBoarding1;
+
+  /// No description provided for @subtitleOnBoarding1.
+  ///
+  /// In en, this message translates to:
+  /// **'Find the best deals on the items you love.you may shop today based on styles, colors, and more.'**
+  String get subtitleOnBoarding1;
+
+  /// No description provided for @titleOnBoarding2.
+  ///
+  /// In en, this message translates to:
+  /// **'Track order'**
+  String get titleOnBoarding2;
+
+  /// No description provided for @subtitleOnBoarding2.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay updated with your order status and know exactly where it is, anytime.'**
+  String get subtitleOnBoarding2;
+
+  /// No description provided for @titleOnBoarding3.
+  ///
+  /// In en, this message translates to:
+  /// **'Get your order'**
+  String get titleOnBoarding3;
+
+  /// No description provided for @subtitleOnBoarding3.
+  ///
+  /// In en, this message translates to:
+  /// **'We will deliver your items fast and safe, right to your doorstep.'**
+  String get subtitleOnBoarding3;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @letsStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s Start'**
+  String get letsStart;
+
+  /// No description provided for @quantity.
+  ///
+  /// In en, this message translates to:
+  /// **'Quantity'**
+  String get quantity;
+
+  /// No description provided for @shippingAndReturns.
+  ///
+  /// In en, this message translates to:
+  /// **'Shipping & Returns'**
+  String get shippingAndReturns;
+
+  /// No description provided for @shippingAndReturnsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Free standard shipping and free returns within 60 days returns'**
+  String get shippingAndReturnsDescription;
+
+  /// No description provided for @reviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviews'**
+  String get reviews;
+
+  /// No description provided for @rating.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating'**
+  String get rating;
+
+  /// No description provided for @addToBag.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Bag'**
+  String get addToBag;
 }
 
 class _AppLocalizationsDelegate

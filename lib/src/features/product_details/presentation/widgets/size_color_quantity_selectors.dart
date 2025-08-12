@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:ecommerce_app/generated/assets.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/manager/quantity_notifier.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/circle_button.dart';
@@ -45,7 +46,7 @@ class _SizeColorQuantitySelectorState extends ConsumerState<SizeColorQuantitySel
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Size", style: Theme.of(context).textTheme.bodyMedium),
+              Text(AppLocalizations.of(context)!.size, style: Theme.of(context).textTheme.bodyMedium),
               Row(
                 children: [
                   Text(selectedSize, style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -89,7 +90,7 @@ class _SizeColorQuantitySelectorState extends ConsumerState<SizeColorQuantitySel
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Color", style: Theme.of(context).textTheme.bodyMedium),
+              Text(AppLocalizations.of(context)!.color, style: Theme.of(context).textTheme.bodyMedium),
               Row(
                 children: [
                   Container(
@@ -141,7 +142,7 @@ class _SizeColorQuantitySelectorState extends ConsumerState<SizeColorQuantitySel
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Quantity", style: Theme.of(context).textTheme.bodyMedium),
+              Text(AppLocalizations.of(context)!.quantity, style: Theme.of(context).textTheme.bodyMedium),
               Row(
                 children: [
                   CircleButton(image: Assets.iconAdd, onTap: () {

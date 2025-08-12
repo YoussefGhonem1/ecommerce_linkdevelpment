@@ -1,4 +1,5 @@
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:ecommerce_app/src/features/on_boarding/presentation/widgets/custom_button_onboarding.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
@@ -22,8 +23,6 @@ class PageViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final double backgroundHeight =
-        backgroundImage.contains("2") ? size.height * 0.445 : size.height * 0.51;
     return Column(
       children: [
         Row(
@@ -41,7 +40,7 @@ class PageViewItem extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: size.height * 0.03, horizontal: size.width * 0.06,),
                   child: Text(
-                    "Skip",
+                    AppLocalizations.of(context)!.skip,
                     style:Theme.of(context).textTheme.bodyMedium
                   ),
                 ),
@@ -61,10 +60,14 @@ class PageViewItem extends StatelessWidget {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                height: backgroundHeight,
-                child: SvgPicture.asset(
-                  backgroundImage,
-                  fit: BoxFit.fill,
+                height: size.height * 0.51,
+                child: SizedBox(
+                  width: double.infinity,
+                  height: size.height * 0.51,
+                  child: SvgPicture.asset(
+                    backgroundImage,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               Padding(
@@ -75,7 +78,7 @@ class PageViewItem extends StatelessWidget {
                     SizedBox(height: size.height * 0.05),
                     Text(
                       title,
-                       style:  Theme.of(context).textTheme.headlineSmall,
+                      style:  Theme.of(context).textTheme.headlineSmall,
                     ),
                     SizedBox(height: size.height * 0.015),
                     Text(
@@ -109,7 +112,7 @@ class PageViewItem extends StatelessWidget {
                           onPressed: () {
                         Navigator.pushReplacementNamed(context, Routes.signInEmail);
                           }, 
-                          label: 'Let\'s Start',
+                          label: AppLocalizations.of(context)!.letsStart,
                         ),
                         ),
                   ],

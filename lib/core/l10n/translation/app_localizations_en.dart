@@ -294,4 +294,50 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settings_language => 'Language';
+
+  @override
+  String get titleOnBoarding1 => 'Select What You Love';
+
+  @override
+  String get subtitleOnBoarding1 =>
+      'Find the best deals on the items you love.you may shop today based on styles, colors, and more.';
+
+  @override
+  String get titleOnBoarding2 => 'Track order';
+
+  @override
+  String get subtitleOnBoarding2 =>
+      'Stay updated with your order status and know exactly where it is, anytime.';
+
+  @override
+  String get titleOnBoarding3 => 'Get your order';
+
+  @override
+  String get subtitleOnBoarding3 =>
+      'We will deliver your items fast and safe, right to your doorstep.';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get letsStart => 'Let\'s Start';
+
+  @override
+  String get quantity => 'Quantity';
+
+  @override
+  String get shippingAndReturns => 'Shipping & Returns';
+
+  @override
+  String get shippingAndReturnsDescription =>
+      'Free standard shipping and free returns within 60 days returns';
+
+  @override
+  String get reviews => 'Reviews';
+
+  @override
+  String get rating => 'Rating';
+
+  @override
+  String get addToBag => 'Add to Bag';
 }

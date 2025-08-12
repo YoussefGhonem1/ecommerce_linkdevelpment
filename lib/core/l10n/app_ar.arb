@@ -97,5 +97,23 @@
   "orderItems": "عناصر الطلب",
   "shippingDetails": "تفاصيل الشحن",
   "viewAll": "عرض الكل",
-  "settings_language": "اللغة"
+  "settings_language": "اللغة",
+  "noCardsFound": "لا توجد بطاقات",
+  "titleOnBoarding1": "اختر ما تحب",
+  "subtitleOnBoarding1": "ابحث عن أفضل العروض على العناصر التي تحبها. يمكنك التسوق اليوم بناءً على الأنماط والألوان والمزيد.",
+  "titleOnBoarding2": "تتبع الطلب",
+  "subtitleOnBoarding2": "تبقى معك احدث حالة الطلب وتعرف مكانه في اي وقت.",
+  "titleOnBoarding3": "احصل على الطلب",
+  "subtitleOnBoarding3": "احصل على الطلب الخاص بك في اي وقت من اي مكان.",
+  "skip": "تخطي",
+  "letsStart": "لنبدأ",
+  "size": "الحجم",
+  "color": "اللون",
+  "quantity": "الكمية",
+  "shippingAndReturns": "الشحن والإرجاع",
+  "shippingAndReturnsDescription": "شحن قياسي مجاني وإرجاع مجاني لمدة 60 يومًا",
+  "reviews": "مراجعات",
+  "rating": "تقيمات",
+  "addToBag": "إضافة إلى السلة"
+
 }
