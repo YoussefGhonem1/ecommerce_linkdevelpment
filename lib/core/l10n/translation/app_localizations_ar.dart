@@ -105,7 +105,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get orderShipped => 'تم شحن طلبك بنجاح!';
 
   @override
-  String get orderConfirmed => 'جلبرت، تم تأكيد طلبك رقم 24568';
+  String get orderConfirmed => 'تم تأكيد الطلب';
 
   @override
   String get itemOutForDelivery => 'طلبك في طريقه للتسليم';
@@ -116,7 +116,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get discountsOnSelectedItems => 'خصومات على منتجات مختارة!';
 
-   @override
+  @override
   String get signIn => 'تسجيل الدخول';
 
   @override
@@ -184,7 +184,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cartEmpty => 'سلة التسوق فارغة';
 
   @override
-  String get exploreCategories => 'استكشاف الفئات';
+  String get exploreCategories => 'تصفح الفئات';
 
   @override
   String get cartTitle => 'سلة التسوق';
@@ -249,4 +249,49 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get seeOrderDetails => 'عرض تفاصيل الطلب';
+
+  @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
+  String get noOrders => 'لا توجد طلبات';
+
+  @override
+  String get orders => 'الطلبات';
+
+  @override
+  String get order => 'طلب';
+
+  @override
+  String get items => 'أغراض';
+
+  @override
+  String get processing => 'قيد المعالجة';
+
+  @override
+  String get shipped => 'تم الشحن';
+
+  @override
+  String get delivered => 'تم التسليم';
+
+  @override
+  String get returned => 'تم الإرجاع';
+
+  @override
+  String get canceled => 'تم الإلغاء';
+
+  @override
+  String get orderPlaced => 'تم تقديم الطلب';
+
+  @override
+  String get orderItems => 'عناصر الطلب';
+
+  @override
+  String get shippingDetails => 'تفاصيل الشحن';
+
+  @override
+  String get viewAll => 'عرض الكل';
+
+  @override
+  String get settings_language => 'اللغة';
 }

@@ -3,6 +3,7 @@ import 'package:ecommerce_app/src/features/layout/widgets/custom_tab_bar_item.da
 import 'package:ecommerce_app/src/features/layout/widgets/orders_card.dart';
 import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
 import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class BuildOrdersList extends StatefulWidget {
@@ -17,6 +18,7 @@ class _BuildOrdersListState extends State<BuildOrdersList> {
   int selectedTapIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     return DefaultTabController(
       length: 5,
       child: Padding(
@@ -35,11 +37,11 @@ class _BuildOrdersListState extends State<BuildOrdersList> {
               dividerColor: Colors.transparent,
               tabs: List.generate(5, (index) {
                 final titles = [
-                  'Processing',
-                  'Shipped',
-                  'Delivered',
-                  'Returned',
-                  'Canceled',
+                  local.processing,
+                  local.shipped,
+                  local.delivered,
+                  local.returned,
+                  local.canceled,
                 ];
                 return CustomTabBarItem(
                   title: titles[index],

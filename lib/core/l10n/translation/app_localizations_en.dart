@@ -105,7 +105,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orderShipped => 'Your order has been shipped successfully!';
 
   @override
-  String get orderConfirmed => 'Gilbert, your Order #24568 has been confirmed';
+  String get orderConfirmed => 'Order Confirmed';
 
   @override
   String get itemOutForDelivery => 'Your item is out for delivery';
@@ -162,10 +162,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get createAccount => 'Create Account';
 
   @override
-  String get firstName => 'Firstname';
+  String get firstName => 'First Name';
 
   @override
-  String get lastName => 'Lastname';
+  String get lastName => 'Last Name';
 
   @override
   String get forgetPassword => 'Forget Password';
@@ -249,4 +249,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get seeOrderDetails => 'See Order Details';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get noOrders => 'No Orders yet';
+
+  @override
+  String get orders => 'Orders';
+
+  @override
+  String get order => 'Order';
+
+  @override
+  String get items => 'items';
+
+  @override
+  String get processing => 'Processing';
+
+  @override
+  String get shipped => 'Shipped';
+
+  @override
+  String get delivered => 'Delivered';
+
+  @override
+  String get returned => 'Returned';
+
+  @override
+  String get canceled => 'Canceled';
+
+  @override
+  String get orderPlaced => 'Order Placed';
+
+  @override
+  String get orderItems => 'Order items';
+
+  @override
+  String get shippingDetails => 'Shipping details';
+
+  @override
+  String get viewAll => 'View All';
+
+  @override
+  String get settings_language => 'Language';
 }
