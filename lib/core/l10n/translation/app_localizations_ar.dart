@@ -81,6 +81,42 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noCardsFound => 'لا توجد بطاقات';
 
   @override
+  String get categories => 'الفئات';
+
+  @override
+  String get seeAll => 'عرض الكل';
+
+  @override
+  String get newIn => 'جديد';
+
+  @override
+  String get topSelling => 'الأكثر مبيعًا';
+
+  @override
+  String get men => 'رجال';
+
+  @override
+  String get women => 'نساء';
+
+  @override
+  String get notifications => 'الإشعارات';
+
+  @override
+  String get orderShipped => 'تم شحن طلبك بنجاح!';
+
+  @override
+  String get orderConfirmed => 'جلبرت، تم تأكيد طلبك رقم 24568';
+
+  @override
+  String get itemOutForDelivery => 'طلبك في طريقه للتسليم';
+
+  @override
+  String get orderCanceled => 'شكرًا لتسوقك. تم إلغاء الطلب رقم 24568.';
+
+  @override
+  String get discountsOnSelectedItems => 'خصومات على منتجات مختارة!';
+
+   @override
   String get signIn => 'تسجيل الدخول';
 
   @override

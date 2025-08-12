@@ -81,6 +81,42 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noCardsFound => 'No cards found';
 
   @override
+  String get categories => 'Categories';
+
+  @override
+  String get seeAll => 'See All';
+
+  @override
+  String get newIn => 'New In';
+
+  @override
+  String get topSelling => 'Top Selling';
+
+  @override
+  String get men => 'Men';
+
+  @override
+  String get women => 'Women';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get orderShipped => 'Your order has been shipped successfully!';
+
+  @override
+  String get orderConfirmed => 'Gilbert, your Order #24568 has been confirmed';
+
+  @override
+  String get itemOutForDelivery => 'Your item is out for delivery';
+
+  @override
+  String get orderCanceled => 'Thank you for shopping. Order #24568 canceled.';
+
+  @override
+  String get discountsOnSelectedItems => 'Discounts on selected items!';
+
+  @override
   String get signIn => 'Sign in';
 
   @override
