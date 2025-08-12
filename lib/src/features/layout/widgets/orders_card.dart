@@ -2,20 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../generated/assets.dart';
 import '../models/orders_model.dart';
-
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 
 class OrdersCard extends StatelessWidget {
   final OrdersModel order;
   final VoidCallback? onTap;
 
-  const OrdersCard({
-    super.key,
-    required this.order,
-    this.onTap,
-  });
+  const OrdersCard({super.key, required this.order, this.onTap});
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     return GestureDetector(
       onTap: onTap,
       child: Padding(
@@ -30,26 +27,26 @@ class OrdersCard extends StatelessWidget {
           child: Row(
             children: [
               const SizedBox(width: 8),
-              SvgPicture.asset(
-                Assets.iconsOrders,
-                height: 24,
-                width: 24,
-              ),
+              SvgPicture.asset(Assets.iconsOrders, height: 24, width: 24),
               const SizedBox(width: 16),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     order.title,
-                    style: Theme.of(
-                      context,
-                    ).textTheme.bodyMedium?.copyWith(fontSize: 16,fontWeight: FontWeight.w500),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                  Text("${order.ordersNum} items",style: Theme.of(context).textTheme.bodySmall,)
+                  Text(
+                    "${order.ordersNum} ${local.items}",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                 ],
               ),
               Spacer(),
-              Icon(Icons.arrow_forward_ios)
+              Icon(Icons.arrow_forward_ios),
             ],
           ),
         ),

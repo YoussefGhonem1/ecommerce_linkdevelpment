@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../theme/app_colors.dart';
-
 class CustomSearchBar extends StatelessWidget {
   final TextEditingController? controller;
   final String hintText;
@@ -19,35 +17,23 @@ class CustomSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: theme.cardColor,
+        color: theme.inputDecorationTheme.fillColor,
         borderRadius: BorderRadius.circular(50),
       ),
       child: TextField(
         controller: controller,
         onChanged: onChanged,
         onTap: onTap,
-        style: theme.textTheme.bodyMedium,
+        style: TextStyle(color: theme.textTheme.bodyMedium?.color),
         decoration: InputDecoration(
-          icon: const Icon(Icons.search, color: Colors.black),
+          icon: Icon(Icons.search, color: theme.iconTheme.color),
           hintText: hintText,
-          hintStyle: theme.textTheme.bodyMedium,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(
-              50,
-            ), // fully rounded edges
-            borderSide: const BorderSide(color: AppColors.lightGrey),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(50),
-            borderSide: const BorderSide(color: AppColors.lightGrey),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(50),
-            borderSide: BorderSide(color: AppColors.primaryColor),
-          ),
+          hintStyle: theme.inputDecorationTheme.hintStyle,
+          border: InputBorder.none,
         ),
       ),
     );

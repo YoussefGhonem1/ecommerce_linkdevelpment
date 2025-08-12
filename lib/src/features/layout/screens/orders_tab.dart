@@ -2,6 +2,7 @@ import 'package:ecommerce_app/src/features/layout/models/orders_model.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/build_empty_orders.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/build_orders_list.dart';
 import 'package:ecommerce_app/src/shared/components/loading_screen.dart';
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class OrdersTab extends StatefulWidget {
@@ -36,11 +37,12 @@ class _OrdersTabState extends State<OrdersTab> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final local = AppLocalizations.of(context)!;
     return LoadingOverlay(
       isLoading: _isLoading,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Orders", style: theme.textTheme.headlineSmall),
+          title: Text(local.orders, style: theme.textTheme.headlineSmall),
         ),
         body:
             ordersList.isEmpty

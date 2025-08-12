@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:flutter/material.dart';
 import '../../../../generated/assets.dart';
 import '../../../shared/components/explore_categories_button.dart';
@@ -8,6 +9,7 @@ class BuildEmptyOrders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final local = AppLocalizations.of(context)!;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -18,7 +20,7 @@ class BuildEmptyOrders extends StatelessWidget {
             Image.asset(Assets.imagesOrdersImage, width: 100),
             SizedBox(height: 20),
             Text(
-              "No Orders yet",
+              local.noOrders,
               style: theme.textTheme.headlineMedium?.copyWith(fontSize: 24),
               textAlign: TextAlign.center,
             ),

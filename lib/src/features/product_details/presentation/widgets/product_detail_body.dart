@@ -4,12 +4,13 @@ import 'package:ecommerce_app/src/features/product_details/presentation/widgets/
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/product_info_widget.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/reviews_section.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/size_color_quantity_selectors.dart';
+import 'package:ecommerce_app/src/features/product_seeding/data/product_model.dart';
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailBody extends StatelessWidget {
-  const ProductDetailBody({super.key});
-
+  const ProductDetailBody({super.key, required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,17 +21,17 @@ class ProductDetailBody extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [CustomBackButtonIcon(), FavoriteButton()],
+              children:  [CustomBackButtonIcon(), FavoriteButton(product: product,)],
             ),
             SizedBox(height: 16),
-            ProductImages(),
+            ProductImages(images: product.images,),
             SizedBox(height: 16),
-            ProductInfoWidget(),
+            ProductInfoWidget(name: product.name, currentPrice: product.currentPrice,),
             SizedBox(height: 16),
             SizeColorQuantitySelector(),
             SizedBox(height: 16),
             Text(
-              'Built for life and made to last, this full-zip corduroy jacket is part of our Nike Life collection. The spacious fit gives you plenty of room to layer underneath, while the soft corduroy keeps it casual and timeless. ',
+              product.description,
               style: Theme.of(context).textTheme.bodySmall,
             ),
             SizedBox(height: 16),
@@ -41,7 +42,7 @@ class ProductDetailBody extends StatelessWidget {
             SizedBox(height: 4),
             Text(AppLocalizations.of(context)!.shippingAndReturnsDescription,style: Theme.of(context).textTheme.bodySmall,),
             SizedBox(height: 16),
-            const ReviewsSection(),
+            ReviewsSection(product: product,),
             
           
           ],

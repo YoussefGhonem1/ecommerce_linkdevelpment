@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class OrderItemsSection extends StatelessWidget {
@@ -11,12 +12,13 @@ class OrderItemsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final totalItems = order.items.length;
     final theme = Theme.of(context);
+    final local = AppLocalizations.of(context)!;
     final isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Order items', style: theme.textTheme.headlineSmall),
+        Text(local.orderItems, style: theme.textTheme.headlineSmall),
         SizedBox(height: 12),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -34,12 +36,15 @@ class OrderItemsSection extends StatelessWidget {
                 height: 24,
               ),
               const SizedBox(width: 12),
-              Text("$totalItems Items", style: theme.textTheme.bodyMedium),
+              Text(
+                "$totalItems ${local.items}",
+                style: theme.textTheme.bodyMedium,
+              ),
               const Spacer(),
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  "View All",
+                  local.viewAll,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: AppColors.primaryColor,
                   ),
