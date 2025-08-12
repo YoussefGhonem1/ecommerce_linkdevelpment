@@ -4,9 +4,7 @@ import 'package:ecommerce_app/src/features/product_seeding/data/product_model.da
 import 'package:flutter/material.dart';
 
 class ReviewsSection extends StatelessWidget {
-  const ReviewsSection({super.key,
-    required this.product
-  });
+  const ReviewsSection({super.key, required this.product});
   final Product product;
 
   @override
@@ -16,14 +14,14 @@ class ReviewsSection extends StatelessWidget {
       children: [
         Text(
           '${product.reviewCount} ${AppLocalizations.of(context)!.reviews}',
-          style: Theme.of(context).textTheme.headlineSmall
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
         const SizedBox(height: 8),
         Text(
           '${product.ratingcount} ${AppLocalizations.of(context)!.rating}',
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            fontFamily: 'Gabarito',
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineMedium?.copyWith(fontFamily: 'Gabarito'),
         ),
         const SizedBox(height: 4),
         Text(
@@ -31,16 +29,18 @@ class ReviewsSection extends StatelessWidget {
           style: Theme.of(context).textTheme.bodySmall,
         ),
         const SizedBox(height: 20),
-        ...product.reviews.map((p) => Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: ReviewTile(
-            name: p.name,
-            imageUrl: p.image,
-            rating: p.numOfStars,
-            comment: p.review,
-            date: p.time,
+        ...product.reviews.map(
+          (p) => Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: ReviewTile(
+              name: p.name,
+              imageUrl: p.image,
+              rating: p.numOfStars,
+              comment: p.review,
+              date: p.time,
+            ),
           ),
-        )),
+        ),
       ],
     );
   }
