@@ -32,6 +32,7 @@ class Assets {
   static const String notificationBingRead = "assets/images/notification_bing.svg";
   static const String iconHeartLight = 'assets/icons/heart_light.svg';
   static const String iconHeartDark = 'assets/icons/heart_dark.svg';
+  static const String iconHeartRed = 'assets/icons/heart_red.svg';
   static const String iconAdd = 'assets/icons/add.svg';
   static const String iconMinus = 'assets/icons/minus.svg';
   static const String iconArrowDownDark = 'assets/icons/arrowdown_dark.svg';

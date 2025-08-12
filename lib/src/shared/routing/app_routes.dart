@@ -10,6 +10,7 @@ import 'package:ecommerce_app/src/features/order_details/models/order_model.dart
 import 'package:ecommerce_app/src/features/order_details/screens/order_details_screen.dart';
 import 'package:ecommerce_app/src/features/payment/screens/payment_screen.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/pages/product_details_page.dart';
+import 'package:ecommerce_app/src/features/product_seeding/data/product_model.dart';
 import 'package:flutter/material.dart';
 import '../../features/payment/screens/add_card_screen.dart';
 import '../../features/products_by_category/screens/products_by_category_screen.dart';
@@ -76,7 +77,8 @@ class AppRoutes {
       case Routes.myFavourites:
         return MaterialPageRoute(builder: (_) => const MyFavouritScreen());
       case Routes.productDetailScreen:
-        return MaterialPageRoute(builder: (_) => const ProductDetailScreen());
+        final product = settings.arguments as Product;
+        return MaterialPageRoute(builder: (_) =>  ProductDetailScreen(product: product,));
       case Routes.orderPlaced:
         return MaterialPageRoute(
           builder: (_) => const OrderPlacedSuccessScreen(),

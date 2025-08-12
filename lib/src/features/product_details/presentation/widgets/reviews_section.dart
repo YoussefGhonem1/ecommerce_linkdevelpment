@@ -1,8 +1,12 @@
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/reviews_title.dart';
+import 'package:ecommerce_app/src/features/product_seeding/data/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ReviewsSection extends StatelessWidget {
-  const ReviewsSection({super.key});
+  const ReviewsSection({super.key,
+    required this.product
+  });
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -10,39 +14,32 @@ class ReviewsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Reviews',
+          '${product.reviewCount} Reviews',
           style: Theme.of(context).textTheme.headlineSmall
         ),
         const SizedBox(height: 8),
         Text(
-          '4.5 Ratings',
+          '${product.ratingcount} Ratings',
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             fontFamily: 'Gabarito',
           ),
         ),
         const SizedBox(height: 4),
         Text(
-          '213 Reviews',
+          '${product.reviewCount} Reviews',
           style: Theme.of(context).textTheme.bodySmall,
         ),
         const SizedBox(height: 20),
-        const ReviewTile(
-          name: 'Alex Morgan',
-          imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCvOzfh7BelELSROZatmi3xxMBIlfWTjt0Bw&s',
-          rating: 4,
-          comment:
-              'Gucci transcribes its heritage, creativity, and innovation into a plenitude of collections. From staple items to distinctive accessories.',
-          date: '12days ago',
-        ),
-        const SizedBox(height: 20),
-        const ReviewTile(
-          name: 'Alex Morgan',
-          imageUrl: 'https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg?semt=ais_hybrid&w=740',
-          rating: 3,
-          comment:
-              'Gucci transcribes its heritage, creativity, and innovation into a plenitude of collections. From staple items to distinctive accessories.',
-          date: '12days ago',
-        ),
+        ...product.reviews.map((p) => Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: ReviewTile(
+            name: p.name,
+            imageUrl: p.image,
+            rating: p.numOfStars,
+            comment: p.review,
+            date: p.time,
+          ),
+        )),
       ],
     );
   }

@@ -1,10 +1,12 @@
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/buttom_bar.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/widgets/product_detail_body.dart';
+import 'package:ecommerce_app/src/features/product_seeding/data/product_model.dart';
 import 'package:ecommerce_app/src/shared/components/loading_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({super.key, required this.product});
+  final Product product; 
 
   @override
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
@@ -30,8 +32,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     return LoadingOverlay(
       isLoading: _isLoading,
       child: Scaffold(
-        bottomNavigationBar: const BottomBar(price: 148.00),
-        body: const ProductDetailBody(),
+        bottomNavigationBar:BottomBar(price: widget.product.currentPrice),
+        body: ProductDetailBody(product: widget.product,),
       ),
     );
   }
