@@ -51,6 +51,7 @@ class _HomeTabState extends ConsumerState<HomeTab> {
     final newInAsync = ref.watch(newInProductsProvider);
     final query = ref.watch(searchQueryProvider);
     final searchResultsAsync = ref.watch(filteredProductsProvider);
+    final local = AppLocalizations.of(context)!;
 
     return LoadingOverlay(
       isLoading: _isLoading,
@@ -168,7 +169,7 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Categories",
+                          local.categories,
                           style: theme.textTheme.headlineSmall,
                         ),
                         GestureDetector(
@@ -176,7 +177,7 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                             Navigator.pushNamed(context, Routes.categoryPage);
                           },
                           child: Text(
-                            "See All",
+                            local.seeAll,
                             style: theme.textTheme.bodyMedium,
                           ),
                         ),
@@ -230,13 +231,13 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Top Selling",
+                          local.topSelling,
                           style: theme.textTheme.headlineSmall,
                         ),
                         GestureDetector(
                           onTap: () {},
                           child: Text(
-                            "See All",
+                            local.seeAll,
                             style: theme.textTheme.bodyMedium,
                           ),
                         ),
@@ -277,7 +278,7 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "New In",
+                          local.newIn,
                           style: theme.textTheme.headlineSmall?.copyWith(
                             color: AppColors.primaryColor,
                           ),
@@ -285,7 +286,7 @@ class _HomeTabState extends ConsumerState<HomeTab> {
                         GestureDetector(
                           onTap: () {},
                           child: Text(
-                            "See All",
+                            local.seeAll,
                             style: theme.textTheme.bodyMedium,
                           ),
                         ),
