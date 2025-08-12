@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/shared/components/custom_button.dart';
 import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../../../../core/l10n/translation/app_localizations.dart';
 import '../../../shared/components/custom_back_button.dart';
 
 class CreateAccountPage extends StatelessWidget {
@@ -11,6 +12,7 @@ class CreateAccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     final TextEditingController firstNameController = TextEditingController();
     final TextEditingController lastNameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
@@ -30,7 +32,7 @@ class CreateAccountPage extends StatelessWidget {
                 const CustomBackButtonIcon(),
                 const SizedBox(height: 16),
                 Text(
-                  'Create Account',
+                  local.createAccount,
                   style: theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -38,32 +40,32 @@ class CreateAccountPage extends StatelessWidget {
                 const SizedBox(height: 32),
 
                 CustomTextField(
-                  hintText: 'Firstname',
+                  hintText: local.firstName,
                   controller: firstNameController,
                 ),
                 const SizedBox(height: 16),
 
                 CustomTextField(
-                  hintText: 'Lastname',
+                  hintText: local.lastName,
                   controller: lastNameController,
                 ),
                 const SizedBox(height: 16),
 
                 CustomTextField(
-                  hintText: 'Email Address',
+                  hintText: local.emailAddress,
                   controller: emailController,
                 ),
                 const SizedBox(height: 16),
 
                 CustomTextField(
-                  hintText: 'Password',
+                  hintText: local.password,
                   controller: passwordController,
                   obscureText: true,
                 ),
                 const SizedBox(height: 32),
 
                 CustomButton(
-                  text: 'Continue',
+                  text: local.continueText,
                   onPressed: () async {
                     signUpWithEmail(
                       context: context,
@@ -76,18 +78,17 @@ class CreateAccountPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Forgot Password
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, Routes.forgetPassword);
                   },
                   child: Text.rich(
                     TextSpan(
-                      text: 'Forgot Password? ',
+                      text: '${local.forgotPasswordQ} ',
                       style: TextStyle(color: textColor, fontSize: 14),
                       children: [
                         TextSpan(
-                          text: 'Reset',
+                          text: local.reset,
                           style: TextStyle(
                             color: textColor,
                             fontWeight: FontWeight.bold,

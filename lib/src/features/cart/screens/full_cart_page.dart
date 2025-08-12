@@ -8,6 +8,7 @@ import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/l10n/translation/app_localizations.dart';
 import '../../checkout/model/checkout_model.dart';
 
 class FullCartPage extends ConsumerWidget {
@@ -15,8 +16,10 @@ class FullCartPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final local = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final cartNotifier = ref.read(cartProvider.notifier);
+
     CheckoutModel checkout = CheckoutModel(
       subtotal: cartNotifier.subtotal,
       shippingCost: cartNotifier.shipping,
@@ -27,7 +30,7 @@ class FullCartPage extends ConsumerWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -42,7 +45,7 @@ class FullCartPage extends ConsumerWidget {
                     ),
                     Center(
                       child: Text(
-                        'Cart',
+                        local.cartTitle,
                         style: theme.textTheme.headlineSmall?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -51,13 +54,15 @@ class FullCartPage extends ConsumerWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  // TODO: Implement remove all logic
+                },
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    'Remove All',
+                    local.removeAll,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -66,16 +71,23 @@ class FullCartPage extends ConsumerWidget {
               ),
               CartItemCard(),
               const SizedBox(height: 120),
-              PriceRow("Subtotal", cartNotifier.subtotal),
-              PriceRow("Shipping", cartNotifier.shipping),
-              PriceRow("Tax", cartNotifier.tax),
-              PriceRow("Total", cartNotifier.total),
+              PriceRow(local.subtotal, cartNotifier.subtotal),
+              PriceRow(local.shipping, cartNotifier.shipping),
+              PriceRow(local.tax, cartNotifier.tax),
+              PriceRow(local.total, cartNotifier.total),
               const SizedBox(height: 30),
               CouponCodeCard(),
               const SizedBox(height: 40),
-              CustomButton(text: 'Checkout', onPressed: () {
-                Navigator.pushNamed(context, Routes.checkoutScreen,arguments:checkout,);
-              }),
+              CustomButton(
+                text: local.checkout,
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    Routes.checkoutScreen,
+                    arguments: checkout,
+                  );
+                },
+              ),
             ],
           ),
         ),

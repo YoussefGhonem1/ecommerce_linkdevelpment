@@ -115,4 +115,138 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get discountsOnSelectedItems => 'خصومات على منتجات مختارة!';
+
+   @override
+  String get signIn => 'تسجيل الدخول';
+
+  @override
+  String get emailAddress => 'البريد الإلكتروني';
+
+  @override
+  String get continueText => 'متابعة';
+
+  @override
+  String get dontHaveAccount => 'ليس لديك حساب؟ ';
+
+  @override
+  String get createOne => 'إنشاء حساب';
+
+  @override
+  String get continueWithApple => 'المتابعة باستخدام آبل';
+
+  @override
+  String get continueWithGoogle => 'المتابعة باستخدام جوجل';
+
+  @override
+  String get continueWithFacebook => 'المتابعة باستخدام فيسبوك';
+
+  @override
+  String get password => 'كلمة المرور';
+
+  @override
+  String get loginFailedUserNull => 'فشل تسجيل الدخول: المستخدم غير موجود';
+
+  @override
+  String get noUserFound => 'لا يوجد مستخدم لهذا البريد الإلكتروني.';
+
+  @override
+  String get wrongPassword => 'كلمة المرور غير صحيحة لهذا المستخدم.';
+
+  @override
+  String get forgotPasswordQ => 'هل نسيت كلمة المرور؟ ';
+
+  @override
+  String get reset => 'إعادة التعيين';
+
+  @override
+  String get createAccount => 'إنشاء حساب';
+
+  @override
+  String get firstName => 'الاسم الأول';
+
+  @override
+  String get lastName => 'اسم العائلة';
+
+  @override
+  String get forgetPassword => 'نسيت كلمة المرور';
+
+  @override
+  String get enterEmailAddress => 'أدخل البريد الإلكتروني';
+
+  @override
+  String get passwordResetEmailSent =>
+      'لقد أرسلنا لك بريدًا إلكترونيًا لإعادة تعيين كلمة المرور.';
+
+  @override
+  String get returnToLogin => 'العودة إلى تسجيل الدخول';
+
+  @override
+  String get cartEmpty => 'سلة التسوق فارغة';
+
+  @override
+  String get exploreCategories => 'استكشاف الفئات';
+
+  @override
+  String get cartTitle => 'سلة التسوق';
+
+  @override
+  String get removeAll => 'حذف الكل';
+
+  @override
+  String get subtotal => 'المجموع الفرعي';
+
+  @override
+  String get shipping => 'الشحن';
+
+  @override
+  String get tax => 'الضريبة';
+
+  @override
+  String get total => 'الإجمالي';
+
+  @override
+  String get checkout => 'الدفع';
+
+  @override
+  String get enterCouponCode => 'أدخل رمز القسيمة';
+
+  @override
+  String get size => 'المقاس';
+
+  @override
+  String get color => 'اللون';
+
+  @override
+  String get currencySymbol => 'ر.س';
+
+  @override
+  String get checkoutTitle => 'إتمام الشراء';
+
+  @override
+  String get shippingAddress => 'عنوان الشحن';
+
+  @override
+  String get addShippingAddress => 'أضف عنوان الشحن';
+
+  @override
+  String get paymentMethod => 'طريقة الدفع';
+
+  @override
+  String get addPaymentMethod => 'أضف طريقة الدفع';
+
+  @override
+  String get cardMask => '****';
+
+  @override
+  String get placeOrder => 'إتمام الطلب';
+
+  @override
+  String get orderPlacedSuccessfully => 'تم تأكيد الطلب\nبنجاح';
+
+  @override
+  String get emailConfirmationMessage =>
+      'ستتلقى رسالة تأكيد عبر البريد الإلكتروني';
+
+  @override
+  String get seeOrderDetails => 'عرض تفاصيل الطلب';
 }

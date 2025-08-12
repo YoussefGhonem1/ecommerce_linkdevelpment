@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/l10n/translation/app_localizations.dart';
 import '../../../shared/components/custom_back_button.dart';
 import '../../../shared/routing/app_routes.dart';
 import '../../cart/widgets/price_row.dart';
@@ -13,6 +14,8 @@ class CheckoutScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final checkoutState = ref.watch(checkoutProvider);
     final theme = Theme.of(context);
+    final local = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
@@ -20,7 +23,7 @@ class CheckoutScreen extends ConsumerWidget {
           child: CustomBackButtonIcon(),
         ),
         leadingWidth: 100,
-        title: Text("Checkout", style: theme.textTheme.headlineSmall),
+        title: Text(local.checkoutTitle, style: theme.textTheme.headlineSmall),
       ),
 
       body: Padding(
@@ -42,14 +45,11 @@ class CheckoutScreen extends ConsumerWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Shipping Address",
-                          style: theme.textTheme.bodySmall,
-                        ),
+                        Text(local.shippingAddress, style: theme.textTheme.bodySmall),
                         const SizedBox(height: 4),
                         Text(
                           checkoutState.shippingAddress ??
-                              "Add Shipping Address",
+                              local.addShippingAddress,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: theme.textTheme.bodyMedium,
@@ -65,8 +65,7 @@ class CheckoutScreen extends ConsumerWidget {
 
             // Payment Method Section
             GestureDetector(
-              onTap:
-                  () => Navigator.pushNamed(context, Routes.addPaymentScreen),
+              onTap: () => Navigator.pushNamed(context, Routes.addPaymentScreen),
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -80,17 +79,14 @@ class CheckoutScreen extends ConsumerWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Payment Method",
-                            style: theme.textTheme.bodySmall,
-                          ),
+                          Text(local.paymentMethod, style: theme.textTheme.bodySmall),
                           const SizedBox(height: 4),
                           Row(
                             children: [
                               Text(
                                 checkoutState.cardNumber != null
-                                    ? '**** ${checkoutState.cardNumber!.substring(checkoutState.cardNumber!.length - 4)}'
-                                    : "Add Payment Method",
+                                    ? '${local.cardMask} ${checkoutState.cardNumber!.substring(checkoutState.cardNumber!.length - 4)}'
+                                    : local.addPaymentMethod,
                                 style: theme.textTheme.bodyMedium,
                               ),
                               const SizedBox(width: 10),
@@ -105,11 +101,13 @@ class CheckoutScreen extends ConsumerWidget {
                 ),
               ),
             ),
-            Spacer(),
-            PriceRow("Subtotal", checkoutModel.subtotal),
-            PriceRow("Shipping", checkoutModel.shippingCost),
-            PriceRow("Tax", checkoutModel.tax),
-            PriceRow("Total", checkoutModel.total),
+            const Spacer(),
+
+            PriceRow(local.subtotal, checkoutModel.subtotal),
+            PriceRow(local.shipping, checkoutModel.shippingCost),
+            PriceRow(local.tax, checkoutModel.tax),
+            PriceRow(local.total, checkoutModel.total),
+
             const SizedBox(height: 54),
             GestureDetector(
               onTap: () {
@@ -120,10 +118,7 @@ class CheckoutScreen extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(40),
                   color: const Color(0xFF9B5DE5),
                 ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 16,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                 margin: const EdgeInsets.symmetric(vertical: 14),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -137,7 +132,7 @@ class CheckoutScreen extends ConsumerWidget {
                       ),
                     ),
                     Text(
-                      'Place Order',
+                      local.placeOrder,
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
@@ -153,4 +148,5 @@ class CheckoutScreen extends ConsumerWidget {
       ),
     );
   }
+
 }

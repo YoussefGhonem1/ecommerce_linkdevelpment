@@ -9,6 +9,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../../../../core/l10n/translation/app_localizations.dart';
+
 class SignInEmailScreen extends StatefulWidget {
   const SignInEmailScreen({super.key});
 
@@ -28,6 +30,8 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final local = AppLocalizations.of(context)!; // localization instance
+
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
       body: SafeArea(
@@ -39,16 +43,16 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Sign in', style: theme.textTheme.headlineMedium),
+              Text(local.signIn, style: theme.textTheme.headlineMedium),
               const SizedBox(height: 40),
               CustomTextField(
                 controller: _emailController,
-                hintText: 'Email Address',
+                hintText: local.emailAddress,
                 keyboardType: TextInputType.name,
               ),
               const SizedBox(height: 20),
               CustomButton(
-                text: 'Continue',
+                text: local.continueText,
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
@@ -62,7 +66,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Don't have an Account? ",
+                    local.dontHaveAccount,
                     style: theme.textTheme.bodyMedium,
                   ),
                   GestureDetector(
@@ -70,7 +74,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                       Navigator.pushNamed(context, Routes.createAccount);
                     },
                     child: Text(
-                      'Create One',
+                      local.createOne,
                       style: TextStyle(
                         color: theme.textTheme.bodyMedium?.color,
                         fontWeight: FontWeight.bold,
@@ -82,16 +86,16 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               const SizedBox(height: 80),
               SocialLoginButton(
                 svgAssetPath:
-                    MediaQuery.of(context).platformBrightness == Brightness.dark
-                        ? 'assets/icons/apple_dark.svg'
-                        : 'assets/icons/apple_light.svg',
-                text: 'Continue With Apple',
+                MediaQuery.of(context).platformBrightness == Brightness.dark
+                    ? 'assets/icons/apple_dark.svg'
+                    : 'assets/icons/apple_light.svg',
+                text: local.continueWithApple,
                 onPressed: () {},
               ),
               const SizedBox(height: 15),
               SocialLoginButton(
                 svgAssetPath: 'assets/icons/google.svg',
-                text: 'Continue With Google',
+                text: local.continueWithGoogle,
                 onPressed: () async {
                   await signInWithGoogle(context: context);
                 },
@@ -99,7 +103,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               const SizedBox(height: 15),
               SocialLoginButton(
                 svgAssetPath: 'assets/icons/facebook.svg',
-                text: 'Continue With Facebook',
+                text: local.continueWithFacebook,
                 onPressed: () {},
               ),
             ],
