@@ -23,7 +23,6 @@ class PageViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    //final double backgroundHeight = backgroundImage.contains("2") ? size.height * 0.445 : size.height * 0.51;
     return Column(
       children: [
         Row(
