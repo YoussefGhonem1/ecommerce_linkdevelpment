@@ -14,17 +14,6 @@ class ProductImages extends StatefulWidget {
 
 class _ProductImagesState extends State<ProductImages> {
   int selectedIndex = 0;
-  // final List<String> images = [
-  //   'https://ashanderie.com/cdn/shop/files/harrington-jacket-khaki-harrington-jacket-44905755574570.jpg?v=1715744736&width=1080',
-  //   'https://ashanderie.com/cdn/shop/files/harrington-jacket-khaki-harrington-jacket-44905743647018.jpg?v=1715744424&width=1080',
-  //   'https://ashanderie.com/cdn/shop/files/harrington-jacket-khaki-harrington-jacket-44905743974698.jpg?v=1715744430&width=1080',
-  //   'https://andsons.co.uk/cdn/shop/files/RebelJacketStoneLSMOBILE6.jpg',
-  //   'https://i.ebayimg.com/images/g/bnsAAOSw89xfQpbN/s-l400.jpg',
-  //   'https://ashanderie.com/cdn/shop/files/harrington-jacket-khaki-harrington-jacket-44905743647018.jpg?v=1715744424&width=1080',
-  //   'https://ashanderie.com/cdn/shop/files/harrington-jacket-khaki-harrington-jacket-44905743974698.jpg?v=1715744430&width=1080',
-  //   'https://andsons.co.uk/cdn/shop/files/RebelJacketStoneLSMOBILE6.jpg',
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
