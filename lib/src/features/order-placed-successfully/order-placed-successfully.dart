@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 
+import '../../../core/l10n/translation/app_localizations.dart';
+import '../../shared/routing/app_routes.dart';
+
 class OrderPlacedSuccessScreen extends StatelessWidget {
   const OrderPlacedSuccessScreen({super.key});
 
@@ -8,6 +11,7 @@ class OrderPlacedSuccessScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final size = MediaQuery.sizeOf(context);
+    final local = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
@@ -47,16 +51,16 @@ class OrderPlacedSuccessScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                     Text(
-                      'Order Placed\nSuccessfully',
+                    Text(
+                      local.orderPlacedSuccessfully,
                       textAlign: TextAlign.center,
                       style: theme.textTheme.headlineMedium,
                     ),
                     const SizedBox(height: 8),
-                    const Text(
-                      'You will receive an email confirmation',
+                    Text(
+                      local.emailConfirmationMessage,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      style: const TextStyle(fontSize: 16, color: Colors.grey),
                     ),
                     const SizedBox(height: 24),
                     SizedBox(
@@ -71,11 +75,11 @@ class OrderPlacedSuccessScreen extends StatelessWidget {
                           elevation: 0,
                         ),
                         onPressed: () {
-                          // TODO: Navigate to order details screen
+                          Navigator.pushReplacementNamed(context, Routes.layout);
                         },
-                        child: const Text(
-                          'See Order Details',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        child: Text(
+                          local.seeOrderDetails,
+                          style: const TextStyle(fontSize: 16, color: Colors.white),
                         ),
                       ),
                     ),

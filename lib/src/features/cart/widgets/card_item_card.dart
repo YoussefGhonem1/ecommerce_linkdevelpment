@@ -3,6 +3,8 @@ import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/l10n/translation/app_localizations.dart';
+
 class CartItemCard extends ConsumerWidget {
   const CartItemCard({super.key});
 
@@ -10,9 +12,11 @@ class CartItemCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final cartItems = ref.watch(cartProvider);
     final theme = Theme.of(context);
+    final local = AppLocalizations.of(context)!;
+
     return ListView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: cartItems.length,
       itemBuilder: (context, index) {
         final item = cartItems[index];
@@ -34,7 +38,6 @@ class CartItemCard extends ConsumerWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-
               const SizedBox(width: 12),
 
               Expanded(
@@ -46,26 +49,26 @@ class CartItemCard extends ConsumerWidget {
                     Row(
                       children: [
                         Text(
-                          "Size - ",
+                          "${local.size} - ",
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: AppColors.greyDarkColor,
                           ),
                         ),
                         Text(
-                          "M",
+                          "M", // TODO: Get actual size from item if available
                           style: theme.textTheme.bodyMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         const SizedBox(width: 8),
                         Text(
-                          "Color - ",
+                          "${local.color} - ",
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: AppColors.greyDarkColor,
                           ),
                         ),
                         Text(
-                          "Lemon",
+                          "Lemon", // TODO: Get actual color from item if available
                           style: theme.textTheme.bodyMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
@@ -80,7 +83,7 @@ class CartItemCard extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    "\$${item.price}",
+                    "${local.currencySymbol}${item.price}",
                     style: theme.textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -90,22 +93,18 @@ class CartItemCard extends ConsumerWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       GestureDetector(
-                        onTap:
-                            () => ref
-                                .read(cartProvider.notifier)
-                                .increaseQuantity(item.id),
+                        onTap: () =>
+                            ref.read(cartProvider.notifier).increaseQuantity(item.id),
                         child: Icon(
                           Icons.add_circle,
                           color: AppColors.primaryColor,
                           size: 25,
                         ),
                       ),
-                      SizedBox(width: 2),
+                      const SizedBox(width: 2),
                       GestureDetector(
-                        onTap:
-                            () => ref
-                                .read(cartProvider.notifier)
-                                .decreaseQuantity(item.id),
+                        onTap: () =>
+                            ref.read(cartProvider.notifier).decreaseQuantity(item.id),
                         child: Icon(
                           Icons.remove_circle,
                           color: AppColors.primaryColor,

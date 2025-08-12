@@ -79,4 +79,138 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noCardsFound => 'No cards found';
+
+  @override
+  String get signIn => 'Sign in';
+
+  @override
+  String get emailAddress => 'Email Address';
+
+  @override
+  String get continueText => 'Continue';
+
+  @override
+  String get dontHaveAccount => 'Don\'t have an Account? ';
+
+  @override
+  String get createOne => 'Create One';
+
+  @override
+  String get continueWithApple => 'Continue With Apple';
+
+  @override
+  String get continueWithGoogle => 'Continue With Google';
+
+  @override
+  String get continueWithFacebook => 'Continue With Facebook';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get loginFailedUserNull => 'Login failed: User is null';
+
+  @override
+  String get noUserFound => 'No user found for that email.';
+
+  @override
+  String get wrongPassword => 'Wrong password provided for that user.';
+
+  @override
+  String get forgotPasswordQ => 'Forgot Password ? ';
+
+  @override
+  String get reset => 'Reset';
+
+  @override
+  String get createAccount => 'Create Account';
+
+  @override
+  String get firstName => 'Firstname';
+
+  @override
+  String get lastName => 'Lastname';
+
+  @override
+  String get forgetPassword => 'Forget Password';
+
+  @override
+  String get enterEmailAddress => 'Enter Email address';
+
+  @override
+  String get passwordResetEmailSent =>
+      'We sent you an email to reset your password.';
+
+  @override
+  String get returnToLogin => 'Return to Login';
+
+  @override
+  String get cartEmpty => 'Your Cart is Empty';
+
+  @override
+  String get exploreCategories => 'Explore Categories';
+
+  @override
+  String get cartTitle => 'Cart';
+
+  @override
+  String get removeAll => 'Remove All';
+
+  @override
+  String get subtotal => 'Subtotal';
+
+  @override
+  String get shipping => 'Shipping';
+
+  @override
+  String get tax => 'Tax';
+
+  @override
+  String get total => 'Total';
+
+  @override
+  String get checkout => 'Checkout';
+
+  @override
+  String get enterCouponCode => 'Enter Coupon Code';
+
+  @override
+  String get size => 'Size';
+
+  @override
+  String get color => 'Color';
+
+  @override
+  String get currencySymbol => '\$';
+
+  @override
+  String get checkoutTitle => 'Checkout';
+
+  @override
+  String get shippingAddress => 'Shipping Address';
+
+  @override
+  String get addShippingAddress => 'Add Shipping Address';
+
+  @override
+  String get paymentMethod => 'Payment Method';
+
+  @override
+  String get addPaymentMethod => 'Add Payment Method';
+
+  @override
+  String get cardMask => '****';
+
+  @override
+  String get placeOrder => 'Place Order';
+
+  @override
+  String get orderPlacedSuccessfully => 'Order Placed\nSuccessfully';
+
+  @override
+  String get emailConfirmationMessage =>
+      'You will receive an email confirmation';
+
+  @override
+  String get seeOrderDetails => 'See Order Details';
 }
