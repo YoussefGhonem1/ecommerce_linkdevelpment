@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/src/features/cart/controllers/cart_controller.dart';
+import 'package:ecommerce_app/core/service/fcm.dart';
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
 import 'package:ecommerce_app/src/features/layout/controllers/order_controller.dart';
 import 'package:ecommerce_app/src/features/layout/models/orders_model.dart';
@@ -120,7 +121,7 @@ class CheckoutScreen extends ConsumerWidget {
 
             const SizedBox(height: 54),
             GestureDetector(
-              onTap: () {
+              onTap: () async{
                 final cartItems = ref.read(cartProvider);
                 final checkoutState = ref.read(checkoutProvider);
                 if (cartItems.isNotEmpty &&
@@ -139,6 +140,12 @@ class CheckoutScreen extends ConsumerWidget {
 
                   Navigator.pushNamed(context, Routes.orderPlaced);
                 }
+            
+                await FCM.showLocalAndSave(
+            title: 'Order Placed',
+            body:
+                'Your order has been placed successfully! Total: \$${checkoutModel.total.toStringAsFixed(2)}.',
+          );
               },
 
               child: Container(
