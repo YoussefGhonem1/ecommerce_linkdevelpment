@@ -8,9 +8,18 @@ import 'package:ecommerce_app/src/features/product_seeding/data/product_model.da
 import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
 import 'package:flutter/material.dart';
 
-class ProductDetailBody extends StatelessWidget {
-  const ProductDetailBody({super.key, required this.product});
+class ProductDetailBody extends StatefulWidget {
+  const ProductDetailBody({super.key, required this.product, this.onSizeChanged, this.onColorChanged});
   final Product product;
+  final ValueChanged<String>? onSizeChanged;
+  final ValueChanged<String>? onColorChanged;
+  @override
+  State<ProductDetailBody> createState() => _ProductDetailBodyState();
+}
+
+class _ProductDetailBodyState extends State<ProductDetailBody> {
+  String selectedSize = 'S';
+  String selectedColor = 'Beige';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,17 +30,26 @@ class ProductDetailBody extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children:  [CustomBackButtonIcon(), FavoriteButton(product: product,)],
+              children:  [CustomBackButtonIcon(), FavoriteButton(product: widget.product,)],
             ),
             SizedBox(height: 16),
-            ProductImages(images: product.images,),
+            ProductImages(images: widget.product.images,),
             SizedBox(height: 16),
-            ProductInfoWidget(name: product.name, currentPrice: product.currentPrice,),
+            ProductInfoWidget(name: widget.product.name, currentPrice: widget.product.currentPrice,),
             SizedBox(height: 16),
-            SizeColorQuantitySelector(),
+            SizeColorQuantitySelector(
+              onSizeChanged: (size) {
+                setState(() => selectedSize = size);
+                if (widget.onSizeChanged != null) widget.onSizeChanged!(size);
+              },
+              onColorChanged: (color) {
+                setState(() => selectedColor = color);
+                if (widget.onColorChanged != null) widget.onColorChanged!(color);
+              },
+            ),
             SizedBox(height: 16),
             Text(
-              product.description,
+              widget.product.description,
               style: Theme.of(context).textTheme.bodySmall,
             ),
             SizedBox(height: 16),
@@ -42,9 +60,7 @@ class ProductDetailBody extends StatelessWidget {
             SizedBox(height: 4),
             Text(AppLocalizations.of(context)!.shippingAndReturnsDescription,style: Theme.of(context).textTheme.bodySmall,),
             SizedBox(height: 16),
-            ReviewsSection(product: product,),
-            
-          
+            ReviewsSection(product: widget.product,),
           ],
         ),
       ),

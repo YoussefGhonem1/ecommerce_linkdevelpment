@@ -236,12 +236,6 @@ abstract class AppLocalizations {
   /// **'Cards'**
   String get cards;
 
-  /// No description provided for @noCardsFound.
-  ///
-  /// In en, this message translates to:
-  /// **'No cards found'**
-  String get noCardsFound;
-
   /// No description provided for @categories.
   ///
   /// In en, this message translates to:
@@ -290,11 +284,11 @@ abstract class AppLocalizations {
   /// **'Your order has been shipped successfully!'**
   String get orderShipped;
 
-  /// No description provided for @orderConfirmed.
+  /// No description provided for @orderGilbertConfirmed.
   ///
   /// In en, this message translates to:
-  /// **'Order Confirmed'**
-  String get orderConfirmed;
+  /// **'Gilbert, your Order #24568 has been confirmed'**
+  String get orderGilbertConfirmed;
 
   /// No description provided for @itemOutForDelivery.
   ///
@@ -407,13 +401,13 @@ abstract class AppLocalizations {
   /// No description provided for @firstName.
   ///
   /// In en, this message translates to:
-  /// **'First Name'**
+  /// **'Firstname'**
   String get firstName;
 
   /// No description provided for @lastName.
   ///
   /// In en, this message translates to:
-  /// **'Last Name'**
+  /// **'Lastname'**
   String get lastName;
 
   /// No description provided for @forgetPassword.
@@ -445,12 +439,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your Cart is Empty'**
   String get cartEmpty;
-
-  /// No description provided for @exploreCategories.
-  ///
-  /// In en, this message translates to:
-  /// **'Explore Categories'**
-  String get exploreCategories;
 
   /// No description provided for @cartTitle.
   ///
@@ -602,6 +590,12 @@ abstract class AppLocalizations {
   /// **'Order'**
   String get order;
 
+  /// No description provided for @exploreCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Categories'**
+  String get exploreCategories;
+
   /// No description provided for @items.
   ///
   /// In en, this message translates to:
@@ -638,6 +632,12 @@ abstract class AppLocalizations {
   /// **'Canceled'**
   String get canceled;
 
+  /// No description provided for @orderConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Confirmed'**
+  String get orderConfirmed;
+
   /// No description provided for @orderPlaced.
   ///
   /// In en, this message translates to:
@@ -667,6 +667,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language'**
   String get settings_language;
+
+  /// No description provided for @noCardsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No cards found'**
+  String get noCardsFound;
 
   /// No description provided for @titleOnBoarding1.
   ///
@@ -751,6 +757,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add to Bag'**
   String get addToBag;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
 }
 
 class _AppLocalizationsDelegate

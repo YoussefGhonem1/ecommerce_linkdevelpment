@@ -38,7 +38,7 @@ class _NotificationTabState extends State<NotificationTab> {
       isRead: true,
     ),
     NotificationModel(
-      title:AppLocalizations.of(context)!.orderConfirmed,
+      title:AppLocalizations.of(context)!.orderGilbertConfirmed,
       isRead: false,
     ),
     NotificationModel(title:AppLocalizations.of(context)!.itemOutForDelivery, isRead: false),

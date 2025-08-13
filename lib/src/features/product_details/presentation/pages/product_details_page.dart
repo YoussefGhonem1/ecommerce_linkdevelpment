@@ -14,6 +14,8 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   bool _isLoading = true;
+  String _selectedSize = 'S';
+  String _selectedColor = 'Beige';
   @override
   void initState() {
     super.initState();
@@ -27,13 +29,29 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     }
   }
 
+  void _onSizeChanged(String size) {
+    setState(() => _selectedSize = size);
+  }
+  void _onColorChanged(String color) {
+    setState(() => _selectedColor = color);
+  }
+
   @override
   Widget build(BuildContext context) {
     return LoadingOverlay(
       isLoading: _isLoading,
       child: Scaffold(
-        bottomNavigationBar:BottomBar(price: widget.product.currentPrice),
-        body: ProductDetailBody(product: widget.product,),
+        bottomNavigationBar:BottomBar(
+          price: widget.product.currentPrice,
+          selectedSize: _selectedSize,
+          selectedColor: _selectedColor,
+          product: widget.product,
+        ),
+        body: ProductDetailBody(
+          product: widget.product,
+          onSizeChanged: _onSizeChanged,
+          onColorChanged: _onColorChanged,
+        ),
       ),
     );
   }
