@@ -1,19 +1,17 @@
+import 'package:ecommerce_app/src/features/layout/models/orders_model.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
 import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
-import 'package:intl/intl.dart';
 
 class OrderTimeline extends StatelessWidget {
-  final Order order;
+  final OrdersModel order;
 
   const OrderTimeline({super.key, required this.order});
 
   @override
   Widget build(BuildContext context) {
-    final local = AppLocalizations.of(context)!; // non-nullable
+    final local = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
 
-    // Localized statuses list
     final statuses = [
       local.delivered,
       local.shipped,
@@ -21,11 +19,12 @@ class OrderTimeline extends StatelessWidget {
       local.orderPlaced,
     ];
 
-    final currentIndex = getCurrentStatusIndex(order.status, statuses);
+    final currentIndex = statuses.length - 3;
 
     return Column(
       children: List.generate(statuses.length, (index) {
-        final isActive = index >= currentIndex;
+        final isActive = index < currentIndex ? false : true;
+
         return Padding(
           padding: const EdgeInsets.only(bottom: 30),
           child: Row(
@@ -63,24 +62,16 @@ class OrderTimeline extends StatelessWidget {
     );
   }
 
-  int getCurrentStatusIndex(String status, List<String> statuses) {
-    return statuses.indexOf(status);
-  }
-
   String _getDateForStatus(String localizedStatus, AppLocalizations local) {
-    DateTime? date;
-
     if (localizedStatus == local.orderPlaced) {
-      date = order.placedDate;
+      return "1 Aug";
     } else if (localizedStatus == local.orderConfirmed) {
-      date = order.confirmedDate;
+      return "2 Aug";
     } else if (localizedStatus == local.shipped) {
-      date = order.shippedDate;
+      return "3 Aug";
     } else if (localizedStatus == local.delivered) {
-      date = order.deliveredDate;
+      return "6 Aug";
     }
-
-    if (date == null) return "--";
-    return DateFormat("d MMM", 'en_US').format(date);
+    return "--";
   }
 }

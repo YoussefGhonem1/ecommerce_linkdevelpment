@@ -32,27 +32,3 @@ class CartItem {
   }
 }
 
-
-
-final testCartItems = [
-  CartItem(
-    id: '1',
-    name: "Men's Harrington Jacket",
-    size: "M",
-    color: "Black",
-    price: 150.0,
-    imageUrl:
-        'https://drive.google.com/uc?export=view&id=1WMqdrPBbIqk8aamWW6AGKVQKiwBTAiCg',
-    quantity: 1,
-  ),
-  CartItem(
-    id: '2',
-    name: "Men's Harrington Jacket",
-    price: 250.0,
-    size: "M",
-    color: "Black",
-    imageUrl:
-        'https://drive.google.com/uc?export=view&id=1WMqdrPBbIqk8aamWW6AGKVQKiwBTAiCg',
-    quantity: 1,
-  ),
-];

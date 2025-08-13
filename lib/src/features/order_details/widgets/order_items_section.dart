@@ -1,10 +1,11 @@
-import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
+import 'package:ecommerce_app/src/features/layout/models/orders_model.dart';
+import 'package:ecommerce_app/src/shared/routing/app_routes.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class OrderItemsSection extends StatelessWidget {
-  final Order order;
+  final OrdersModel order;
 
   const OrderItemsSection({super.key, required this.order});
 
@@ -42,7 +43,13 @@ class OrderItemsSection extends StatelessWidget {
               ),
               const Spacer(),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    Routes.orderItemsScreen,
+                    arguments: order.items,
+                  );
+                },
                 child: Text(
                   local.viewAll,
                   style: theme.textTheme.bodyMedium?.copyWith(
