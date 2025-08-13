@@ -78,9 +78,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cards => 'الكروت';
 
   @override
-  String get noCardsFound => 'لا توجد بطاقات';
-
-  @override
   String get categories => 'الفئات';
 
   @override
@@ -105,7 +102,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get orderShipped => 'تم شحن طلبك بنجاح!';
 
   @override
-  String get orderConfirmed => 'تم تأكيد الطلب';
+  String get orderGilbertConfirmed => 'جلبرت، تم تأكيد طلبك رقم 24568';
 
   @override
   String get itemOutForDelivery => 'طلبك في طريقه للتسليم';
@@ -184,9 +181,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cartEmpty => 'سلة التسوق فارغة';
 
   @override
-  String get exploreCategories => 'تصفح الفئات';
-
-  @override
   String get cartTitle => 'سلة التسوق';
 
   @override
@@ -263,6 +257,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get order => 'طلب';
 
   @override
+  String get exploreCategories => 'تصفح الفئات';
+
+  @override
   String get items => 'أغراض';
 
   @override
@@ -281,6 +278,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get canceled => 'تم الإلغاء';
 
   @override
+  String get orderConfirmed => 'تم تأكيد الطلب';
+
+  @override
   String get orderPlaced => 'تم تقديم الطلب';
 
   @override
@@ -294,6 +294,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get settings_language => 'اللغة';
+
+  @override
+  String get noCardsFound => 'لا توجد بطاقات';
 
   @override
   String get titleOnBoarding1 => 'اختر ما تحب';
@@ -340,4 +343,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get addToBag => 'إضافة إلى السلة';
+
+  @override
+  String get search => 'البحث';
 }

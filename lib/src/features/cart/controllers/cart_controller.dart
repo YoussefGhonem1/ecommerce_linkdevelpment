@@ -6,7 +6,22 @@ final cartProvider = StateNotifierProvider<CartNotifier, List<CartItem>>(
 );
 
 class CartNotifier extends StateNotifier<List<CartItem>> {
-  CartNotifier() : super(testCartItems);
+  CartNotifier() : super([]);
+
+  void addItem(CartItem item) {
+    final index = state.indexWhere((e) => e.id == item.id && e.size == item.size && e.color == item.color);
+    if (index == -1) {
+      state = [...state, item];
+    } else {
+      state = [
+        for (final cartItem in state)
+          if (cartItem.id == item.id && cartItem.size == item.size && cartItem.color == item.color)
+            cartItem.copyWith(quantity: cartItem.quantity + item.quantity)
+          else
+            cartItem,
+      ];
+    }
+  }
 
   void increaseQuantity(String id) {
     state = [

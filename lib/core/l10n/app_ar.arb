@@ -33,7 +33,7 @@
   "discountsOnSelectedItems": "خصومات على منتجات مختارة!",
   "orderCanceled": "شكرًا لتسوقك. تم إلغاء الطلب رقم 24568.",
   "itemOutForDelivery": "طلبك في طريقه للتسليم",
-  "orderConfirmed": "جلبرت، تم تأكيد طلبك رقم 24568",
+  "orderGilbertConfirmed": "جلبرت، تم تأكيد طلبك رقم 24568",
   "orderShipped": "تم شحن طلبك بنجاح!",
   "signIn": "تسجيل الدخول",
   "emailAddress": "البريد الإلكتروني",
@@ -57,7 +57,6 @@
   "passwordResetEmailSent": "لقد أرسلنا لك بريدًا إلكترونيًا لإعادة تعيين كلمة المرور.",
   "returnToLogin": "العودة إلى تسجيل الدخول",
   "cartEmpty": "سلة التسوق فارغة",
-  "exploreCategories": "استكشاف الفئات",
   "cartTitle": "سلة التسوق",
   "removeAll": "حذف الكل",
   "subtotal": "المجموع الفرعي",
@@ -66,8 +65,6 @@
   "total": "الإجمالي",
   "checkout": "الدفع",
   "enterCouponCode": "أدخل رمز القسيمة",
-  "size": "المقاس",
-  "color": "اللون",
   "currencySymbol": "ر.س",
   "checkoutTitle": "إتمام الشراء",
   "shippingAddress": "عنوان الشحن",
@@ -80,8 +77,6 @@
   "emailConfirmationMessage": "ستتلقى رسالة تأكيد عبر البريد الإلكتروني",
   "seeOrderDetails": "عرض تفاصيل الطلب",
   "email": "البريد الإلكتروني",
-  "firstName": "الاسم الأول",
-  "lastName": "اسم العائلة",
   "noOrders": "لا توجد طلبات",
   "orders" : "الطلبات",
   "order" : "طلب",
@@ -98,7 +93,6 @@
   "shippingDetails": "تفاصيل الشحن",
   "viewAll": "عرض الكل",
   "settings_language": "اللغة",
-  "noCardsFound": "لا توجد بطاقات",
   "titleOnBoarding1": "اختر ما تحب",
   "subtitleOnBoarding1": "ابحث عن أفضل العروض على العناصر التي تحبها. يمكنك التسوق اليوم بناءً على الأنماط والألوان والمزيد.",
   "titleOnBoarding2": "تتبع الطلب",
@@ -114,6 +108,6 @@
   "shippingAndReturnsDescription": "شحن قياسي مجاني وإرجاع مجاني لمدة 60 يومًا",
   "reviews": "مراجعات",
   "rating": "تقيمات",
-  "addToBag": "إضافة إلى السلة"
-
+  "addToBag": "إضافة إلى السلة",
+  "search": "البحث"
 }
