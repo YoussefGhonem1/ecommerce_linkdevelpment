@@ -1,12 +1,14 @@
 import 'package:ecommerce_app/src/features/address/screens/add_address_page.dart';
 import 'package:ecommerce_app/src/features/address/screens/address_page.dart';
 import 'package:ecommerce_app/src/features/address/screens/edit_address_page.dart';
+import 'package:ecommerce_app/src/features/cart/models/cart_item.dart';
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
 import 'package:ecommerce_app/src/features/checkout/screens/checkout_screen.dart';
 import 'package:ecommerce_app/src/features/cart/screens/cart_page.dart';
+import 'package:ecommerce_app/src/features/layout/models/orders_model.dart';
 import 'package:ecommerce_app/src/features/my_favouits/screens/my_favorit_screen.dart';
 import 'package:ecommerce_app/src/features/order-placed-successfully/order-placed-successfully.dart';
-import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
+import 'package:ecommerce_app/src/features/order_details/screens/order_Items_Screen.dart';
 import 'package:ecommerce_app/src/features/order_details/screens/order_details_screen.dart';
 import 'package:ecommerce_app/src/features/payment/screens/payment_screen.dart';
 import 'package:ecommerce_app/src/features/product_details/presentation/pages/product_details_page.dart';
@@ -51,6 +53,7 @@ class Routes {
   static const String myFavourites = '/my-favourites';
   static const String editAccount = '/edit_Account';
   static const String searchScreen = "/search_screen";
+  static const String orderItemsScreen = "/order_item_screen";
 }
 
 class AppRoutes {
@@ -81,7 +84,9 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const MyFavouritScreen());
       case Routes.productDetailScreen:
         final product = settings.arguments as Product;
-        return MaterialPageRoute(builder: (_) =>  ProductDetailScreen(product: product,));
+        return MaterialPageRoute(
+          builder: (_) => ProductDetailScreen(product: product),
+        );
       case Routes.orderPlaced:
         return MaterialPageRoute(
           builder: (_) => const OrderPlacedSuccessScreen(),
@@ -93,7 +98,7 @@ class AppRoutes {
               (_) => ProductsByCategoryScreen(categoryTitle: categoryTitle),
         );
       case Routes.orderDetails:
-        final order = settings.arguments as Order;
+        final order = settings.arguments as OrdersModel;
         return MaterialPageRoute(
           builder: (_) => OrderDetailsScreen(order: order),
         );
@@ -125,6 +130,11 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const EditAccountPage());
       case Routes.searchScreen:
         return MaterialPageRoute(builder: (_) => const SearchScreen());
+      case Routes.orderItemsScreen:
+        final items = settings.arguments as List<CartItem>;
+        return MaterialPageRoute(
+          builder: (_) => OrderItemsScreen(items: items),
+        );
 
       default:
         return MaterialPageRoute(

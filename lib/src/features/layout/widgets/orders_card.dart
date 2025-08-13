@@ -33,14 +33,14 @@ class OrdersCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    order.title,
+                    "Order #${order.id}",
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   Text(
-                    "${order.ordersNum} ${local.items}",
+                    "${order.items.length} ${local.items}",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],

@@ -1,10 +1,10 @@
-import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
+import 'package:ecommerce_app/src/features/layout/models/orders_model.dart';
 import 'package:ecommerce_app/src/shared/theme/app_colors.dart';
 import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class ShippingDetailsSection extends StatelessWidget {
-  final Order order;
+  final OrdersModel  order;
 
   const ShippingDetailsSection({super.key, required this.order});
 
@@ -29,9 +29,10 @@ class ShippingDetailsSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(order.address, style: theme.textTheme.bodySmall),
-              const SizedBox(height: 12),
-              Text(order.phone, style: theme.textTheme.bodySmall),
+             Text(order.shippingAddress, style: theme.textTheme.bodySmall),
+const SizedBox(height: 12),
+Text(order.paymentMethod, style: theme.textTheme.bodySmall),
+
             ],
           ),
         ),

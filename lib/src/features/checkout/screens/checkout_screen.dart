@@ -1,4 +1,7 @@
+import 'package:ecommerce_app/src/features/cart/controllers/cart_controller.dart';
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
+import 'package:ecommerce_app/src/features/layout/controllers/order_controller.dart';
+import 'package:ecommerce_app/src/features/layout/models/orders_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/l10n/translation/app_localizations.dart';
@@ -45,7 +48,10 @@ class CheckoutScreen extends ConsumerWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(local.shippingAddress, style: theme.textTheme.bodySmall),
+                        Text(
+                          local.shippingAddress,
+                          style: theme.textTheme.bodySmall,
+                        ),
                         const SizedBox(height: 4),
                         Text(
                           checkoutState.shippingAddress ??
@@ -65,7 +71,8 @@ class CheckoutScreen extends ConsumerWidget {
 
             // Payment Method Section
             GestureDetector(
-              onTap: () => Navigator.pushNamed(context, Routes.addPaymentScreen),
+              onTap:
+                  () => Navigator.pushNamed(context, Routes.addPaymentScreen),
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -79,7 +86,10 @@ class CheckoutScreen extends ConsumerWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(local.paymentMethod, style: theme.textTheme.bodySmall),
+                          Text(
+                            local.paymentMethod,
+                            style: theme.textTheme.bodySmall,
+                          ),
                           const SizedBox(height: 4),
                           Row(
                             children: [
@@ -111,14 +121,35 @@ class CheckoutScreen extends ConsumerWidget {
             const SizedBox(height: 54),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, Routes.orderPlaced);
+                final cartItems = ref.read(cartProvider);
+                final checkoutState = ref.read(checkoutProvider);
+                if (cartItems.isNotEmpty &&
+                    checkoutState.shippingAddress != null &&
+                    checkoutState.cardNumber != null) {
+                  final newOrder = OrdersModel(
+                    id: DateTime.now().millisecondsSinceEpoch.toString(),
+                    items: cartItems,
+                    shippingAddress: checkoutState.shippingAddress!,
+                    paymentMethod: checkoutState.cardNumber!,
+                    date: DateTime.now(),
+                  );
+
+                  ref.read(ordersProvider.notifier).addOrder(newOrder);
+                  ref.read(cartProvider.notifier).clearCart();
+
+                  Navigator.pushNamed(context, Routes.orderPlaced);
+                }
               },
+
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40),
                   color: const Color(0xFF9B5DE5),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 16,
+                ),
                 margin: const EdgeInsets.symmetric(vertical: 14),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,5 +179,4 @@ class CheckoutScreen extends ConsumerWidget {
       ),
     );
   }
-
 }
