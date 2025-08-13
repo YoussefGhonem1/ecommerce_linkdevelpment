@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/service/fcm.dart';
 import 'package:ecommerce_app/src/features/checkout/model/checkout_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -110,8 +111,13 @@ class CheckoutScreen extends ConsumerWidget {
 
             const SizedBox(height: 54),
             GestureDetector(
-              onTap: () {
+              onTap: () async{
                 Navigator.pushNamed(context, Routes.orderPlaced);
+                await FCM.showLocalAndSave(
+            title: 'Order Placed',
+            body:
+                'Your order has been placed successfully! Total: \$${checkoutModel.total.toStringAsFixed(2)}.',
+          );
               },
               child: Container(
                 decoration: BoxDecoration(
