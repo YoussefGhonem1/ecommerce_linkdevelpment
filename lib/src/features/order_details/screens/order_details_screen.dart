@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/src/features/order_details/models/order_model.dart';
+import 'package:ecommerce_app/src/features/layout/models/orders_model.dart';
 import 'package:ecommerce_app/src/features/order_details/widgets/order_items_section.dart';
 import 'package:ecommerce_app/src/features/order_details/widgets/order_timeline.dart';
 import 'package:ecommerce_app/src/features/order_details/widgets/shipping_details_section.dart';
@@ -7,7 +7,7 @@ import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
-  final Order order;
+  final OrdersModel  order;
   const OrderDetailsScreen({super.key, required this.order});
 
   @override

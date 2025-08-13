@@ -171,8 +171,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enterEmailAddress => 'أدخل البريد الإلكتروني';
 
   @override
-  String get passwordResetEmailSent =>
-      'لقد أرسلنا لك بريدًا إلكترونيًا لإعادة تعيين كلمة المرور.';
+  String get passwordResetEmailSent => 'لقد أرسلنا لك بريدًا إلكترونيًا لإعادة تعيين كلمة المرور.';
 
   @override
   String get returnToLogin => 'العودة إلى تسجيل الدخول';
@@ -238,8 +237,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get orderPlacedSuccessfully => 'تم تأكيد الطلب\nبنجاح';
 
   @override
-  String get emailConfirmationMessage =>
-      'ستتلقى رسالة تأكيد عبر البريد الإلكتروني';
+  String get emailConfirmationMessage => 'ستتلقى رسالة تأكيد عبر البريد الإلكتروني';
 
   @override
   String get seeOrderDetails => 'عرض تفاصيل الطلب';
@@ -302,22 +300,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get titleOnBoarding1 => 'اختر ما تحب';
 
   @override
-  String get subtitleOnBoarding1 =>
-      'ابحث عن أفضل العروض على العناصر التي تحبها. يمكنك التسوق اليوم بناءً على الأنماط والألوان والمزيد.';
+  String get subtitleOnBoarding1 => 'ابحث عن أفضل العروض على العناصر التي تحبها. يمكنك التسوق اليوم بناءً على الأنماط والألوان والمزيد.';
 
   @override
   String get titleOnBoarding2 => 'تتبع الطلب';
 
   @override
-  String get subtitleOnBoarding2 =>
-      'تبقى معك احدث حالة الطلب وتعرف مكانه في اي وقت.';
+  String get subtitleOnBoarding2 => 'تبقى معك احدث حالة الطلب وتعرف مكانه في اي وقت.';
 
   @override
   String get titleOnBoarding3 => 'احصل على الطلب';
 
   @override
-  String get subtitleOnBoarding3 =>
-      'احصل على الطلب الخاص بك في اي وقت من اي مكان.';
+  String get subtitleOnBoarding3 => 'احصل على الطلب الخاص بك في اي وقت من اي مكان.';
 
   @override
   String get skip => 'تخطي';
@@ -332,8 +327,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get shippingAndReturns => 'الشحن والإرجاع';
 
   @override
-  String get shippingAndReturnsDescription =>
-      'شحن قياسي مجاني وإرجاع مجاني لمدة 60 يومًا';
+  String get shippingAndReturnsDescription => 'شحن قياسي مجاني وإرجاع مجاني لمدة 60 يومًا';
 
   @override
   String get reviews => 'مراجعات';
