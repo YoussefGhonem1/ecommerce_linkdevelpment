@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/l10n/translation/app_localizations.dart';
+
 class CustomSearchBar extends StatelessWidget {
   final TextEditingController? controller;
-  final String hintText;
   final void Function(String)? onChanged;
   final void Function()? onTap;
 
   const CustomSearchBar({
     super.key,
     this.controller,
-    this.hintText = 'Search',
     this.onChanged,
     this.onTap,
   });
@@ -17,6 +17,7 @@ class CustomSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final local = AppLocalizations.of(context)!;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -31,7 +32,7 @@ class CustomSearchBar extends StatelessWidget {
         style: TextStyle(color: theme.textTheme.bodyMedium?.color),
         decoration: InputDecoration(
           icon: Icon(Icons.search, color: theme.iconTheme.color),
-          hintText: hintText,
+          hintText: local.search,
           hintStyle: theme.inputDecorationTheme.hintStyle,
           border: InputBorder.none,
         ),

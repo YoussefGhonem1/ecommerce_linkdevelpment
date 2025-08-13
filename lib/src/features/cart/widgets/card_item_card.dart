@@ -50,12 +50,10 @@ class CartItemCard extends ConsumerWidget {
                       children: [
                         Text(
                           "${local.size} - ",
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: AppColors.greyDarkColor,
-                          ),
+                          style: theme.textTheme.bodySmall,
                         ),
                         Text(
-                          "M", // TODO: Get actual size from item if available
+                          item.size,
                           style: theme.textTheme.bodyMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
@@ -63,12 +61,10 @@ class CartItemCard extends ConsumerWidget {
                         const SizedBox(width: 8),
                         Text(
                           "${local.color} - ",
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: AppColors.greyDarkColor,
-                          ),
+                          style: theme.textTheme.bodySmall,
                         ),
                         Text(
-                          "Lemon", // TODO: Get actual color from item if available
+                          item.color, // Actual color
                           style: theme.textTheme.bodyMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),

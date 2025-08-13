@@ -45,7 +45,7 @@ class _NotificationTabState extends ConsumerState<NotificationTab> {
             if (notificationList.isEmpty) {
               return const BuildEmptyNotification();
             }
-            return BuildNotificationList(notifications: notificationList, );
+            return BuildNotificationList(notifications: notificationList);
           },
           loading: () => const Center(child: CircularProgressIndicator()),
           error: (error, _) => Center(child: Text('Error: $error')),

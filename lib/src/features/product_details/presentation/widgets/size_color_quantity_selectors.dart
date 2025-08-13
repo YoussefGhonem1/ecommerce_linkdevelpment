@@ -8,7 +8,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 class SizeColorQuantitySelector extends ConsumerStatefulWidget {
-  const SizeColorQuantitySelector({super.key});
+  final ValueChanged<String>? onSizeChanged;
+  final ValueChanged<String>? onColorChanged;
+  const SizeColorQuantitySelector({super.key, this.onSizeChanged, this.onColorChanged});
 
   @override
   ConsumerState<SizeColorQuantitySelector> createState() => _SizeColorQuantitySelectorState();
@@ -70,6 +72,7 @@ class _SizeColorQuantitySelectorState extends ConsumerState<SizeColorQuantitySel
                       setState(() {
                         selectedSize = value!;
                       });
+                      if (widget.onSizeChanged != null) widget.onSizeChanged!(selectedSize);
                     },
                   ),
                 ],
@@ -122,6 +125,7 @@ class _SizeColorQuantitySelectorState extends ConsumerState<SizeColorQuantitySel
                       setState(() {
                         selectedColor = value!;
                       });
+                      if (widget.onColorChanged != null) widget.onColorChanged!(selectedColor);
                     },
                   ),
                 ],

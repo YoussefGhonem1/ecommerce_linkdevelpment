@@ -78,9 +78,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cards => 'Cards';
 
   @override
-  String get noCardsFound => 'No cards found';
-
-  @override
   String get categories => 'Categories';
 
   @override
@@ -105,7 +102,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orderShipped => 'Your order has been shipped successfully!';
 
   @override
-  String get orderConfirmed => 'Order Confirmed';
+  String get orderGilbertConfirmed =>
+      'Gilbert, your Order #24568 has been confirmed';
 
   @override
   String get itemOutForDelivery => 'Your item is out for delivery';
@@ -162,10 +160,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get createAccount => 'Create Account';
 
   @override
-  String get firstName => 'First Name';
+  String get firstName => 'Firstname';
 
   @override
-  String get lastName => 'Last Name';
+  String get lastName => 'Lastname';
 
   @override
   String get forgetPassword => 'Forget Password';
@@ -182,9 +180,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cartEmpty => 'Your Cart is Empty';
-
-  @override
-  String get exploreCategories => 'Explore Categories';
 
   @override
   String get cartTitle => 'Cart';
@@ -263,6 +258,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get order => 'Order';
 
   @override
+  String get exploreCategories => 'Explore Categories';
+
+  @override
   String get items => 'items';
 
   @override
@@ -281,6 +279,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get canceled => 'Canceled';
 
   @override
+  String get orderConfirmed => 'Order Confirmed';
+
+  @override
   String get orderPlaced => 'Order Placed';
 
   @override
@@ -294,6 +295,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settings_language => 'Language';
+
+  @override
+  String get noCardsFound => 'No cards found';
 
   @override
   String get titleOnBoarding1 => 'Select What You Love';
@@ -340,4 +344,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addToBag => 'Add to Bag';
+
+  @override
+  String get search => 'Search';
 }

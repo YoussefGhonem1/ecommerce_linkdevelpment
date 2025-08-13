@@ -35,7 +35,7 @@ class FullCartPage extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 100,
+                height: 80,
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
@@ -54,10 +54,9 @@ class FullCartPage extends ConsumerWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
-                  // TODO: Implement remove all logic
+                  ref.read(cartProvider.notifier).clearCart();
                 },
                 child: Align(
                   alignment: Alignment.centerRight,
@@ -70,26 +69,34 @@ class FullCartPage extends ConsumerWidget {
                 ),
               ),
               CartItemCard(),
-              const SizedBox(height: 120),
-              PriceRow(local.subtotal, cartNotifier.subtotal),
-              PriceRow(local.shipping, cartNotifier.shipping),
-              PriceRow(local.tax, cartNotifier.tax),
-              PriceRow(local.total, cartNotifier.total),
-              const SizedBox(height: 30),
-              CouponCodeCard(),
-              const SizedBox(height: 40),
-              CustomButton(
-                text: local.checkout,
-                onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    Routes.checkoutScreen,
-                    arguments: checkout,
-                  );
-                },
-              ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            PriceRow(local.subtotal, cartNotifier.subtotal),
+            PriceRow(local.shipping, cartNotifier.shipping),
+            PriceRow(local.tax, cartNotifier.tax),
+            PriceRow(local.total, cartNotifier.total),
+            const SizedBox(height: 30),
+            CouponCodeCard(),
+            const SizedBox(height: 20),
+            CustomButton(
+              text: local.checkout,
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  Routes.checkoutScreen,
+                  arguments: checkout,
+                );
+              },
+            ),
+            const SizedBox(height: 10),
+          ],
         ),
       ),
     );

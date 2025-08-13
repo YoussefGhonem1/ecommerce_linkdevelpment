@@ -31,7 +31,6 @@ class CategoriesPage extends ConsumerWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: CustomSearchBar(
-                      hintText: "Search products...",
                       onChanged: (value) {
                         ref.read(categorySearchQueryProvider.notifier).state =
                             value;
