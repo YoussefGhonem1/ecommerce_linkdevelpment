@@ -32,7 +32,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     return LoadingOverlay(
       isLoading: _isLoading,
       child: Scaffold(
-        bottomNavigationBar:BottomBar(price: widget.product.currentPrice),
+        bottomNavigationBar:BottomBar(price: widget.product.currentPrice, productName: widget.product.name),
         body: ProductDetailBody(product: widget.product,),
       ),
     );

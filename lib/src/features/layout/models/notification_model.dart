@@ -1,29 +1,15 @@
-// import 'package:ecommerce_app/generated/assets.dart';
-
-// class NotificationModel {
-//   final String title;
-//   final bool isRead;
-
-//   NotificationModel({
-//     required this.title,
-//     required this.isRead,
-//   });
-
-//   String get imagePath =>
-//       isRead ? Assets.notificationBingRead : Assets.notificationBingUnread;
-
-
-// }
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/generated/assets.dart';
 
 class NotificationModel {
+  final String id;
   final String title;
   final String body;
   final bool isRead;
   final DateTime createdAt;
 
   NotificationModel({
+    required this.id,
     required this.title,
     required this.body,
     required this.isRead,
@@ -33,13 +19,15 @@ class NotificationModel {
   String get imagePath =>
       isRead ? Assets.notificationBingRead : Assets.notificationBingUnread;
 
-  factory NotificationModel.fromMap(Map<String, dynamic> map) {
+  factory NotificationModel.fromDocument(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>? ?? {};
     return NotificationModel(
-      title: map['title'] ?? '',
-      body: map['body'] ?? '',
-      isRead: map['isRead'] ?? false,
-      createdAt: (map['createdAt'] != null)
-          ? (map['createdAt'] as Timestamp).toDate()
+      id: doc.id,
+      title: data['title'] ?? '',
+      body: data['body'] ?? '',
+      isRead: data['isRead'] ?? false,
+      createdAt: (data['createdAt'] is Timestamp)
+          ? (data['createdAt'] as Timestamp).toDate()
           : DateTime.now(),
     );
   }
@@ -53,4 +41,3 @@ class NotificationModel {
     };
   }
 }
-
