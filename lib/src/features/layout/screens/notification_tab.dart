@@ -1,10 +1,10 @@
+import 'package:ecommerce_app/src/shared/components/loading_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/material.dart';
 import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
-import 'package:ecommerce_app/src/features/layout/provider/notification_provider.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/build_Empty_Notification.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/build_notification_list.dart';
-import 'package:ecommerce_app/src/shared/components/loading_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../provider/notification_provider.dart';
 
 class NotificationTab extends ConsumerStatefulWidget {
   const NotificationTab({super.key});
@@ -23,15 +23,13 @@ class _NotificationTabState extends ConsumerState<NotificationTab> {
   }
 
   Future<void> _simulateLoading() async {
-    await Future.delayed(const Duration(seconds: 2));
-    if (mounted) {
-      setState(() => _isLoading = false);
-    }
+    await Future.delayed(const Duration(seconds: 1));
+    if (mounted) setState(() => _isLoading = false);
   }
 
   @override
   Widget build(BuildContext context) {
-    final notificationsAsync = ref.watch(notificationsProvider);
+    final notificationsAsync = ref.watch(notificationStreamProvider);
 
     return LoadingOverlay(
       isLoading: _isLoading,
@@ -41,14 +39,12 @@ class _NotificationTabState extends ConsumerState<NotificationTab> {
           automaticallyImplyLeading: false,
         ),
         body: notificationsAsync.when(
-          data: (notificationList) {
-            if (notificationList.isEmpty) {
-              return const BuildEmptyNotification();
-            }
-            return BuildNotificationList(notifications: notificationList);
+          data: (notifications) {
+            if (notifications.isEmpty) return const BuildEmptyNotification();
+            return BuildNotificationList(notifications: notifications);
           },
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, _) => Center(child: Text('Error: $error')),
+          error: (err, _) => Center(child: Text('Error: $err')),
         ),
       ),
     );
