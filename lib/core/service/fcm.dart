@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 @pragma('vm:entry-point') 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -28,7 +29,7 @@ class FCM {
 
     await requestPermission();
     await getToken();
-    await handForegroundMessage();
+    await handleForegroundMessage();
     _handleOnMessageOpenedApp();
   }
 
@@ -50,7 +51,7 @@ class FCM {
     }
   }
 
-  static Future<void> handForegroundMessage() async {
+  static Future<void> handleForegroundMessage() async {
     const AndroidNotificationChannel channel = AndroidNotificationChannel(
       'high_importance_channel',
       'High Importance Notifications',
@@ -94,6 +95,7 @@ class FCM {
       await _saveIncomingMessageToFirestore(message);
     });
   }
+
   static Future<void> showLocalAndSave({
     required String title,
     required String body,
@@ -114,24 +116,27 @@ class FCM {
       ),
     );
 
-    await FirebaseFirestore.instance.collection('notifications').add({
-      'title': title,
-      'body': body,
-      'isRead': false,
-      'createdAt': FieldValue.serverTimestamp(),
-    });
+    await _saveIncomingMessageToFirestore(null, title: title, body: body);
   }
 }
 
-Future<void> _saveIncomingMessageToFirestore(RemoteMessage message) async {
-  final title = message.notification?.title ?? 'No title';
-  final body  = message.notification?.body ?? 'No body';
+Future<void> _saveIncomingMessageToFirestore(RemoteMessage? message,
+    {String? title, String? body}) async {
+  final user = FirebaseAuth.instance.currentUser;
+  if (user == null) return;
 
-  await FirebaseFirestore.instance.collection('notifications').add({
-    'title': title,
-    'body': body,
+  final String msgTitle = title ?? message?.notification?.title ?? 'No title';
+  final String msgBody = body ?? message?.notification?.body ?? 'No body';
+
+  await FirebaseFirestore.instance
+      .collection('users')
+      .doc(user.uid)
+      .collection('notifications')
+      .add({
+    'title': msgTitle,
+    'body': msgBody,
     'isRead': false,
     'createdAt': FieldValue.serverTimestamp(),
-    'data': message.data,
+    'data': message?.data ?? {},
   });
 }

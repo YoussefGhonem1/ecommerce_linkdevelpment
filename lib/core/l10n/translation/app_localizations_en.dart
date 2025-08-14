@@ -102,7 +102,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orderShipped => 'Your order has been shipped successfully!';
 
   @override
-  String get orderGilbertConfirmed => 'Gilbert, your Order #24568 has been confirmed';
+  String get orderGilbertConfirmed =>
+      'Gilbert, your Order #24568 has been confirmed';
 
   @override
   String get itemOutForDelivery => 'Your item is out for delivery';
@@ -171,7 +172,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterEmailAddress => 'Enter Email address';
 
   @override
-  String get passwordResetEmailSent => 'We sent you an email to reset your password.';
+  String get passwordResetEmailSent =>
+      'We sent you an email to reset your password.';
 
   @override
   String get returnToLogin => 'Return to Login';
@@ -237,7 +239,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orderPlacedSuccessfully => 'Order Placed\nSuccessfully';
 
   @override
-  String get emailConfirmationMessage => 'You will receive an email confirmation';
+  String get emailConfirmationMessage =>
+      'You will receive an email confirmation';
 
   @override
   String get seeOrderDetails => 'See Order Details';
@@ -300,19 +303,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get titleOnBoarding1 => 'Select What You Love';
 
   @override
-  String get subtitleOnBoarding1 => 'Find the best deals on the items you love.you may shop today based on styles, colors, and more.';
+  String get subtitleOnBoarding1 =>
+      'Find the best deals on the items you love.you may shop today based on styles, colors, and more.';
 
   @override
   String get titleOnBoarding2 => 'Track order';
 
   @override
-  String get subtitleOnBoarding2 => 'Stay updated with your order status and know exactly where it is, anytime.';
+  String get subtitleOnBoarding2 =>
+      'Stay updated with your order status and know exactly where it is, anytime.';
 
   @override
   String get titleOnBoarding3 => 'Get your order';
 
   @override
-  String get subtitleOnBoarding3 => 'We will deliver your items fast and safe, right to your doorstep.';
+  String get subtitleOnBoarding3 =>
+      'We will deliver your items fast and safe, right to your doorstep.';
 
   @override
   String get skip => 'Skip';
@@ -327,7 +333,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get shippingAndReturns => 'Shipping & Returns';
 
   @override
-  String get shippingAndReturnsDescription => 'Free standard shipping and free returns within 60 days returns';
+  String get shippingAndReturnsDescription =>
+      'Free standard shipping and free returns within 60 days returns';
 
   @override
   String get reviews => 'Reviews';
