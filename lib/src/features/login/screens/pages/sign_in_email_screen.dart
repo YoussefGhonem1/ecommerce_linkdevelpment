@@ -153,5 +153,8 @@ Future<void> signInWithGoogle({required BuildContext context}) async {
     }
   } catch (e) {
     print("Error signing in with Google: $e");
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Failed to login, try again later")),
+    );
   }
 }

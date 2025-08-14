@@ -14,20 +14,6 @@ class OrdersTab extends ConsumerStatefulWidget {
 }
 
 class _OrdersTabState extends ConsumerState<OrdersTab> {
-  bool _isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _simulateLoading();
-  }
-
-  Future<void> _simulateLoading() async {
-    await Future.delayed(const Duration(seconds: 2)); 
-    if (mounted) {
-      setState(() => _isLoading = false);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,16 +22,13 @@ class _OrdersTabState extends ConsumerState<OrdersTab> {
 
     final ordersList = ref.watch(ordersProvider); 
 
-    return LoadingOverlay(
-      isLoading: _isLoading,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(local.orders, style: theme.textTheme.headlineSmall),
-        ),
-        body: ordersList.isEmpty
-            ? BuildEmptyOrders()
-            : BuildOrdersList(order: ordersList),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(local.orders, style: theme.textTheme.headlineSmall),
       ),
+      body: ordersList.isEmpty
+          ? BuildEmptyOrders()
+          : BuildOrdersList(order: ordersList),
     );
   }
 }

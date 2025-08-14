@@ -14,38 +14,22 @@ class NotificationTab extends ConsumerStatefulWidget {
 }
 
 class _NotificationTabState extends ConsumerState<NotificationTab> {
-  bool _isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _simulateLoading();
-  }
-
-  Future<void> _simulateLoading() async {
-    await Future.delayed(const Duration(seconds: 1));
-    if (mounted) setState(() => _isLoading = false);
-  }
-
   @override
   Widget build(BuildContext context) {
     final notificationsAsync = ref.watch(notificationStreamProvider);
 
-    return LoadingOverlay(
-      isLoading: _isLoading,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.notifications),
-          automaticallyImplyLeading: false,
-        ),
-        body: notificationsAsync.when(
-          data: (notifications) {
-            if (notifications.isEmpty) return const BuildEmptyNotification();
-            return BuildNotificationList(notifications: notifications);
-          },
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (err, _) => Center(child: Text('Error: $err')),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.notifications),
+        automaticallyImplyLeading: false,
+      ),
+      body: notificationsAsync.when(
+        data: (notifications) {
+          if (notifications.isEmpty) return const BuildEmptyNotification();
+          return BuildNotificationList(notifications: notifications);
+        },
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, _) => Center(child: Text('Error: $err')),
       ),
     );
   }

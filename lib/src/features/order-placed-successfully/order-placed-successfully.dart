@@ -75,7 +75,11 @@ class OrderPlacedSuccessScreen extends StatelessWidget {
                           elevation: 0,
                         ),
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, Routes.layout);
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            Routes.layout,
+                                (route) => false,
+                          );
                         },
                         child: Text(
                           local.seeOrderDetails,
