@@ -1,0 +1,94 @@
+import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
+import 'package:ecommerce_app/src/features/address/models/add_address_params.dart';
+import 'package:ecommerce_app/src/features/address/models/address_model.dart';
+import 'package:ecommerce_app/src/features/address/provider/address_provider.dart';
+import 'package:ecommerce_app/src/shared/components/custom_back_button.dart';
+import 'package:ecommerce_app/src/shared/components/custom_button.dart';
+import 'package:ecommerce_app/src/shared/components/custom_text_field.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class EditAddressPage extends ConsumerWidget {
+  final Address address;
+  final String userId;
+
+  const EditAddressPage({
+    super.key,
+    required this.address,
+    required this.userId,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
+
+    final streetAddressController = TextEditingController(text: address.street);
+    final cityController = TextEditingController(text: address.city);
+    final stateController = TextEditingController(text: address.state);
+    final zipCodeController = TextEditingController(text: address.zipCode);
+
+    return Scaffold(
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+          child: CustomBackButtonIcon(),
+        ),
+        leadingWidth: 100,
+        title: Text(AppLocalizations.of(context)!.editAddress, style: theme.textTheme.headlineSmall),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+        child: Column(
+          children: [
+            CustomTextField(
+              hintText: AppLocalizations.of(context)!.streetAddress,
+              controller: streetAddressController,
+            ),
+            const SizedBox(height: 16),
+            CustomTextField(hintText: AppLocalizations.of(context)!.city, controller: cityController),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: CustomTextField(
+                    hintText: AppLocalizations.of(context)!.state,
+                    controller: stateController,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: CustomTextField(
+                    hintText: AppLocalizations.of(context)!.zipCode,
+                    controller: zipCodeController,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: CustomButton(
+          text: AppLocalizations.of(context)!.save,
+          onPressed: () async {
+            final updatedAddress = Address(
+              id: address.id,
+              street: streetAddressController.text.trim(),
+              city: cityController.text.trim(),
+              state: stateController.text.trim(),
+              zipCode: zipCodeController.text.trim(),
+            );
+
+            final params = AddressParams(userId: userId, address: updatedAddress);
+
+            await ref.read(updateAddressProvider(params).future);
+            ref.invalidate(addressProvider(userId));
+
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+}
