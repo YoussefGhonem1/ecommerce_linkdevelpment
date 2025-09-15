@@ -1,16 +1,56 @@
-# ecommerce_app
+# 🛍️ Clot – E-Commerce App
 
-A new Flutter project.
+Clot is a Flutter-based e-commerce mobile application developed as part of my **internship at Link Development Company**.  
+The app integrates **Firebase services**, **Riverpod state management**, and supports **localization** for a seamless shopping experience.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📸 Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+| Authentication                | Localization                                  | Dark Theme                           |
+|-------------------------------|-----------------------------------------------|--------------------------------------|
+| ![Auth](screenshots/auth.png) | ![Localization](screenshots/localization.png) | ![Dark Theme](screenshots/theme.png) |
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Home                          | Notifications                                   | Orders                            | Profile                             |
+|-------------------------------|-------------------------------------------------|-----------------------------------|-------------------------------------|
+| ![Home](screenshots/home.png) | ![Notifications](screenshots/notifications.png) | ![Orders](screenshots/orders.png) | ![Profile](screenshots/profile.png) |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Demo Link: https://streamable.com/gpevbg
+
+---
+
+## ✨ Features
+
+- **Firebase Authentication** – Login & registration.
+- **Cloud Firestore** – Real-time database for products and orders.
+- **Firebase Cloud Messaging** – Push notifications support.
+- **Riverpod** – State management for scalability and maintainability.
+- **Localization** – Supports **Arabic & English**.
+- **Splash Screen Animation** – Smooth user onboarding.
+- **Clean & Structured Codebase** – Readable and maintainable.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Flutter**
+- **Dart**
+- **Firebase Authentication**
+- **Cloud Firestore**
+- **Firebase Cloud Messaging**
+- **Riverpod** (state management)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Flutter SDK installed
+- Firebase project configured
+
+### Installation
+1. Clone the repo
+   ```bash
+   git clone https://github.com/YoussefGhonem1/ecommerce_linkdevelpment.git
+   cd clot_ecommerce_app

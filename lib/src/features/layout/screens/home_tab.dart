@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/core/l10n/translation/app_localizations.dart';
 import 'package:ecommerce_app/src/features/layout/widgets/gender_drop_down.dart';
 import 'package:ecommerce_app/src/features/product_seeding/data/product_provider.dart';
@@ -15,7 +16,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../generated/assets.dart';
 import 'package:ecommerce_app/src/shared/components/custom_search_bar.dart';
 
-
 class HomeTab extends ConsumerStatefulWidget {
   const HomeTab({super.key});
 
@@ -24,11 +24,9 @@ class HomeTab extends ConsumerStatefulWidget {
 }
 
 class _HomeTabState extends ConsumerState<HomeTab> {
-
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
-    final photoUrl = user?.photoURL ?? '';
+    final user = FirebaseAuth.instance.currentUser?.uid;
     final theme = Theme.of(context);
 
     final topSellingAsync = ref.watch(topSellingProductsProvider);
@@ -41,19 +39,37 @@ class _HomeTabState extends ConsumerState<HomeTab> {
       appBar: AppBar(
         leading: Padding(
           padding: const EdgeInsets.only(left: 16),
-          child: CircleAvatar(
-            radius: 36,
-            backgroundColor: AppColors.primaryColor.withOpacity(0.2),
-            backgroundImage:
-                photoUrl.isNotEmpty ? NetworkImage(photoUrl) : null,
-            child:
-                photoUrl.isEmpty
-                    ? Icon(
-                      Icons.person,
-                      size: 40,
-                      color: AppColors.primaryColor,
-                    )
-                    : null,
+          child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+            stream:
+                FirebaseFirestore.instance
+                    .collection('users')
+                    .doc(user)
+                    .snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (!snapshot.hasData || !snapshot.data!.exists) {
+                return const Center(child: Text("User data not found."));
+              }
+              final userData = snapshot.data!.data()!;
+              final photoUrl = userData['photoUrl'] ?? '';
+
+              return CircleAvatar(
+                radius: 36,
+                backgroundColor: AppColors.primaryColor.withOpacity(0.2),
+                backgroundImage:
+                    photoUrl.isNotEmpty ? NetworkImage(photoUrl) : null,
+                child:
+                    photoUrl.isEmpty
+                        ? Icon(
+                          Icons.person,
+                          size: 40,
+                          color: AppColors.primaryColor,
+                        )
+                        : null,
+              );
+            },
           ),
         ),
         title: GenderDropdown(),

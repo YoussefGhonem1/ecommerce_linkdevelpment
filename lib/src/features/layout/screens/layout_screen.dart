@@ -8,14 +8,21 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_nav_item.dart';
 
 class LayoutScreen extends StatefulWidget {
-  const LayoutScreen({super.key});
+  final int initialIndex;
+  const LayoutScreen({super.key,this.initialIndex=0});
 
   @override
   State<LayoutScreen> createState() => _LayoutScreenState();
 }
 
 class _LayoutScreenState extends State<LayoutScreen> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.initialIndex;
+  }
   List<Widget> tabs = [
     HomeTab(),
     NotificationTab(),
