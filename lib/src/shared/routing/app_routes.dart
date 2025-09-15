@@ -77,7 +77,8 @@ class AppRoutes {
       case Routes.createAccount:
         return MaterialPageRoute(builder: (_) => const CreateAccountPage());
       case Routes.layout:
-        return MaterialPageRoute(builder: (_) => const LayoutScreen());
+        final initialIndex = settings.arguments as int? ?? 0;
+        return MaterialPageRoute(builder: (_) => LayoutScreen(initialIndex: initialIndex));
       case Routes.categoryPage:
         return MaterialPageRoute(builder: (_) => const CategoriesPage());
       case Routes.myFavourites:

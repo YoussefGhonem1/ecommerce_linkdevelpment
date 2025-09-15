@@ -79,6 +79,7 @@ class OrderPlacedSuccessScreen extends StatelessWidget {
                             context,
                             Routes.layout,
                                 (route) => false,
+                            arguments: 2,
                           );
                         },
                         child: Text(
